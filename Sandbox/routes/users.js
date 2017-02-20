@@ -1,61 +1,58 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 
 var User=require('../models/usuario');
 
-router.get('/login', function(req, res){
-	res.render('login',{message:req.flash('')});
-});
-
-
 router.get('/', function(req, res){
-	res.send("funciona")
+	res.render('prueba')
 });
 
+router.post('/modificar', function(req,res){
+		correo = req.body.correo
+		//query de busqueda
+		var busca = {CorreoElectronico: correo};
+		
+		/*
+		User.findOne(busca,function(err, user){
+			console.log('Usuario Anterior:');
+			console.log(user);
+		});
+		*/
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-		User.getUserByUsername(username, function(err, user){
-			if(err) throw err;
-			if(!user){
-				return done(null, false, {message: 'Unknown User'});		
+		//Se toman los datos de la vista con los parametros que vas a modificar
+		var modificacion = {
+			Rol: req.body.rol,
+   		TipoIdentificacion: req.body.tipoIdentificacion,
+   		Identificacion: req.body.identificacion,
+   		Nombres: req.body.nombres,
+   		Apellidos: req.body.apellidos,
+   		Carrera: req.body.carrera
+		}
+
+		//Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
+		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
+			if(err){
+					console.log("Something wrong when updating data!");
 			}
-			User.comparePassword(password, user.Contrasena, function(err, isMatch){
-				if(err) throw err;
-				if(isMatch){
-					return done(null, user);
-				} else {
-					return done(null, false, {message: 'Invalid password'});
-				}
-			});
-   });
-  }));
+			console.log('Usuario Modificado con exito');
+		});
 
+		//Aqui Carga la pagina que sigue
+		res.send("sw")
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
-    done(err, user);
-  });
-});
 
-router.post('/login',
-	passport.authenticate('local', {successRedirect:'/users', failureRedirect:'/users/login',failureFlash: true}),
-  function(req, res) {	
-    res.redirect('/users');
-});
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/login');
+	}
+}
 
-router.get('/logout', function(req, res){
-	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
 
-	res.redirect('/users/login');
-});
 
 module.exports = router;

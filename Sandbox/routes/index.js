@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
 				}
 			});
    });
-  }));
+}));
 
 
 passport.serializeUser(function(user, done) {
@@ -45,7 +45,7 @@ passport.deserializeUser(function(id, done) {
 router.post('/login',
 	passport.authenticate('local', {successRedirect:'/inicio', failureRedirect:'/',failureFlash: true}),
   function(req, res) {	
-    res.redirect('/index/inicio');
+    res.redirect('/inicio');
 });
 
 router.get('/logout', function(req, res){
