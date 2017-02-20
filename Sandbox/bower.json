@@ -1,0 +1,25 @@
+{
+  "name": "sandbox",
+  "description": "El proyecto de daw del segundo parcial",
+  "main": "index.js",
+  "authors": [
+    "Jorge",
+    "Karen",
+    "Israel",
+    "Fernando"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}

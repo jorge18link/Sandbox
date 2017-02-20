@@ -1,0 +1,106 @@
+doctype html
+html(lang='es')
+  head
+    //
+      Basic Page Needs
+      ==================================================
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Fundamentos de Programación
+    meta(name='description', content='Stio Web del curso de Fundamentos de Programación')
+    meta(name='keywords', content='Fundamentos de Programación, Python')
+    meta(name='author', content='Fernando, Jorge, Karen, Israel')
+    //
+      Favicons
+      ==================================================
+    link(rel='shortcut icon', href='/public/img/favicon.ico', type='image/x-icon')
+    link(rel='apple-touch-icon', href='/public/img/apple-touch-icon.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/public/img/apple-touch-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/public/img/apple-touch-icon-114x114.png')
+    //
+      Bootstrap
+      ==================================================
+    link(rel='stylesheet', type='text/css', href='/public/css/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/public/fonts/font-awesome/css/font-awesome.css')
+    //
+      Slider
+      ==================================================
+    link(href='/public/css/owl.carousel.css', rel='stylesheet', media='screen')
+    link(href='/public/css/owl.theme.css', rel='stylesheet', media='screen')
+    //
+      Stylesheet
+      ==================================================
+    link(href='/public/css/style-login.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/public/css/style.css')
+    link(rel='stylesheet', type='text/css', href='/public/css/responsive.css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400', rel='stylesheet', type='text/css')
+  body
+    //
+      Login Content
+      ==========================================
+    #tf-login.login-page(style='padding-bottom: 100px;')
+      .container
+        #pwd-container.row(style='height: 610px;', s='')
+          .col-xs-12.col-sm-4.col-md-4.col-lg-4
+          .col-md-4
+            section.login-form
+              form(method='post', action='/login', role='login')
+                .section-title
+                  h4 Iniciar Sesión
+                  h2
+                    | Fundamentos de 
+                    strong
+                      br
+                      br
+                      | Programación
+                  .clearfix
+                  hr
+                input.form-control.input-lg(type='email', name='username', placeholder='Correo eléctronico', required='')
+                input#password.form-control.input-lg(type='password', placeholder='Contraseña', required='',name='password')
+                button.btn.btn-lg.btn-primary.btn-block(type='submit', name='go')  Sign in
+              .form-links
+                a(href='index.html') Regresa a Página Principal
+          .col-md-4
+    //
+      Footer Section
+      ==========================================
+    nav#footer
+      .container
+        .pull-left.fnav
+          p
+            | ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by 
+            a(href='https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template') Robert Berki
+            |  and Coded by 
+            a(href='https://dribbble.com/jennpereira') Jenn Pereira
+        .pull-right.fnav
+          ul.footer-social
+            li
+              a(href='https://www.facebook.com/FIEC01/?fref=ts')
+                i.fa.fa-facebook
+            li
+              a(href='https://mail.espol.edu.ec')
+                i.fa.fa-dribbble
+            li
+              a(href='http://mail.fiec.espol.edu.ec')
+                i.fa.fa-google-plus
+            li
+              a(href='https://twitter.com/fiec_espol')
+                i.fa.fa-twitter
+    //
+      jQuery (necessary for Bootstrap's JavaScript plugins)
+      ==================================================
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(type='text/javascript', src='/public/js/jquery.1.11.1.js')
+    //
+      Include all compiled plugins (below), or include individual files as needed
+      ==================================================
+    script(type='text/javascript', src='/public/js/bootstrap.js')
+    script(type='text/javascript', src='/public/js/SmoothScroll.js')
+    script(type='text/javascript', src='/public/js/jquery.isotope.js')
+    script(src='/public/js/owl.carousel.js')
+    //
+      Javascripts
+      ==================================================
+    script(type='text/javascript', src='/public/js/modernizr.custom.js')
+    script(type='text/javascript', src='/public/js/main.js')
