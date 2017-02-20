@@ -14,6 +14,50 @@ router.get('/prueba', function(req, res){
 	res.render('prueba');
 });
 
+router.post('/crear', ensureAuthenticated, function(req, res){
+	var randomstring = Math.random().toString(36).slice(-8);
+	var  nuevo=new User({ 
+		CorreoElectronico:req.body.correo,
+	   	Contrasena: randomstring,
+	   	Rol: req.body.rol,
+	   	TipoDeIdentificacion: req.body.TipodeIdentificacion,
+	   	Identificacion: req.body.Identificacion,
+	   	Nombres: req.body.Nombres,
+	   	Apellidos: req.body.apellidos,
+	   	Carrera: req.body.carrea
+
+	});
+	nuevo.save(function(err){ 
+		if (err) {
+			return err;
+  		}
+  		else {
+  			console.log("Post saved");
+  				var correo= req.body.correo;
+				var Subject="Creacion de cuenta en Sandbox"
+				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +randomstring
+				var mailOptions = {		
+					to: correo,
+					subject: Subject,
+					text: contenido
+				}
+					console.log(mailOptions);
+				smtpTransport.sendMail(mailOptions, function(error, response){
+						if (error) {
+							console.log(error);
+							res.end('error');
+						} else {
+							console.log('Message sent:'  + response.message);
+							response.end('sent');
+						}
+				})
+ 		 }
+
+	});
+
+	res.send("creado");
+});
+
 
 router.post('/modificar',ensureAuthenticated, function(req,res){
 		correo = req.body.correo
@@ -28,11 +72,11 @@ router.post('/modificar',ensureAuthenticated, function(req,res){
 		//Se toman los datos de la vista con los parametros que vas a modificar
 		var modificacion = {
 			Rol: req.body.rol,
-   		TipodeIdentificacion: req.body.tipoIdentificacion,
-   		Identificacion: req.body.identificacion,
-   		Nombres: req.body.nombres,
-   		Apellidos: req.body.apellidos,
-   		Carrera: req.body.carrera
+			TipoDeIdentificacion: req.body.tipoIdentificacion,
+			Identificacion: req.body.identificacion,
+			Nombres: req.body.nombres,
+			Apellidos: req.body.apellidos,
+			Carrera: req.body.carrera
 		}
 
 		//Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){

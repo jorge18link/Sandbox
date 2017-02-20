@@ -6,7 +6,7 @@ var usuarioSchema = new Schema({
    CorreoElectronico:String,
    Contrasena:String,
    Rol:String,
-   TipodeIdentificacion:String,
+   TipoDeIdentificacion:String,
    Identificacion:String,
    Nombres:String,
    Apellidos:String,
