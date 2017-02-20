@@ -20,6 +20,7 @@ passport.use(new LocalStrategy(
 			if(!user){
 				return done(null, false, {message: 'Unknown User'});		
 			}
+ 
 			User.comparePassword(password, user.Contrasena, function(err, isMatch){
 				if(err) throw err;
 				if(isMatch){
