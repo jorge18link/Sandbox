@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SandBox - Estudiantes</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">
+	.panel-heading{
+		margin: 0px;
+	}
+
+	#paneles{
+		margin-top: 20px;
+		margin-left: 15px;
+	}
+
+	.panel{
+		padding: 0px;
+	}
+
+	.panel-body{
+		padding: 0px;
+	}
+</style>
+</head>
+
+<body>
+	<!-- Navigation 
+    ==========================================-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html"><span>SandBox </span>Estudiantes</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Fernando Sánchez Zambrano <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="perfil-estudiante.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Ver mi perfil</a></li>
+							<li><a href="../index.html"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Cerrar Sesión</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>				
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar"> 
+		<h2 style="margin-top: 17px; padding-left: 10px;">Menú Sandbox</h2>
+		<ul class="nav menu">
+			<li><a href="index.html"><svg class="glyph stroked folder"><use xlink:href="#stroked-folder"/></svg>Ejercicios</a></li>
+			<li  class="active"><a href="talleres.html"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Talleres</a></li>
+			<li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
+			<li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="perfil-estudiante.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Perfil </a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Talleres</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div id="paneles" class="row">
+			<div class="panel panel-primary col-md-6">
+			 	<div class="panel-heading">Talleres</div>
+			  	<div class="panel-body">
+			    	<div class="list-group">
+						<a href="..\Material\materialfundamentos\talleres-ejercicios-deberes\Talleres\Taller2.1-IndentificarTipodeDatos.pdf" target="_blank" class="list-group-item">
+						    2.1 Identificar Tipos de Datos
+						</a>
+						<a href="..\Material\materialfundamentos\talleres-ejercicios-deberes\Talleres\Taller2.2-TiposdeDatos.pdf" target="_blank" class="list-group-item">2.2 Tipos de Datos</a>
+						<a href="..\Material\materialfundamentos\talleres-ejercicios-deberes\Talleres\Taller3.1-Ejericicios Condicionales.pdf" target="_blank" class="list-group-item">3.1 Ejercicios Condicionales</a>
+						<a href="..\Material\materialfundamentos\talleres-ejercicios-deberes\Talleres\Taller4.1 Estructurasde ControlIterativasyListas.pdf" target="_blank" class="list-group-item">4.1 Estructuras de Control Iteradas</a>
+						<a href="..\Material\materialfundamentos\talleres-ejercicios-deberes\Talleres\Taller4.2-ListasyStrings.pdf" target="_blank" class="list-group-item">4.2 Listas y Strings</a>
+					</div>
+			  	</div>
+			</div>
+		</div><!--/.row-->
+
+
+	</div>	<!--/.main-->
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+
+</body>
+
+</html>

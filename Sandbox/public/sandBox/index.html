@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SandBox - Estudiantes</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--best[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">
+	.sb-ejer{
+		background-color: rgba(0,0,0,0.3);
+		padding-left: 20px;
+		padding-bottom: 20px;
+	}
+	.sb-ejer h3{
+		color:orange;
+	}
+	.sb-desc{
+		padding-top: 20px;
+		padding-right: 10px;
+		padding-left: 10px;
+		overflow-y:scroll;
+		height: 56vh;
+	}
+	.ejercicios{
+		background-color: rgba(255,255,255,0.8);
+
+	}
+	.ejercicios p{
+		color: black;
+		font-size: large;
+	}
+	#body-pan{
+		background-color: #9BD0F5;
+	}
+	#pane-techo{
+		background-color: #5094C4;
+		color: white;
+	}
+</style>
+</head>
+
+<body>
+	<!-- Navigation 
+    ==========================================-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html"><span>SandBox </span>Estudiantes</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Fernando Sánchez Zambrano <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="perfil-estudiante.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Ver mi perfil</a></li>
+							<li><a href="../index.html"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Cerrar Sesión</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>				
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar"> 
+		<h2 style="margin-top: 17px; padding-left: 10px;">Menú Sandbox</h2>
+		<ul class="nav menu">
+			<li class="active"><a href="index.html"><svg class="glyph stroked folder"><use xlink:href="#stroked-folder"/></svg>Ejercicios</a></li>
+			<li><a href="talleres.html"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Talleres</a></li>
+			<li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
+			<li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="perfil-estudiante.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Perfil </a></li>
+		</ul>
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Ejercicios</li>
+			</ol>
+		</div><!--/.row-->
+		
+		
+		<br>
+		
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked tag"><use xlink:href="#stroked-tag"/></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">
+								9/10
+								to Sargento
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked star"><use xlink:href="#stroked-star"/></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">
+								0/20
+								to Wizard
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-red panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked arrow up"><use xlink:href="#stroked-arrow-up"/></svg> 
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">
+								0/30
+								to Sayajin
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div><!--/.row-->
+
+
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<!--============Aqui Trabajo================-->
+				<div class="panel panel-default">
+					<div id="pane-techo" class="panel-heading col-md-12">Ejercicios Disponibles</div>
+					
+					<div id="body-pan" class="panel-body">
+						<div class="sb-desc col-md-12 col-sm-12" >
+		        			<!--
+		        			<div class="ejercicios thumbnail">
+		        				<p><strong>Titulo: </strong>Variables y tipos de datos</p>
+		        				<p><strong>Descripcion: </strong>Se aprendera a declarar variables y conocer los tipos de datos posibles en python</p>
+		        				<p><strong>Dificultad: </strong>Easy </p>
+		        				<a href="#pa-ejercicio"><button id="varia" type="button" class="btn btn-primary">Realizar</button></a>
+		        			</div>
+		        			<div class="ejercicios thumbnail">
+		        				<p><strong>Titulo: </strong>Estructuras de control</p>
+		        				<p><strong>Descripcion: </strong> Se aprendera a usar las estructuras de control para validar condiciones.</p>
+		        				<p><strong>Dificultad: </strong>Medium  </p>
+		        				<a href="#pa-ejercicio"><button id="estruc-ctrl" type="button" class="btn btn-primary">Realizar</button></a>
+		        			</div>
+		        			<div class="ejercicios thumbnail">
+		        				<p><strong>Titulo: </strong> Estructuras de repetición</p>
+		        				<p><strong>Descripcion:</strong> Se aprendera a usar estructuras de repetición que se usan para recorrer listas o repetir ciertas acciones un determinado numero de veces o hasta que se cumpla una condición.</p>
+		        				<p><strong>Dificultad:</strong> Medium </p>
+		        				<a href="#pa-ejercicio"><button id="estruc-rept" type="button" class="btn btn-primary">Realizar</button></a>
+		        			</div>
+		        			-->
+		        		</div>
+					</div>
+				</div>
+				<!--============/Aqui Trabajo================-->
+
+				<!--============Aqui tambien Trabajo================-->
+				<div id="alert-exito" class="alert alert-success">
+    				<strong>Ejercicio enviado con éxito!</strong>
+  				</div>
+				<div id="pa-ejercicio" class="panel panel-blue">
+					<div id="pane-techo" class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Ejercicio:</div>
+					<div id="body-pan" class="panel-body">
+						<div class="sb-ejer thumbnail col-md-12 col-sm-12">
+		        			<div id="vari-tipos">
+		        				<h3>Variables y tipos de Datos</h3>
+		        				<p>Una de las cosas más llamativas de python es que el declarar una variable no necesitas especificar el tipo de dato y esto hace llamativo</p>
+		        				<strong>Introducción:</strong>
+		        				<p>En python declarar variables es la cosa más sencilla del mundo solo pones el nombre, igual y el valor.</p>
+		        				<p>Al no necesitar declarar de manera explicita el tipo de dato a las varibles, al ingresar el valor python reconoce el tipo de acuerdo a como lo ingreses ej:</p>
+		        				<ul>
+		        					<li>nombre="Karen" <--- las comillas le indican que es String</li>
+		        					<li>edad=22 <--- numeros directamente sin comillas son del tipo mumerico tal como int o float</li>
+		        					<li>verdad=True <--- True o False para boolean</li>
+		        					<li>nombres=["Karen","Jorge","Israel"] <--- Los corchetes indican array</li>
+		        				</ul>
+		        				<p>Para este ejercicio usted tambien debera saber ciertas cosas como print("hola") para mostrar en consola cualquier cosa e if(condicion):</p>
+
+		        				<strong>Ejercicio:</strong>
+		        				<p>Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad.</p>
+		        				<input type="file" name="attachments[0][uploaded_data]">
+		        				<br>
+		        				<button type="button" class="exito btn btn-primary">Enviar</button>
+		        				<button type="button" class="fracaso btn btn-primary">Cancelar</button>
+		        				
+		        
+		        			</div>
+		        			<div id="est-ctrl">
+		        				<h3>Estructuras de Control</h3>
+		        				<p>En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.</p>
+		        				<strong>Introducción:</strong>
+		        				<p>La manera de usar las sentencias de control es con la palabra reservaba y la condicion</p>
+		        				<p>Las sentencias existentes son</p>
+		        				<ul>
+		        					<li>if(condicion):</li>
+		        					<li>if(condicion):...else:</li>
+		        					<li>if(condicion):...elfi(condicion):</li>
+		        				</ul>
+		        				<p>Para este ejercicio usted tambien debera saber ciertas cosas como print("hola") para mostrar en consola </p>
+
+		        				<strong>Ejercicio:</strong>
+		        				<p>Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad y si es menor que 18 mostrar un mensaje que diga usted es menor de edad</p>
+		        				<input type="file" name="attachments[0][uploaded_data]">
+		        				<br>
+		        				<button type="button" class="exito btn btn-primary">Enviar</button>
+		        				<button type="button" class="fracaso btn btn-primary">Cancelar</button>
+		        				
+		        			</div>
+		        			<div id="est-rep">
+		        				<h3>Estructuras de Control iteradas</h3>
+		        				<p>En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.</p>
+		        				<strong>Introducción:</strong>
+		        				<p>La manera de usar las sentencias de control es con la palabra reservaba y la condicion</p>
+		        				<p>Las sentencias existentes son</p>
+		        				<ul>
+		        					<li>while(condicion):</li>
+		        					<li>for item in arreglo:</li>
+		        				</ul>
+		        				<p>Para este ejercicio usted tambien debera saber ciertas cosas como print("hola") para mostrar en consola </p>
+		        				<p>Tambien len(array) para obtener el tamaño de una lista</p>
+
+		        				<strong>Ejercicio:</strong>
+		        				<p>Esta vez usted creara una lista de objetos con atributos por ejemplo nombre, apellido y usara sentencia while y for para mostrar por pantalla dichos datos</p>
+		        				<input type="file" name="attachments[0][uploaded_data]">
+		        				<br>
+		        				<button type="button" class="exito btn btn-primary">Enviar</button>
+		        				<button type="button" class="fracaso btn btn-primary">Cancelar</button>
+		        				
+		        			</div>
+		        		</div>
+					</div>
+				</div>
+				<!--============Aqui tambien Trabajo================-->
+		</div><!--/.row-->
+										
+		
+		</div><!--/.row-->
+	</div>	<!--/.main-->
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	
+	<script src="js/easypiechart.js"></script>
+	
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
+	
+</body>
+
+</html>

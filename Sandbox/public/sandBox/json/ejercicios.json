@@ -1,0 +1,155 @@
+{
+  "Ejercicios": [
+    {
+      "id": 1,
+      "titulo": "Variables y tipos de datos",
+      "desc": "Se aprendera a declarar variables y conocer los tipos de datos posibles en python",
+      "dificultad": "Easy",
+      "p1": "Una de las cosas más llamativas de python es que el declarar una variable no necesitas especificar el tipo de dato y esto hace llamativo",
+      "intro": "En python declarar variables es la cosa más sencilla del mundo solo pones el nombre, igual y el valor.\nAl no necesitar declarar de manera explicita el tipo de dato a las varibles, al ingresar el valor python reconoce el tipo de acuerdo a como lo ingreses ej:",
+      "lista": [
+        "nombre='Karen' <--- las comillas le indican que es String",
+        "edad=22 <--- numeros directamente sin comillas son del tipo mumerico tal como int o float",
+        "verdad=True <--- True o False para boolean",
+        "nombres=['Karen','Jorge','Israel'] <--- Los corchetes indican array"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print('hola') para mostrar en consola cualquier cosa e if(condicion):",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad."
+    },
+    {
+      "id": 2,
+      "titulo": "Estructuras de control",
+      "desc": "Se aprendera a usar las estructuras de control para validar condiciones.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son:",
+      "lista": [
+        "if(condicion):",
+        "if(condicion):...else:",
+        "if(condicion):...elfi(condicion):"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad y si es menor que 18 mostrar un mensaje que diga usted es menor de edad."
+    },
+    {
+      "id": 3,
+      "titulo": "Estructuras de repetición",
+      "desc": "Se aprendera a usar estructuras de repetición que se usan para recorrer listas o repetir ciertas acciones un determinado numero de veces o hasta que se cumpla una condición.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son",
+      "lista": [
+        "while(condicion):",
+        "for item in arreglo:"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola\nTambien len(array) para obtener el tamaño de una lista",
+      "ejercicio": "Crear una lista de objetos con atributos por ejemplo nombre, apellido y usara sentencia while y for para mostrar por pantalla dichos datos"
+    },
+    {
+      "id": 1,
+      "titulo": "Variables y tipos de datos",
+      "desc": "Se aprendera a declarar variables y conocer los tipos de datos posibles en python",
+      "dificultad": "Easy",
+      "p1": "Una de las cosas más llamativas de python es que el declarar una variable no necesitas especificar el tipo de dato y esto hace llamativo",
+      "intro": "En python declarar variables es la cosa más sencilla del mundo solo pones el nombre, igual y el valor.\nAl no necesitar declarar de manera explicita el tipo de dato a las varibles, al ingresar el valor python reconoce el tipo de acuerdo a como lo ingreses ej:",
+      "lista": [
+        "nombre='Karen' <--- las comillas le indican que es String",
+        "edad=22 <--- numeros directamente sin comillas son del tipo mumerico tal como int o float",
+        "verdad=True <--- True o False para boolean",
+        "nombres=['Karen','Jorge','Israel'] <--- Los corchetes indican array"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print('hola') para mostrar en consola cualquier cosa e if(condicion):",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad."
+    },
+    {
+      "id": 2,
+      "titulo": "Estructuras de control",
+      "desc": "Se aprendera a usar las estructuras de control para validar condiciones.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son:",
+      "lista": [
+        "if(condicion):",
+        "if(condicion):...else:",
+        "if(condicion):...elfi(condicion):"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad y si es menor que 18 mostrar un mensaje que diga usted es menor de edad."
+    },
+    {
+      "id": 3,
+      "titulo": "Estructuras de repetición",
+      "desc": "Se aprendera a usar estructuras de repetición que se usan para recorrer listas o repetir ciertas acciones un determinado numero de veces o hasta que se cumpla una condición.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son",
+      "lista": [
+        "while(condicion):",
+        "for item in arreglo:"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola\nTambien len(array) para obtener el tamaño de una lista",
+      "ejercicio": "Crear una lista de objetos con atributos por ejemplo nombre, apellido y usara sentencia while y for para mostrar por pantalla dichos datos"
+    },
+    {
+      "id": 1,
+      "titulo": "Variables y tipos de datos",
+      "desc": "Se aprendera a declarar variables y conocer los tipos de datos posibles en python",
+      "dificultad": "Easy",
+      "p1": "Una de las cosas más llamativas de python es que el declarar una variable no necesitas especificar el tipo de dato y esto hace llamativo",
+      "intro": "En python declarar variables es la cosa más sencilla del mundo solo pones el nombre, igual y el valor.\nAl no necesitar declarar de manera explicita el tipo de dato a las varibles, al ingresar el valor python reconoce el tipo de acuerdo a como lo ingreses ej:",
+      "lista": [
+        "nombre='Karen' <--- las comillas le indican que es String",
+        "edad=22 <--- numeros directamente sin comillas son del tipo mumerico tal como int o float",
+        "verdad=True <--- True o False para boolean",
+        "nombres=['Karen','Jorge','Israel'] <--- Los corchetes indican array"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print('hola') para mostrar en consola cualquier cosa e if(condicion):",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad."
+    },
+    {
+      "id": 2,
+      "titulo": "Estructuras de control",
+      "desc": "Se aprendera a usar las estructuras de control para validar condiciones.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son:",
+      "lista": [
+        "if(condicion):",
+        "if(condicion):...else:",
+        "if(condicion):...elfi(condicion):"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad y si es menor que 18 mostrar un mensaje que diga usted es menor de edad."
+    },
+    {
+      "id": 3,
+      "titulo": "Estructuras de repetición",
+      "desc": "Se aprendera a usar estructuras de repetición que se usan para recorrer listas o repetir ciertas acciones un determinado numero de veces o hasta que se cumpla una condición.",
+      "dificultad": "Medium",
+      "p1": "En python las estructuras de control funcionan de manera muy parecida a la mayoria de lenguaje, con la unica diferencia de que se usan dos puntos en vez de llaves y su cuerpo esta definido con un espaciado diferente al resto.",
+      "intro": "La manera de usar las sentencias de control es con la palabra reservaba y la condicion\nLas sentencias existentes son",
+      "lista": [
+        "while(condicion):",
+        "for item in arreglo:"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print(\"hola\") para mostrar en consola\nTambien len(array) para obtener el tamaño de una lista",
+      "ejercicio": "Crear una lista de objetos con atributos por ejemplo nombre, apellido y usara sentencia while y for para mostrar por pantalla dichos datos"
+    },
+    {
+      "id": 1,
+      "titulo": "Variables y tipos de datos",
+      "desc": "Se aprendera a declarar variables y conocer los tipos de datos posibles en python",
+      "dificultad": "Easy",
+      "p1": "Una de las cosas más llamativas de python es que el declarar una variable no necesitas especificar el tipo de dato y esto hace llamativo",
+      "intro": "En python declarar variables es la cosa más sencilla del mundo solo pones el nombre, igual y el valor.\nAl no necesitar declarar de manera explicita el tipo de dato a las varibles, al ingresar el valor python reconoce el tipo de acuerdo a como lo ingreses ej:",
+      "lista": [
+        "nombre='Karen' <--- las comillas le indican que es String",
+        "edad=22 <--- numeros directamente sin comillas son del tipo mumerico tal como int o float",
+        "verdad=True <--- True o False para boolean",
+        "nombres=['Karen','Jorge','Israel'] <--- Los corchetes indican array"
+      ],
+      "p2": "Para este ejercicio usted tambien debera saber ciertas cosas como print('hola') para mostrar en consola cualquier cosa e if(condicion):",
+      "ejercicio": "Declara una variable llamada año_nacimiento y otra llamada año_actual en donde almacenaras los años respectivos, luego declara una variable llamada edad en donde calcularas la edad con las dos variables previas, luego si su edad es mayor igual a 18 mostrar un mensaje que diga usted es mayor de edad."
+    }
+  ]
+}
