@@ -113,24 +113,26 @@ html
             #pane-techo.panel-heading.col-md-12 Crear Usuarios
             #body-pan.panel-body
               .sb-desc.col-md-12.col-sm-12
-                form(role='form')
+                form(method='post', action='/users/crear', role='form')
                   .form-group
                     label(for='ejemplo_email_1') Email
-                    input.form-control(name='fEmail', type='email', placeholder='Introduzca email')
+                    input.form-control(name='correo', type='email', placeholder='Introduzca email')
                   .form-group
                     label(for='rol') Rol
                     input.form-control(name='rol', type='text', placeholder='Introduce el rol')
                   .form-group
                     label(for='sel1') Tipo de identificación: 
-                    select#sel1.form-control
+                    select#sel1.form-control(name='TipodeIdentificacion')
                       option (seleccione tipo)
                       option Cédula (profesor)
                       option Matrícula (estudiante)
                     br
-                    input(type='text', name='cedula', placeholder='Ingrese identificación: ')
+                  .form-group
+                    label(for='identificación') identificacion
+                    input(type='text', name='Identificacion', placeholder='Ingrese identificación: ')
                   .form-group
                     label(for='nombre') Nombre
-                    input.form-control(name='nombres', type='text', placeholder='Introduzca cedula o Matrícula')
+                    input.form-control(name='Nombres', type='text', placeholder='Introduzca cedula o Matrícula')
                   .form-group
                     label(for='apellidos') Apellidos
                     input.form-control(name='apellidos', type='text', placeholder='Introduce los apellidos')

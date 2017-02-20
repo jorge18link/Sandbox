@@ -1,18 +1,40 @@
 var express = require('express');
 var router = express.Router();
+var nodemailer=require('nodemailer');
 
 var User=require('../models/usuario');
 
-router.get('/', function(req, res){
+var smtpTransport = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    auth: {
+        user: 'lilibeth.karen@gmail.com',
+        pass: 'redkaren94'
+    }
+});
+
+function ensureAuthenticated(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	} else {
+		//req.flash('error_msg','You are not logged in');
+		res.redirect('/');
+	}
+}
+
+
+router.get('/',ensureAuthenticated, function(req, res){
 	User.find({}, function(err, users) {
     if(err) throw err;
 		res.send(users);
 	});
 });
 
-router.get('/prueba', function(req, res){
-	res.render('prueba');
+router.get('/crear',ensureAuthenticated, function(req, res){
+	res.render('usua');
 });
+
+
 
 router.post('/crear', ensureAuthenticated, function(req, res){
 	var randomstring = Math.random().toString(36).slice(-8);
@@ -24,7 +46,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 	   	Identificacion: req.body.Identificacion,
 	   	Nombres: req.body.Nombres,
 	   	Apellidos: req.body.apellidos,
-	   	Carrera: req.body.carrea
+	   	Carrera: req.body.carrera
 
 	});
 	nuevo.save(function(err){ 
@@ -54,8 +76,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
  		 }
 
 	});
-
-	res.send("creado");
+	res.render('usua',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
 });
 
 
@@ -81,8 +102,7 @@ router.post('/modificar',ensureAuthenticated, function(req,res){
 
 		//Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
 		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
-			if(err){
-					console.log("Something wrong when updating data!");
+			if(err){					console.log("Something wrong when updating data!");
 			}
 			console.log('Usuario Modificado con exito');
 			//console.log(doc);
@@ -107,14 +127,6 @@ router.post('/eliminar',ensureAuthenticated, function(req,res){
 
 });
 
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-		//req.flash('error_msg','You are not logged in');
-		res.redirect('/');
-	}
-}
 
 
 

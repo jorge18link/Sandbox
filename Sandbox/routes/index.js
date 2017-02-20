@@ -9,12 +9,6 @@ router.get('/', function(req, res){
 	res.render('login',{message:req.flash('')});
 });
 
-router.get('/prueba', function(req, res){
-	res.render('usua');
-});
-
-
-
 router.get('/inicio', function(req, res){
 	res.send("funciona")
 });
