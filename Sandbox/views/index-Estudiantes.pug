@@ -1,0 +1,167 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title SandBox - Estudiantes
+    link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
+    link(href='/public/sandBox/css/styles.css', rel='stylesheet')
+    script(src='/public/sandBox/js/lumino.glyphs.js')
+    style(type='text/css').
+      .sb-ejer{
+      background-color: rgba(0,0,0,0.3);
+      padding-left: 20px;
+      padding-bottom: 20px;
+      }
+      .sb-ejer h3{
+      color:orange;
+      }
+      .sb-desc{
+      padding-top: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      overflow-y:scroll;
+      height: 56vh;
+      }
+      .ejercicios{
+      background-color: rgba(255,255,255,0.8);
+      }
+      .ejercicios p{
+      color: black;
+      font-size: large;
+      }
+      #body-pan{
+      background-color: #9BD0F5;
+      }
+      #pane-techo{
+      background-color: #5094C4;
+      color: white;
+      }
+      .imagen{
+        
+        border-radius: 10rem;
+        opacity: 0.9;
+        margin-top: 2rem;
+        
+      }
+  body
+    //
+      Navigation
+      ==========================================
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='../index.html')
+            span SandBox 
+            | Estudiantes
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  Fernando Sánchez Zambrano 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='perfil-estudiante.html')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Ver mi perfil
+                li
+                  a(href='../index.html')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Cerrar Sesión
+      // /.container-fluid
+    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+      h2(style='margin-top: 17px; padding-left: 10px;') Menú Sandbox
+      ul.nav.menu
+        li.active
+          a(href='index.html')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Ejercicios
+        li
+          a(href='talleres.html')
+            svg.glyph.stroked.clipboard.with.paper
+              use(xlink:href='#stroked-clipboard-with-paper')
+            |  Talleres
+        li
+          a(href='deberes.html')
+            svg.glyph.stroked.paperclip
+              use(xlink:href='#stroked-paperclip')
+            | Deberes
+        li
+          a(href='libros.html')
+            svg.glyph.stroked.upload
+              use(xlink:href='#stroked-upload')
+            |  Libros
+        li.divider(role='presentation')
+        li
+          a(href='perfil-estudiante.html')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Perfil
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Ejercicios
+      // /.row
+      br
+      .row
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-orange.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.tag
+                  use(xlink:href='#stroked-tag')
+              .col-sm-9.col-lg-7.widget-right
+                .large
+                  | Facil
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-teal.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.star
+                  use(xlink:href='#stroked-tag')
+              .col-sm-9.col-lg-7.widget-right
+                .large
+                  | Intermedio
+        .col-xs-12.col-md-6.col-lg-3
+          .panel.panel-red.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-5.widget-left
+                svg.glyph.stroked.arrow.up
+                  use(xlink:href='#stroked-tag')
+              .col-sm-9.col-lg-7.widget-right
+                .large
+                  | Dificil
+      // /.row
+      .row
+        .col-lg-12
+          // ============Aqui Trabajo================
+          .panel.panel-default
+            #pane-techo.panel-heading.col-md-12 Ejercicios Disponibles
+            #body-pan.panel-body
+              .sb-desc.col-md-12.col-sm-12
+                div
+                  img(src='/public/img/fondoEstudiante.png').img-responsive.center-block.imagen
+        // ============/Aqui Trabajo================
+      // /.row
+    // /.main
+    script(src='/public/sandBox/js/jquery-1.11.1.min.js')
+    script(src='/public/sandBox/js/bootstrap.min.js')
+    script(src='/public/sandBox/js/chart.min.js')
+    script(src='/public/sandBox/js/easypiechart.js')
+    script(src='/public/sandBox/js/bootstrap-datepicker.js')
