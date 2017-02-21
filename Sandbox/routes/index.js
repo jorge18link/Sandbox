@@ -27,7 +27,7 @@ passport.use(new LocalStrategy(
 					return done(null, user);
 				} else {
 					return done(null, false, {message: 'Invalid password'});
-				}
+				}[]
 			});
    });
 }));
@@ -46,7 +46,12 @@ passport.deserializeUser(function(id, done) {
 router.post('/login',
 	passport.authenticate('local', {successRedirect:'/inicio', failureRedirect:'/',failureFlash: true}),
   function(req, res) {	
-    res.redirect('/inicio');
+    if(req.user.Rol="Administrador"){
+    	res.render('verUsuarios')
+    }
+    if(req.user.Rol='profesor'){
+    	res.render('index-Profesor')
+    }
 });
 
 router.get('/logout', function(req, res){

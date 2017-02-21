@@ -1,0 +1,150 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Sanbox - Profesores
+    link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandBox/css/styles2.css', rel='stylesheet')
+    // Icons
+    script(src='/public/sandBox/js/lumino.glyphs.js')
+    //if lt IE 9
+      script(src='js/html5shiv.js')
+      script(src='js/respond.min.js')
+      | here
+    style(type='text/css').
+      #esconde1,#esconde2,#esconde3,#esconde4,#esconde5,#esconde6,#esconde7,#esconde8{
+      padding-left: 0px;
+      }
+      .eliminar{
+        margin-left: 3px;
+      }
+      
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='../index.html')
+            span Sandbox
+            | Profesores
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  Marco Antonio Calderón 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='perfil.html')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Ver mi perfil
+                li
+                  a(href='../index.html')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Cerrar Sesión
+      // /.container-fluid
+    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+      h2(style='margin-top: 17px; padding-left: 10px;') Menú Sandbox
+      ul.nav.menu
+        li.active
+          a(href='index - Profesor.html')
+            svg.glyph.stroked.notepad
+              use(xlink:href='#stroked-notepad')
+            |  Todos
+        li
+          a(href='Propios.html')
+            svg.glyph.stroked.download
+              use(xlink:href='#stroked-download')
+            | Propios
+        li
+          a(href='/ejercicios/Crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            |  Crear Nuevo
+        li
+          a(href='proyectos.html')
+            svg.glyph.stroked.cancel
+              use(xlink:href='#stroked-cancel')
+            | Proyectos
+        li.divider(role='presentation')
+        li
+          a(href='perfil.html')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Perfil
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Todos
+      // /.row
+      .row
+        .col-lg-12
+          h1.page-header(style='margin-left: 20px;') Todos los ejercicios
+      // /.row
+      // talleres
+    
+      
+      each exercise, i in listExercise
+        
+        .col-lg-8.ej1
+          .panel.panel-blue.panel-widget
+            .row.no-padding
+              .col-sm-3.col-lg-2.widget-left
+                svg.glyph.stroked.blank.document
+                  use(xlink:href='#stroked-blank-document')
+              .col-lg-10.widget-right
+                p
+                  b Titulo: 
+                  | #{exercise.titulo}
+                p
+                  b Descripcion: 
+                  | #{exercise.descripcion}
+                p
+                  b Dificultad: 
+                  | #{exercise.dificultad}
+                button(id="t"+(i+1)).btn.btn-info.panel-blue Ver
+                button(name=exercise.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar Eliminar
+                div(id="esconde"+(i+1)).widget-right
+                  p
+                    b Crear una lista de compras
+                  p
+                    b Ejercicio 1
+                  p
+                    | Crear un programa que mantenga el rastro de los productos de una lista de compras. El Programa debe estar preguntando  por   nuevos   productos hasta que nada es ingresado (nada en el input, seguido  
+      #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+       .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title Eliminar Ejercicio
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            | Estas Seguro que Desea Eliminar Este ejercicio?
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary.confirmar(type='button') Save changes
+      
+    script(src='/public/sandBox/js/jquery-1.11.1.min.js')
+    script(src='/public/sandBox/js/bootstrap.min.js')
+    script(src='/public/sandBox/js/chart.min.js')
+    script(src='/public/sandBox/js/easypiechart.js')
+    script(src='/public/sandBox/js/bootstrap-datepicker.js')
+    script(type='text/javascript', src='/public/sandBox/js/navscript.js')
+    script(type='text/javascript',src='/public/js/ejercicio.js')
+     
+      
+
+    
