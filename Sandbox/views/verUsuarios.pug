@@ -88,7 +88,7 @@ html
       h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
       ul.nav.menu
         li
-          a(href='sandbox-crearUsuarios.html')
+          a(href='/users/Crear')
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
             | Crear Usuario
@@ -133,7 +133,6 @@ html
                       th Carrera
                       th Identificación
                       th Correo
-                      th
                       th 
                   tbody
                       for usuario in listaUsers
@@ -145,22 +144,19 @@ html
                           td #{usuario.TipoDeIdentificacion}
                           td #{usuario.CorreoElectronico}
                           td
-                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar
-                              span.glyphicon.glyphicon-trash
+                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar x
                             #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
                              .modal-dialog(role='document')
                               .modal-content
                                 .modal-header
                                   h5#exampleModalLabel.modal-title Eliminar Usuario
                                   button.close(type='button', data-dismiss='modal', aria-label='Close')
-                                    span(aria-hidden='true') x
+                                    span(aria-hidden='true') ×
+                                .modal-body
                                   | Estas Seguro que Desea Eliminar Este Usuario?
                                 .modal-footer
                                   button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
                                   button.btn.btn-primary.confirmar(type='button') Si
-                          td
-                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal2').btn.btn-info.panel-blue.eliminar
-                              span.glyphicon.glyphicon-pencil
           // ============/Aqui Trabajo================
           // ============Aqui tambien Trabajo================
         // /.row
@@ -169,6 +165,7 @@ html
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
     script(src='/public/sandBox/js/chart.min.js')
+    script(src='/public/js/usuario.js')
     script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
     script(src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
