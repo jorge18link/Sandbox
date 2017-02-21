@@ -109,12 +109,12 @@ router.post('/modificar',ensureAuthenticated, function(req,res){
 		res.redirect('/');
 });
 
-router.post('/eliminarUsuario',ensureAuthenticated, function(req,res){
+router.delete('/eliminarUsuario/:id',ensureAuthenticated, function(req,res){
 		idUsuario = req.params.id
-		var busca = {_id: id};
+		var busca = {_id: idUsuario};
 		User.findOne(busca,function(err, user){
 			if(err) throw err;
-			usuario.remove();
+			user.remove();
 			console.log('Usuario eliminado con exito');
 			return res.send("se elimino");
 		});

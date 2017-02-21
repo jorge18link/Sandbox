@@ -7,7 +7,7 @@ $( document ).ready(function() {
       
       $('.confirmar').click(function(){
           $.ajax({
-                url:"/users/eliminarUjercicio/"+name,
+                url:"/users/eliminarUsuario/"+name,
                 type: 'delete',
                 success:function(data){
                     location.reload();
