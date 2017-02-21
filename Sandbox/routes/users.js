@@ -5,7 +5,7 @@ var nodemailer=require('nodemailer');
 var User=require('../models/usuario');
 
 var validacion=function(req,res,next){
-	if(req.user.Rol !="administrador"){
+	if(req.user.Rol !="Administrador"){
   	res.sendStatus(401);
   	return;
   }
