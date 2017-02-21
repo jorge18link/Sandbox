@@ -10,7 +10,11 @@ router.get('/', function(req, res){
 });
 
 router.get('/inicio', function(req, res){
-	res.send("funciona")
+	if(req.user.Rol=="Administrador"){
+		res.redirect('/users')
+	}if(req.user.Rol=='Profesor'){
+		res.redirect('/ejercicios')
+	}
 });
 
 passport.use(new LocalStrategy(
@@ -27,7 +31,7 @@ passport.use(new LocalStrategy(
 					return done(null, user);
 				} else {
 					return done(null, false, {message: 'Invalid password'});
-				}[]
+				}
 			});
    });
 }));
@@ -46,12 +50,7 @@ passport.deserializeUser(function(id, done) {
 router.post('/login',
 	passport.authenticate('local', {successRedirect:'/inicio', failureRedirect:'/',failureFlash: true}),
   function(req, res) {	
-    if(req.user.Rol="Administrador"){
-    	res.render('verUsuarios')
-    }
-    if(req.user.Rol='profesor'){
-    	res.render('index-Profesor')
-    }
+    res.redirect('/inicio');
 });
 
 router.get('/logout', function(req, res){
