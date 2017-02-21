@@ -33,7 +33,7 @@ function ensureAuthenticated(req, res, next){
 router.get('/',ensureAuthenticated,validacion, function(req, res){
 	User.find({}, function(err, users) {
     if(err) throw err;
-		res.send(users);
+		res.render('verUsuarios',{listaUsers:users});
 	});
 });
 
