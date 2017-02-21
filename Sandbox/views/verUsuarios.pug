@@ -1,0 +1,185 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title SandBox - Estudiantes
+    // Latest compiled and minified CSS
+    link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
+    link(href='/public/sandBox/css/styles.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/public/sanBox/css/dataTables.bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css')
+    // Icons
+    script(src='/public/sandBox/js/lumino.glyphs.js')
+    script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
+    script(type='text/javascript', scr='/public/sandBox/js/jquery.dataTables.min.js').
+    script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').
+    script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
+    
+    style(type='text/css').
+      .sb-ejer{
+      background-color: rgba(0,0,0,0.3);
+      padding-left: 20px;
+      padding-bottom: 20px;
+      }
+      .sb-ejer h3{
+      color:orange;
+      }
+      .sb-desc{
+      padding-top: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      overflow-y:scroll;
+      height: 56vh;
+      }
+      .ejercicios{
+      background-color: rgba(255,255,255,0.8);
+      }
+      .ejercicios p{
+      color: black;
+      font-size: large;
+      }
+      #body-pan{
+      background-color: #9BD0F5;
+      }
+      #pane-techo{
+      background-color: #5094C4;
+      color: white;
+      }
+  body
+    //
+      Navigation
+      ==========================================
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='../index.html')
+            span SandBox 
+            | Usuarios
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  Fernando Sánchez Zambrano 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='perfil-estudiante.html')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Ver mi perfil
+                li
+                  a(href='../index.html')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Cerrar Sesión
+      // /.container-fluid
+    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+      h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
+      ul.nav.menu
+        li
+          a(href='sandbox-crearUsuarios.html')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Crear Usuario
+        li.active
+          a(href='sandbox-verUsuarios.html')
+            svg.glyph.stroked.clipboard.with.paper
+              use(xlink:href='#stroked-clipboard-with-paper')
+            | Ver Usuarios
+        //
+          <li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
+          <li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
+        li.divider(role='presentation')
+        li
+          a(href='perfil-estudiante.html')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Perfil
+    // /.sidebar
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Ejercicios
+      // /.row
+      br
+      .row
+        .col-lg-12
+          // ============Aqui Trabajo================
+          .panel.panel-default
+            #pane-techo.panel-heading.col-md-12 Usuarios
+            #body-pan.panel-body
+              .sb-desc.col-md-12.col-sm-12
+                table#example.table.table-striped.table-bordered.dt-responsive.nowrap(cellspacing='0', width='100%')
+                  thead
+                    tr
+                      th Nombre
+                      th Apellido
+                      th Rol
+                      th Carrera
+                      th Identificación
+                      th Correo
+                      th
+                      th 
+                  tbody
+                      for usuario in listaUsers
+                        tr
+                          td #{usuario.Nombres}
+                          td #{usuario.Apellidos}
+                          td #{usuario.Rol}
+                          td #{usuario.Carrera}
+                          td #{usuario.TipoDeIdentificacion}
+                          td #{usuario.CorreoElectronico}
+                          td
+                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar
+                              span.glyphicon.glyphicon-trash
+                            #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                             .modal-dialog(role='document')
+                              .modal-content
+                                .modal-header
+                                  h5#exampleModalLabel.modal-title Eliminar Usuario
+                                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span(aria-hidden='true') x
+                                  | Estas Seguro que Desea Eliminar Este Usuario?
+                                .modal-footer
+                                  button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+                                  button.btn.btn-primary.confirmar(type='button') Si
+                          td
+                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal2').btn.btn-info.panel-blue.eliminar
+                              span.glyphicon.glyphicon-pencil
+          // ============/Aqui Trabajo================
+          // ============Aqui tambien Trabajo================
+        // /.row
+      // /.row
+    // /.main
+    script(src='/public/sandBox/js/jquery-1.11.1.min.js')
+    script(src='/public/sandBox/js/bootstrap.min.js')
+    script(src='/public/sandBox/js/chart.min.js')
+    script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1', crossorigin='anonymous')
+    script(src='/public/sandBox/js/easypiechart.js')
+    script(src='/public/sandBox/js/bootstrap-datepicker.js')
+    script(type='text/javascript', src='/public/sandBox/js/index.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+      $('#example').DataTable();
+      } );
