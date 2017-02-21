@@ -44,18 +44,8 @@ router.get('/crear',ensureAuthenticated,validacion, function(req, res){
 
 
 router.post('/crear', ensureAuthenticated, function(req, res){
-	var randomstring = Math.random().toString(36).slice(-8);
-	var  nuevo=new User({ 
-		CorreoElectronico:req.body.correo,
-	   	Contrasena: randomstring,
-	   	Rol: req.body.rol,
-	   	TipoDeIdentificacion: req.body.TipodeIdentificacion,
-	   	Identificacion: req.body.Identificacion,
-	   	Nombres: req.body.Nombres,
-	   	Apellidos: req.body.apellidos,
-	   	Carrera: req.body.carrera
-
-	});
+	req.body.Contrasena=Math.random().toString(36).slice(-8); 
+	var  nuevo=new User(req.body);
 	nuevo.save(function(err){ 
 		if (err) {
 			return err;
@@ -64,7 +54,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
   			console.log("Post saved");
   				var correo= req.body.correo;
 				var Subject="Creacion de cuenta en Sandbox"
-				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +randomstring
+				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +Math.random().toString(36).slice(-8); 
 				var mailOptions = {		
 					to: correo,
 					subject: Subject,
