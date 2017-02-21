@@ -109,17 +109,14 @@ router.post('/modificar',ensureAuthenticated, function(req,res){
 		res.redirect('/');
 });
 
-router.post('/eliminar',ensureAuthenticated, function(req,res){
-		correo = req.body.correo
-		var busca = {CorreoElectronico: correo};
-
+router.post('/eliminarUsuario',ensureAuthenticated, function(req,res){
+		idUsuario = req.params.id
+		var busca = {_id: id};
 		User.findOne(busca,function(err, user){
 			if(err) throw err;
-			if(!user){
-				return done(null, false, {message: 'Unknown User'});		
-			}
-			user.remove();
+			usuario.remove();
 			console.log('Usuario eliminado con exito');
+			return res.send("se elimino");
 		});
 
 });
