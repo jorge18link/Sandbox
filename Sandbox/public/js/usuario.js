@@ -38,5 +38,34 @@ $( document ).ready(function() {
              })
       });
 
-      
+$("body").on("click",".guardar", function(){
+    var id =$('#modifId').val();
+    var Correo=$('#modifCorreo').val();
+    var Rol=$('#modifRol').val();
+    var Tipo=$('#modifTipo').val();
+    var Identificacion=$('#modifIdentificacion').val();
+    var Nombres=$('#modifNombres').val();
+    var Apellidos=$('#modifApellidos').val();
+    var Carrera=$('#modifCarrera').val();
+    console.log(Correo);
+    
+    $.ajax({
+    url:"users/modificar/" + id,
+    type: 'put',
+    data: {
+        _id : id,
+        CorreoElectronico : Correo,
+        Rol: Rol,
+        TipoDeIdentificacion: Tipo,
+        Identificacion: Identificacion,
+        Nombres:Nombres,
+        Apellidos: Apellidos,
+        Carrera:Carrera
+    },
+    success:function(usuario){
+        location.reload();
+    }
+})      
 });
+
+})

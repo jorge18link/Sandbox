@@ -87,7 +87,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 
 
 router.put('/modificar/:id',ensureAuthenticated, function(req,res){
-		idUsuario = req.params.id
+		idUsuario = req.params.id;
 		//query de busqueda
 		var busca = {_id: idUsuario};
 		/*
@@ -98,9 +98,10 @@ router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 		*/
 		//Se toman los datos de la vista con los parametros que vas a modificar
 		var modificacion = {
-			Rol: req.body.rol,
-			TipoDeIdentificacion: req.body.tipoIdentificacion,
-			Identificacion: req.body.identificacion,
+			Rol: req.body.Rol,
+			CorreoElectronico: req.body.Correo,
+			TipoDeIdentificacion: req.body.TipoDeIdentificacion,
+			Identificacion: req.body.Identificacion,
 			Nombres: req.body.Nombres,
 			Apellidos: req.body.Apellidos,
 			Carrera: req.body.Carrera
@@ -110,13 +111,14 @@ router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
 			if(err){					
 			console.log("Something wrong when updating data!");
-			}
-			console.log('Usuario Modificado con exito');
+			res.send("algo salió mal")
+		}
+			console.log("Usuario modificado con exito")
+			res.send('Usuario Modificado con exito');
 			//console.log(doc);
 		});
 
-		//Aqui Carga la pagina que sigue
-		res.redirect('/');
+	
 });
 
 router.delete('/eliminarUsuario/:id',ensureAuthenticated, function(req,res){
