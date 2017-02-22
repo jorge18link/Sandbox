@@ -14,6 +14,8 @@ router.get('/inicio', function(req, res){
 		res.redirect('/users')
 	}if(req.user.Rol=='Profesor'){
 		res.redirect('/ejercicios')
+	}if (req.user.Rol=='Estudiante'){
+		res.redirect('/ejerciciosEstudiante');
 	}
 });
 

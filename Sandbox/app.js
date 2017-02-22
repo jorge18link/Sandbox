@@ -46,10 +46,9 @@ app.use('/public',  express.static( path.join(__dirname, '/public')));
 
 // Express Session
 app.use(session({
-    cookie: { maxAge: 60000 },
+    secret: 'secret',
     saveUninitialized: true,
-    resave: 'true',
-    secret: 'secret'
+    resave: true
 }));
 
 // Passport init
