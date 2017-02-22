@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer=require('nodemailer');
-
 var User=require('../models/usuario');
 
 var validacion=function(req,res,next){
@@ -30,6 +29,10 @@ function ensureAuthenticated(req, res, next){
 }
 
 
+router.get('/crear',ensureAuthenticated,validacion,function(req,res){
+    res.render('usua');
+})
+
 router.get('/',ensureAuthenticated,validacion, function(req, res){
 	User.find({}, function(err, users) {
     if(err) throw err;
@@ -45,12 +48,6 @@ router.get('/:id',ensureAuthenticated,validacion, function(req, res){
 		return res.send(user);
 	});
 });
-
-router.get('/crear',ensureAuthenticated,validacion, function(req, res){
-	res.render('usua');
-});
-
-
 
 router.post('/crear', ensureAuthenticated, function(req, res){
 	req.body.Contrasena=Math.random().toString(36).slice(-8); 
@@ -85,6 +82,17 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 	res.render('usua',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
 });
 
+router.delete('/eliminarUsuario/:id',ensureAuthenticated, function(req,res){
+		idUsuario = req.params.id
+		var busca = {_id: idUsuario};
+		User.findOne(busca,function(err, user){
+			if(err) throw err;
+			user.remove();
+			console.log('Usuario eliminado con exito');
+			return res.send("se elimino");
+		});
+
+});
 
 router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 		idUsuario = req.params.id;
@@ -120,21 +128,5 @@ router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 
 	
 });
-
-router.delete('/eliminarUsuario/:id',ensureAuthenticated, function(req,res){
-		idUsuario = req.params.id
-		var busca = {_id: idUsuario};
-		User.findOne(busca,function(err, user){
-			if(err) throw err;
-			user.remove();
-			console.log('Usuario eliminado con exito');
-			return res.send("se elimino");
-		});
-
-});
-
-
-
-
 
 module.exports = router;
