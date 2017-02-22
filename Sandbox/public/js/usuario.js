@@ -25,6 +25,7 @@ $( document ).ready(function() {
                  url:"users/" + name,
                  type: 'get',
                  success:function(usuario){
+                    $("#modifId").val(usuario._id);
                     $("#modifCorreo").val(usuario.CorreoElectronico);
                     $("#modifRol").val(usuario.Rol);
                     $("#modifTipo").val(usuario.TipoDeIdentificacion);

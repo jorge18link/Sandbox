@@ -86,7 +86,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 });
 
 
-router.put('/modificar',ensureAuthenticated, function(req,res){
+router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 		idUsuario = req.params.id
 		//query de busqueda
 		var busca = {_id: idUsuario};
@@ -108,7 +108,8 @@ router.put('/modificar',ensureAuthenticated, function(req,res){
 
 		//Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
 		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
-			if(err){					console.log("Something wrong when updating data!");
+			if(err){					
+			console.log("Something wrong when updating data!");
 			}
 			console.log('Usuario Modificado con exito');
 			//console.log(doc);
