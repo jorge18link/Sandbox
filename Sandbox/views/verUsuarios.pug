@@ -8,7 +8,7 @@ html
     link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
     link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandBox/css/styles.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='/public/sanBox/css/dataTables.bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/public/sandBox/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
@@ -17,9 +17,7 @@ html
     script(src='/public/sandBox/js/lumino.glyphs.js')
     script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
     script(type='text/javascript', scr='/public/sandBox/js/jquery.dataTables.min.js').
-    script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').
-    script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
-    
+    script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').    
     style(type='text/css').
       .sb-ejer{
       background-color: rgba(0,0,0,0.3);
@@ -50,6 +48,7 @@ html
       background-color: #5094C4;
       color: white;
       }
+      
   body
     //
       Navigation
@@ -88,12 +87,12 @@ html
       h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
       ul.nav.menu
         li
-          a(href='/users/Crear')
+          a(href='sandbox-crearUsuarios.html')
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
             | Crear Usuario
         li.active
-          a(href='/users')
+          a(href='sandbox-verUsuarios.html')
             svg.glyph.stroked.clipboard.with.paper
               use(xlink:href='#stroked-clipboard-with-paper')
             | Ver Usuarios
@@ -133,6 +132,7 @@ html
                       th Carrera
                       th Identificación
                       th Correo
+                      th
                       th 
                   tbody
                       for usuario in listaUsers
@@ -144,19 +144,53 @@ html
                           td #{usuario.TipoDeIdentificacion}
                           td #{usuario.CorreoElectronico}
                           td
-                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar x
-                            #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar
+                              span.glyphicon.glyphicon-trash
+                            #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel')
                              .modal-dialog(role='document')
                               .modal-content
                                 .modal-header
                                   h5#exampleModalLabel.modal-title Eliminar Usuario
                                   button.close(type='button', data-dismiss='modal', aria-label='Close')
-                                    span(aria-hidden='true') ×
-                                .modal-body
+                                    span(aria-hidden='true') x
                                   | Estas Seguro que Desea Eliminar Este Usuario?
                                 .modal-footer
                                   button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
                                   button.btn.btn-primary.confirmar(type='button') Si
+                          td
+                            button(name=usuario.id).btn.btn-info.panel-blue.modificar
+                              span.glyphicon.glyphicon-pencil
+                          #MyModal2.modal.col-md-8(role='dialog', tabindex="-1", aria-labelledby="myModalLabel")
+                            .modal-dialog(role='document')
+                            .modal-content
+                              .modal-header
+                                h4#exampleModalLabel.modal-title Editar Usuario
+                              .modal-body
+                                form
+                                  .form-group
+                                    label Correo
+                                    input#modifCorreo.form-control(type='email' name='Correo')
+                                .form-group
+                                    label Rol
+                                    input#modifRol.form-control(type='text' name='Rol')
+                                .form-group
+                                    label Tipo de identificacion
+                                    select#modifTipo.form-control(name='TipoDeIdentificacion')
+                                      option (seleccione tipo)
+                                      option Cédula (profesor)
+                                      option Matrícula (estudiante)
+                                .form-group
+                                    label(for='exampleInputEmail1') Identificacion
+                                    input#modifIdentificacion(type='text', name='Identificacion')
+                                .form-group
+                                    label Nombres
+                                    input#modifNombres.form-control(type='text', name='Nombres')
+                                .form-group
+                                    label Apellidos
+                                    input#modifApellidos.form-control(type='text')
+                            .modal-footer
+                              button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+                              button.btn.btn-primary.guardar(type='button') Guaardar          
           // ============/Aqui Trabajo================
           // ============Aqui tambien Trabajo================
         // /.row
@@ -165,7 +199,6 @@ html
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
     script(src='/public/sandBox/js/chart.min.js')
-    script(src='/public/js/usuario.js')
     script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
     script(src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
@@ -176,7 +209,4 @@ html
     script(src='/public/sandBox/js/easypiechart.js')
     script(src='/public/sandBox/js/bootstrap-datepicker.js')
     script(type='text/javascript', src='/public/sandBox/js/index.js')
-    script(type='text/javascript').
-      $(document).ready(function() {
-      $('#example').DataTable();
-      } );
+    script(src='/public/js/usuario.js')

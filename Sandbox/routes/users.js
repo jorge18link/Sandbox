@@ -37,6 +37,15 @@ router.get('/',ensureAuthenticated,validacion, function(req, res){
 	});
 });
 
+router.get('/:id',ensureAuthenticated,validacion, function(req, res){
+	idUsuario=req.params.id;
+	var busca = {_id: idUsuario};
+	User.findOne(busca,function(err, user){
+		if(err) throw err;
+		return res.send(user);
+	});
+});
+
 router.get('/crear',ensureAuthenticated,validacion, function(req, res){
 	res.render('usua');
 });
@@ -77,10 +86,10 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 });
 
 
-router.post('/modificar',ensureAuthenticated, function(req,res){
-		correo = req.body.correo
+router.put('/modificar',ensureAuthenticated, function(req,res){
+		idUsuario = req.params.id
 		//query de busqueda
-		var busca = {CorreoElectronico: correo};
+		var busca = {_id: idUsuario};
 		/*
 		User.findOne(busca,function(err, user){
 			console.log('Usuario Anterior:');
@@ -92,9 +101,9 @@ router.post('/modificar',ensureAuthenticated, function(req,res){
 			Rol: req.body.rol,
 			TipoDeIdentificacion: req.body.tipoIdentificacion,
 			Identificacion: req.body.identificacion,
-			Nombres: req.body.nombres,
-			Apellidos: req.body.apellidos,
-			Carrera: req.body.carrera
+			Nombres: req.body.Nombres,
+			Apellidos: req.body.Apellidos,
+			Carrera: req.body.Carrera
 		}
 
 		//Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
