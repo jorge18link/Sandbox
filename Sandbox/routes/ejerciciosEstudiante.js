@@ -11,17 +11,17 @@ router.get('/realizar/:id',function(req,res){
 	var busca = {_id: id};
     Ejercicio.findOne(busca,function(err, ej){
 			if(err) throw err;
-			console.log(ej);
-            res.render("HacerEjercicio", {list:ej});
-            //sres.send(ej);
+            res.render('HacerEjercicio', {list:ej});
+            
     });    
 })
 router.get('/obtener/:dificultad',function(req,res){
-   dificultad= req.params.id;
-   var busca ={dificultad:dificultad}
-    Ejercicio.findOne(busca,function(err, ej){
-			if(err) throw err;
+   dificu= req.params.dificultad;
+   var busca ={dificultad:dificu}
+    Ejercicio.find(busca, function(err, ej) {
+		if(err) throw err;
+            console.log(ej);
             res.send(ej);
-    });    
+	});   
 })
 module.exports = router;
