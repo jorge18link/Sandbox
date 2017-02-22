@@ -1,0 +1,15 @@
+.container{
+    max-width: 75%;
+}
+.col-md-3{
+    border: solid 1px;
+    margin-left: 35px;
+    padding: 20px;
+}
+.con{
+    border:solid 1px;
+    padding: 15px;
+}
+.sub{
+    text-decoration: underline;
+}

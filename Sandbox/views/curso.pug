@@ -1,0 +1,59 @@
+doctype html
+html(ng-app='app')
+    head
+        title= title
+        link(rel='stylesheet', href='/public/stylesheets/style3.css', type='text/css')
+        link(rel='stylesheet', href='/public/stylesheets/style2.css', type='text/css')
+        link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/public/stylesheets/autocomplete.css', type='text/css')
+        script(src='/bower_components/jquery/dist/jquery.min.js')
+        script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+
+    body
+        main.container
+
+            .body
+            div
+                h2 Auto-Complete!
+            br
+            div
+                button.btn-primary(aria-label='Left Align', data-toggle='modal', data-target='#ModalCrear')
+                    span.glyphicon.glyphicon-plus
+                    | Crear Curso
+            br
+
+            #ModalCrear.modal.fade(role='dialog')
+                .modal-dialog
+                    // Modal content
+                    .modal-content
+                        .modal-header
+                            button.close(type='button', data-dismiss='modal') ×
+                            h4.modal-title Crear Nueva tarea
+                        .modal-body
+                            form#formulario(serializer='submit(data)')
+                                .form-group.has-feedback
+                                    label Profesor
+                                    //input.form-control
+                                    div(ng-controller='MyCtrl')
+                                        autocomplete(ng-model="result" attr-placeholder="Escriba aquí profesor" click-activation="false" data="movies" on-type="doSomething" on-sfelect="doSomethingElse")
+                                    i.glyphicon.glyphicon-search.form-control-feedback
+
+                                .form-group
+                                    label Paralelo
+                                    input#exampleInput.form-control(type='number' min='1', placeholder='Enter tittle')
+                                .form-group.has-feedback
+                                    label Estudiantes
+                                    //input.form-control
+                                    div(ng-controller='MyCtrl')
+                                        autocomplete(ng-model="result" attr-placeholder="Escriba aquí un estudiante" click-activation="false" data="movies" on-type="doSomething" on-sfelect="doSomethingElse")
+                                    i.glyphicon.glyphicon-search.form-control-feedback
+                                p Estado: Inicial
+                        .modal-footer
+                            button.btn-default(type='button', data-dismiss='modal') Cerrar
+                            button.btn-primary(ng-click='guardarTarea()')  Guardar
+
+
+        script(src='/bower_components/angular/angular.js')
+        script(src='/bower_components/Autocomplete/dist/autocomplete.js')
+        script(src='/public/js/app.js')
+        script(src='/public/js/autocomplete.js')
