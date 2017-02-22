@@ -8,7 +8,7 @@ html
     link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
     // Icons
-    script(src='public/sandbox/js/lumino.glyphs.js')
+    script(src='/public/sandbox/js/lumino.glyphs.js')
     style(type='text/css').
       .sb-ejer{
       background-color: rgba(0,0,0,0.3);
@@ -119,9 +119,9 @@ html
             #body-pan.panel-body
               .ejercicios.col-md-6
 
-                form(method='post', action='/users/modificar', role='login')       
+                form(method='post', action='/ejercicios/crear')       
                     p.titulo Título:
-                    input.form-control(type='email', name='titulo', placeholder='Título')
+                    input.form-control(type='text', name='titulo', placeholder='Título')
                     p.titulo Descripción:
                     textarea.form-control(type='text', name='descripcion', placeholder='Descripción')
                     p.titulo Datos de entrada:

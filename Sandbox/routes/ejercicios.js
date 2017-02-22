@@ -25,14 +25,29 @@ router.get('/',ensureAuthenticated, validacion, function(req, res){
 	ejercicio.find({}, function(err, exercises) {
     if(err) throw err;
 		res.render('index-Profesor', {listExercise:exercises});
-	});
-		
+	});		
 });
+
+router.get('/crear', ensureAuthenticated,validacion,function(req, res){
+	res.render('ejerciciosCrear');
+});
+
+router.post('/crear',function(req, res){
+	var nuevoEjercicio= new ejercicio(req.body);
+	nuevoEjercicio.save(function(err){ 
+		if (err) {
+			return err;
+  		}
+		console.log('ejercicio creado con exito');
+	});
+	res.redirect('/ejercicios')
+});
+
+
 
 router.delete('/EliminarEjercicio/:id',function(req,res){
 	 var id=req.params.id;
 	 var busca = {_id: id};
-	 var ejercicio2=mongoose.model('ejercicio');
 		ejercicio.findOne(busca,function(err, ejercicio){
 			if(err) throw err;
 			ejercicio.remove();
