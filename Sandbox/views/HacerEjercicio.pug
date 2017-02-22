@@ -27,7 +27,8 @@ html
       .ejercicios{
         border-radius:15px;
         margin-top:15px;
-        background-color: rgba(220,220,220,1);
+        background-color:#5094C4;
+        opacity:0.8;
       }
       .ejercicios p{
       color: black;
@@ -46,6 +47,48 @@ html
       .dale{
           margin-top:10px;
           margin-bottom:10px;
+      }
+      .ejercicios h2{
+        font-family:italic;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .ejercicios {
+        height: 75rem;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .txt{
+        border-radius:15px;
+        margin-top:15px;
+        margin-left:10vh;
+        height: 75rem;
+      }
+      .codigo{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        margin-top:15px;
+        background-color:black;
+        color:white;
+        font-family: "Courier New", Courier, monospace;
+        
+      }
+      .btn-lg{
+        float:right;
+        border-radius:5px;
+        margin: 0.5rem
+      }
+      .barra{
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        height:6rem;
+        background-color:black;
+        opacity: 0.8;
+      }
+      .out{
+        border-radius:15px;
+        height: 28rem;
+        background-color:black;
+        
       }
   body
     //
@@ -85,15 +128,15 @@ html
       h2(style='margin-top: 17px; padding-left: 10px;') Menú Sandbox
       ul.nav.menu
         li
-          a(href='index.html')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Ejercicios
+          a(href='/ejerciciosEstudiante')
+            svg.glyph.stroked.clipboard.with.paper
+              use(xlink:href='#stroked-clipboard-with-paper')
+            |  Hacer Ejercicios
         li.active
           a(href='talleres.html')
             svg.glyph.stroked.clipboard.with.paper
               use(xlink:href='#stroked-clipboard-with-paper')
-            |  Crear Ejercicio
+            |  Ejercicio
         li.divider(role='presentation')
         li
           a(href='perfil-estudiante.html')
@@ -114,17 +157,38 @@ html
       .row
         .col-lg-12
           // ============Aqui Trabajo================
+          
+          
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Nuevo Ejercicio
             #body-pan.panel-body
-              .ejercicios.col-md-6
+              .ejercicios.col-md-3
+                br
+                h2 Titulo: 
+                p=list.titulo
+                h2 Descripcion:
+                p= list.descripcion
+                h2 Indicaciones:
+                p="Utilice las siguientes variables de entrada: "+ list.datosDeEntrada     
+              .col-md-8.txt
+                h3 ingrese el codigo aqui:
+                
+                textarea#exampleTextarea.form-control.col-md-12.codigo(rows='12')
+
+               
+                .col-md-12.barra
+                  button.btn.btn-success.btn-lg(type='button') submit
+                br
+                h3 Script Output
+                .col-md-12.out
+                
+        
+                     
                
 
                 
 
-                        
-   
-          // ============/Aqui Trabajo================
+            // ============/Aqui Trabajo================
           // ============Aqui tambien Trabajo================
           
           // ============Aqui tambien Trabajo================

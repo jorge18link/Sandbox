@@ -1,4 +1,4 @@
-var ejercicio=require('../models/ejercicio')
+var Ejercicio=require('../models/ejercicio')
 var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
@@ -9,9 +9,19 @@ router.get('/',function(req,res){
 router.get('/realizar/:id',function(req,res){
     var id=req.params.id;
 	var busca = {_id: id};
-    ejercicio.findOne(busca,function(err, ejercicio){
+    Ejercicio.findOne(busca,function(err, ej){
 			if(err) throw err;
-			res.render('HacerEjercicio');
+			console.log(ej);
+            res.render("HacerEjercicio", {list:ej});
+            //sres.send(ej);
+    });    
+})
+router.get('/obtener/:dificultad',function(req,res){
+   dificultad= req.params.id;
+   var busca ={dificultad:dificultad}
+    Ejercicio.findOne(busca,function(err, ej){
+			if(err) throw err;
+            res.send(ej);
     });    
 })
 module.exports = router;
