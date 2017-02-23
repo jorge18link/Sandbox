@@ -33,6 +33,10 @@ router.get('/crear',ensureAuthenticated,validacion,function(req,res){
     res.render('usua');
 })
 
+router.get('/perfil',ensureAuthenticated,validacion,function(req,res){
+	res.render('perfil');
+})
+
 router.get('/',ensureAuthenticated,validacion, function(req, res){
 	User.find({}, function(err, users) {
     if(err) throw err;

@@ -1,0 +1,143 @@
+doctype html
+html
+  head
+    //
+      Basic Page Needs
+      ==================================================
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Sandbox - Profesores
+    //
+      Stylesheet
+      ==================================================
+    link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandBox/css/styles.css', rel='stylesheet')
+    script(src='/public/sandBox/js/lumino.glyphs.js')
+    //
+      Embedded Stylesheet
+      ==================================================
+    style(type='text/css').
+      .sb-ejer{
+      background-color: rgba(0,0,0,0.6);
+      }
+      .sb-ejer h3{
+      color:orange;
+      }
+      .sb-desc{
+      padding-top: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      background-image: url("../img/coding.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      }
+      .ejercicios{
+      background-color: rgba(255,255,255,0.8);
+      }
+      .ejercicios p{
+      color: black;
+      font-size: large;
+      }
+  body
+    //
+      Navigation
+      ==========================================
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='../index.html')
+            span SandBox 
+            | Usuarios
+          ul.user-menu
+            li.dropdown.pull-right
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                svg.glyph.stroked.male-user
+                  use(xlink:href='#stroked-male-user')
+                |  Marco Antonio Calderón 
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='perfil.html')
+                    svg.glyph.stroked.male-user
+                      use(xlink:href='#stroked-male-user')
+                    |  Ver mi perfil
+                li
+                  a(href='perfil.html')
+                    svg.glyph.signia.thin-wood-pencil
+                      use(xlink:href='#signia-thin-wood-pencil')
+                    | Cambiar Contraseña
+                li
+                  a(href='../index.html')
+                    svg.glyph.stroked.cancel
+                      use(xlink:href='#stroked-cancel')
+                    |  Cerrar Sesión
+      // /.container-fluid
+    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+      h2(style='margin-top: 17px; padding-left: 10px;') Perfil
+      ul.nav.menu
+        li
+          a.cambiaContra(href='#')
+            svg.glyph.stroked.pencil
+              use(xlink:href='#stroked-pencil')
+            | Cambiar Contraseña2
+        li
+          a(href='#')
+            svg.glyph.stroked.cancel
+              use(xlink:href='#stroked-cancel')
+            | Cerrar Sesion
+        li.divider(role='presentation')
+        li.active
+          a(href='perfil.html')
+            svg.glyph.stroked.male-user
+              use(xlink:href='#stroked-male-user')
+            |  Perfil
+    // /.sidebar
+    //
+      Active Page
+      ==========================================
+    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+      .row
+        ol.breadcrumb
+          li
+            a(href='#')
+              svg.glyph.stroked.home
+                use(xlink:href='#stroked-home')
+          li.active Perfil
+      // /.row
+        Perfil Header
+        ==========================================
+      .row.present
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12(style='text-align: center;')
+          img.img-circle.team-img(src='../img/team/05.jpg', alt='...', style='width: 100px; height: 100px; margin-top: 30px; border: black 1px solid;')
+          h2(style='margin-bottom: 0px;') Marco Antonio Calderón Argüello
+          h3(style='margin-top: 0px; margin-bottom: 0px;') profesor@espol.edu.ec
+          h3(style='margin-top: 0px; margin-bottom: 0px;') 1 de mayo de 1985
+          h4(style='margin-top: 0px; margin-bottom: 30px;') Profesor
+      
+        
+     
+    
+     
+    
+    
+        
+      
+      // /.row
+      //
+   
+
+      // /.row
+    // /.row
+    // /.main
+    //
+      Javascripts
+      ==================================================
+    script(src='/public/sandBox/js/jquery-1.11.1.min.js')
+    script(src='/public/sandBox/js/bootstrap.min.js')
+    //script(src='/public/sandBox/js/chart.min.js')
+    script(src='/public/sandBox/js/perfil.js')

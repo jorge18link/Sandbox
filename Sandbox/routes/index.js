@@ -51,11 +51,13 @@ passport.deserializeUser(function(id, done) {
 
 router.post('/login',
 	passport.authenticate('local', {successRedirect:'/inicio', failureRedirect:'/',failureFlash: true}),
-  function(req, res) {	
+  function(req, res) {
+		
     res.redirect('/inicio');
 });
 
 router.get('/logout', function(req, res){
+	console.log("deslogeando y tu usuario era:"+req.user);
 	req.logout();
 
 	req.flash('success_msg', 'You are logged out');

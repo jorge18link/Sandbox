@@ -68,4 +68,8 @@ $("body").on("click",".guardar", function(){
 })      
 });
 
+$("body").on("click",".ChangePassword",function(){
+             $("#password_modal").modal("show");
+      });
+
 })
