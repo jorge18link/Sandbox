@@ -19,7 +19,11 @@ html
       .eliminar{
         margin-left: 3px;
       }
-      
+      #modalModificar{
+        margin-top: 10%;
+        width: 50%;
+        margin-left:25%;
+      }
   body
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
@@ -98,7 +102,6 @@ html
     
       
       each exercise, i in listExercise
-        
         .col-lg-8.ej1
           .panel.panel-blue.panel-widget
             .row.no-padding
@@ -116,6 +119,7 @@ html
                   b Dificultad: 
                   | #{exercise.dificultad}
                 button(id="t"+(i+1)).btn.btn-info.panel-blue Ver
+                button(name=exercise.id,data-toggle='modal',data-target='#modalModificar').btn.btn-info.panel-blue.modificar Modificar
                 button(name=exercise.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar Eliminar
                 div(id="esconde"+(i+1)).widget-right
                   p
@@ -123,7 +127,9 @@ html
                   p
                     b Ejercicio 1
                   p
-                    | Crear un programa que mantenga el rastro de los productos de una lista de compras. El Programa debe estar preguntando  por   nuevos   productos hasta que nada es ingresado (nada en el input, seguido  
+                    | Crear un programa que mantenga el rastro de los productos de una lista de compras. El Programa debe estar preguntando  por   nuevos   productos hasta que nada es ingresado (nada en el input, seguido
+
+
       #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
        .modal-dialog(role='document')
         .modal-content
@@ -135,8 +141,41 @@ html
             | Estas Seguro que Desea Eliminar Este ejercicio?
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-            button.btn.btn-primary.confirmar(type='button') Save changes
-      
+            button.btn.btn-primary.confirmarEliminar(type='button') Save changes
+      #modalModificar.modal.fade(aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title Modificar Ejercicio
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form(method='put',action='ejercicios/modificar')
+              .form-group
+                label Título
+                input#modiTitulo.form-control(type='text' name='titulo')
+              .form-group
+                  label Descripción
+                  input#modiDescripcion.form-control(type='text' name='descripcion')
+              .form-group
+                  label Datos de entrada
+                  input#modiDatosIn.form-control(type='text' name='datosDeEntrada')
+              .form-group
+                  label Datos de Salida
+                  input#modiDatosOut.form-control(type='text', name='datosDeSalida')
+              .form-group
+                  label Etiquetas
+                  input#modiEtiquetas.form-control(type='text', name='conjuntoDeEtiquetas')
+              .form-group
+                  label Dificultad
+                  select#modiDificultad.form-control(name='dificultad')
+                    option(value="1") Easy
+                    option(value="2") Normal
+                    option(value="3") Hard
+                    option(value="4") Indefinida
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary.confirmarModificar(type='button') Modificar
+
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
     script(src='/public/sandBox/js/chart.min.js')

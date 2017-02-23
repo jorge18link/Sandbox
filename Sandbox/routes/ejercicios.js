@@ -43,6 +43,16 @@ router.post('/crear',function(req, res){
 	res.redirect('/ejercicios')
 });
 
+router.get('/:id',function(req,res){
+	var id=req.params.id;
+	var busca = {_id: id};
+	ejercicio.findOne(busca,function(err, ejercicio){
+		if(err) throw err;
+		console.log(ejercicio);
+		res.send(ejercicio);
+
+	});
+})
 
 
 router.delete('/EliminarEjercicio/:id',function(req,res){
