@@ -25,6 +25,39 @@ html
         margin-left:25%;
       }
   body
+    #modalModificar.modal.fade(aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title Modificar Ejercicio
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form
+              .form-group
+                label Título
+                input#modiTitulo.form-control(type='text' name='titulo')
+              .form-group
+                  label Descripción
+                  input#modiDescripcion.form-control(type='text' name='descripcion')
+              .form-group
+                  label Datos de entrada
+                  input#modiDatosIn.form-control(type='text' name='datosDeEntrada')
+              .form-group
+                  label Datos de Salida
+                  input#modiDatosOut.form-control(type='text', name='datosDeSalida')
+              .form-group
+                  label Etiquetas
+                  input#modiEtiquetas.form-control(type='text', name='conjuntoDeEtiquetas')
+              .form-group
+                  label Dificultad
+                  select#modiDificultad.form-control(name='dificultad')
+                    option(value="1") Easy
+                    option(value="2") Normal
+                    option(value="3") Hard
+                    option(value="4", hidden='true') Indefinida
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary.confirmarModificar(type='button') Modificar
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
         .navbar-header
@@ -142,39 +175,6 @@ html
           .modal-footer
             button.btn.btn-secondary(type='button', data-dismiss='modal') Close
             button.btn.btn-primary.confirmarEliminar(type='button') Save changes
-      #modalModificar.modal.fade(aria-labelledby='exampleModalLabel', aria-hidden='true')
-        .modal-content
-          .modal-header
-            h5#exampleModalLabel.modal-title Modificar Ejercicio
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true') ×
-          .modal-body
-            form(method='put',action='ejercicios/modificar')
-              .form-group
-                label Título
-                input#modiTitulo.form-control(type='text' name='titulo')
-              .form-group
-                  label Descripción
-                  input#modiDescripcion.form-control(type='text' name='descripcion')
-              .form-group
-                  label Datos de entrada
-                  input#modiDatosIn.form-control(type='text' name='datosDeEntrada')
-              .form-group
-                  label Datos de Salida
-                  input#modiDatosOut.form-control(type='text', name='datosDeSalida')
-              .form-group
-                  label Etiquetas
-                  input#modiEtiquetas.form-control(type='text', name='conjuntoDeEtiquetas')
-              .form-group
-                  label Dificultad
-                  select#modiDificultad.form-control(name='dificultad')
-                    option(value="1") Easy
-                    option(value="2") Normal
-                    option(value="3") Hard
-                    option(value="4") Indefinida
-          .modal-footer
-            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
-            button.btn.btn-primary.confirmarModificar(type='button') Modificar
 
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')

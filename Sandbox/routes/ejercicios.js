@@ -2,6 +2,7 @@ var ejercicio=require('../models/ejercicio')
 var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
+
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
@@ -48,11 +49,22 @@ router.get('/:id',function(req,res){
 	var busca = {_id: id};
 	ejercicio.findOne(busca,function(err, ejercicio){
 		if(err) throw err;
-		console.log(ejercicio);
 		res.send(ejercicio);
-
 	});
 })
+
+router.put('/modificar/:id',function(req,res){
+	var id=req.params.id;
+	var busca = {_id: id};
+	var modificacion = ejercicio(req.body);
+
+	ejercicio.findOneAndUpdate(busca, {$set:modificacion}, function(err, doc){
+		if(err){					
+			console.log("Something wrong when updating data!");
+		}
+		return res.send('Ejercicio modificado con exito');
+	});
+});
 
 
 router.delete('/EliminarEjercicio/:id',function(req,res){
@@ -64,8 +76,6 @@ router.delete('/EliminarEjercicio/:id',function(req,res){
 			console.log('ejercicio  eliminado con exito');
 			return res.send("se ha eliminado");
 		});
-	})
-	
-
+})
 
 module.exports = router;
