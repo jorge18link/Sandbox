@@ -41,4 +41,25 @@ router.get('/obtener/:dificultad',ensureAuthenticated,validacion,function(req,re
             res.send(ej);
 	});   
 })
+
+router.post('/upload', function(req, res) {
+   //El modulo 'fs' (File System) que provee Nodejs nos permite manejar los archivos
+   var fs = require('fs')
+
+   var tmp_path = req.files.archivo.path
+   var tipo = req.files.archivo.type;
+   if(tipo=='text/x-script.phyton'){
+		var nombreArchivo= req.files.archivo.name;
+		var target_path='./archivos/'+nombreArchivo;
+
+
+		fs.rename(tmp_path,target_path,function(err){
+			if(err) throw err;
+			fs.unlink(tmp_path,function(err){
+				res.send('ya se subio el archivo');
+			});
+		});
+   }
+
+})
 module.exports = router;

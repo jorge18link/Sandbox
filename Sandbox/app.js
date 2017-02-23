@@ -12,6 +12,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose= require('mongoose');
 var mongo=require('mongodb');
+var multipart = require('connect-multiparty')
 
 mongoose.connect('mongodb://user:1234@ds129179.mlab.com:29179/expressdaw');
 mongoose.connection.on('open', function (err) {
@@ -39,6 +40,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(multipart()) ;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, '/bower_components')));
 app.use('/public',  express.static( path.join(__dirname, '/public')));

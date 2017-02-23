@@ -177,7 +177,10 @@ html
 
                
                 .col-md-12.barra
-                  button.btn.btn-success.btn-lg(type='button') submit
+                  form(action='/ejerciciosEstudiante/upload', method='POST', enctype='multipart/form-data')
+                    input(type='file', name='archivo')
+                    button.btn.btn-success.btn-lg(type='submit', value='Subir') submit
+                 
                 br
                 h3 Script Output
                 .col-md-12.out
