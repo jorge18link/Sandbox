@@ -60,7 +60,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
   			console.log("Post saved");
   				var correo= req.body.CorreoElectronico;
 				var Subject="Creacion de cuenta en Sandbox"
-				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +Math.random().toString(36).slice(-8); 
+				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +req.body.Contrasena; 
 				var mailOptions = {		
 					to: correo,
 					subject: Subject,
@@ -73,13 +73,13 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 							res.end('error');
 						} else {
 							console.log('Message sent:'  + response.message);
-							response.end('sent');
+							res.render('usua',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
 						}
 				})
  		 }
 
 	});
-	res.render('usua',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
+	
 });
 
 router.delete('/eliminarUsuario/:id',ensureAuthenticated, function(req,res){

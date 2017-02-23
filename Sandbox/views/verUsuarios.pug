@@ -31,8 +31,7 @@ html
       padding-top: 20px;
       padding-right: 10px;
       padding-left: 10px;
-      overflow-y:scroll;
-      height: 56vh;
+      height: 76vh;
       }
       .ejercicios{
       background-color: rgba(255,255,255,0.8);
@@ -86,16 +85,16 @@ html
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
       h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
       ul.nav.menu
-        li
-          a(href='/users/crear')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Crear Usuario
         li.active
           a(href='sandbox-verUsuarios.html')
             svg.glyph.stroked.clipboard.with.paper
               use(xlink:href='#stroked-clipboard-with-paper')
             | Ver Usuarios
+        li
+          a(href='/users/crear')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Crear Usuario
         //
           <li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
           <li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
@@ -179,9 +178,8 @@ html
                                 .form-group
                                     label Tipo de identificacion
                                     select#modifTipo.form-control(name='TipoDeIdentificacion')
-                                      option (seleccione tipo)
-                                      option Cédula (profesor)
-                                      option Matrícula (estudiante)
+                                      option Cédula
+                                      option Matrícula
                                 .form-group
                                     label(for='exampleInputEmail1') Identificacion
                                     input#modifIdentificacion.form-control(type='text', name='Identificacion')

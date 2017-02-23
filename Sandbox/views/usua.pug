@@ -5,7 +5,6 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title SandBox - Estudiantes
     link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
     // Icons
     script(src='/public/sandbox/js/lumino.glyphs.js')
@@ -22,8 +21,7 @@ html
       padding-top: 20px;
       padding-right: 10px;
       padding-left: 10px;
-      overflow-y:scroll;
-      height: 56vh;
+      height: 77vh;
       }
       .ejercicios{
       background-color: rgba(255,255,255,0.8);
@@ -79,16 +77,16 @@ html
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
       h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
       ul.nav.menu
-        li.active
-          a(href='sandbox-crearUsuarios.html')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Crear Usuario
         li
           a(href='/users')
             svg.glyph.stroked.clipboard.with.paper
               use(xlink:href='#stroked-clipboard-with-paper')
             | Ver Usuarios
+        li.active
+          a(href='sandbox-crearUsuarios.html')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Crear Usuario
         li.divider(role='presentation')
         li
           a(href='perfil-estudiante.html')
@@ -123,10 +121,8 @@ html
                   .form-group
                     label(for='sel1') Tipo de identificación: 
                     select#sel1.form-control(name='TipoDeIdentificacion')
-                      option (seleccione tipo)
-                      option Cédula (profesor)
-                      option Matrícula (estudiante)
-                    br
+                      option Cédula
+                      option Matrícula
                   .form-group
                     label(for='identificación') identificacion
                     input.form-control(type='text', name='Identificacion', placeholder='Ingrese identificación: ')
@@ -146,7 +142,3 @@ html
     // /.main
     script(src='/public/sandbox/js/jquery-1.11.1.min.js')
     script(src='/public/sandbox/js/bootstrap.min.js')
-    script(src='/public/sandbox/js/chart.min.js')
-    script(src='/public/sandbox/js/easypiechart.js')
-    script(src='/public/sandbox/js/bootstrap-datepicker.js')
-    script(type='text/javascript', src='/public/sandbox/js/index.js')
