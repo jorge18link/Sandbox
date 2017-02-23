@@ -12,7 +12,7 @@ router.get('/', function(req, res){
 router.get('/inicio', function(req, res){
 	if(req.user.Rol=="Administrador"){
 		res.redirect('/users')
-	}if(req.user.Rol=='Profesor'){
+	}if(req.user.Rol=='Profesor'|| req.user.Rol=='Ayudante'){
 		res.redirect('/ejercicios')
 	}if (req.user.Rol=='Estudiante'){
 		res.redirect('/ejerciciosEstudiante');

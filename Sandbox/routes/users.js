@@ -107,7 +107,7 @@ router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 		//Se toman los datos de la vista con los parametros que vas a modificar
 		var modificacion = {
 			Rol: req.body.Rol,
-			CorreoElectronico: req.body.Correo,
+			CorreoElectronico: req.body.CorreoElectronico,
 			TipoDeIdentificacion: req.body.TipoDeIdentificacion,
 			Identificacion: req.body.Identificacion,
 			Nombres: req.body.Nombres,

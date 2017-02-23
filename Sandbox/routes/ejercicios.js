@@ -14,10 +14,10 @@ function ensureAuthenticated(req, res, next){
 
 var validacion=function(req,res,next){
 	console.log(req.user.Rol);
-	if(req.user.Rol !="Profesor"){
+	if(req.user.Rol !="Profesor" && req.user.Rol!="Ayudante"){
   		res.sendStatus(401);
   		return;
-  	}
+  	} 
   	next();	
 }
 
