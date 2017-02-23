@@ -7,21 +7,21 @@ html
     link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
     // Icons
-    //script(src='/public/sandbox/js/lumino.glyphs.js')
+    script(src='/public/sandbox/js/lumino.glyphs.js')
     style(type='text/css').
       .sb-ejer{
-      background-color: rgba(0,0,0,0.3);
-      padding-left: 20px;
-      padding-bottom: 20px;
+        background-color: rgba(0,0,0,0.3);
+        padding-left: 20px;
+        padding-bottom: 20px;
       }
       .sb-ejer h3{
-      color:orange;
+        color:orange;
       }
       .sb-desc{
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      
+        padding-top: 20px;
+        padding-right: 10px;
+        padding-left: 10px;
+        height:76vh;
       }
       .ejercicios{
         border-radius:15px;
@@ -29,15 +29,15 @@ html
         background-color: rgba(220,220,220,1);
       }
       .ejercicios p{
-      color: black;
-      font-size: large;
+        color: black;
+        font-size: large;
       }
       #body-pan{
-      background-color: #9BD0F5;
+        background-color: #9BD0F5;
       }
       #pane-techo{
-      background-color: #5094C4;
-      color: white;
+        background-color: #5094C4;
+        color: white;
       }
       .titulo{
         padding-top:10px;
@@ -84,14 +84,14 @@ html
       h2(style='margin-top: 17px; padding-left: 10px;') Menú Sandbox
       ul.nav.menu
         li
-          a(href='#')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
+          a(href='/ejercicios')
+            svg.glyph.stroked.notepad
+              use(xlink:href='#stroked-notepad')
             | Ejercicios
         li.active
-          a(href='talleres.html')
-            svg.glyph.stroked.clipboard.with.paper
-              use(xlink:href='#stroked-clipboard-with-paper')
+          a(href='#')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
             |  Crear Ejercicio
         li.divider(role='presentation')
         li
@@ -111,30 +111,30 @@ html
       // /.row
       br
       .row
-        .col-lg-12
+        .col-lg-12.panes
           // ============Aqui Trabajo================
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Nuevo Ejercicio
             #body-pan.panel-body
-              .ejercicios.col-md-6
-
-                form(method='post', action='/ejercicios/crear')       
-                    p.titulo Título:
-                    input.form-control(type='text', name='titulo', placeholder='Título')
-                    p.titulo Descripción:
-                    textarea.form-control(type='text', name='descripcion', placeholder='Descripción')
-                    p.titulo Datos de entrada:
-                    input.form-control(type='text', name='datosDeEntrada', placeholder='Datos de Entrada')
-                    p.titulo Datos de Salida:
-                    input.form-control(type='text', name='datosDeSalida', placeholder='Datos de Salida')
-                    p.titulo Etiquetas:
-                    input.form-control(type='text', name='conjuntoDeEtiquetas', placeholder='Etiquetas')
-                    p.titulo Dificultad:
-                    select.form-control(type='text', name='dificultad')
-                      option Easy
-                      option Normal
-                      option Hard
-                    button.btn.btn-lg.btn-primary.dale(type='submit', name='go')  Crear
+              .sb-desc.col-md-12.col-sm-12
+                .ejercicios.col-md-6
+                  form(method='post', action='/ejercicios/crear')       
+                      p.titulo Título:
+                      input.form-control(type='text', name='titulo', placeholder='Título')
+                      p.titulo Descripción:
+                      textarea.form-control(type='text', name='descripcion', placeholder='Descripción')
+                      p.titulo Datos de entrada:
+                      input.form-control(type='text', name='datosDeEntrada', placeholder='Datos de Entrada')
+                      p.titulo Datos de Salida:
+                      input.form-control(type='text', name='datosDeSalida', placeholder='Datos de Salida')
+                      p.titulo Etiquetas:
+                      input.form-control(type='text', name='conjuntoDeEtiquetas', placeholder='Etiquetas')
+                      p.titulo Dificultad:
+                      select.form-control(type='text', name='dificultad')
+                        option Easy
+                        option Normal
+                        option Hard
+                      button.btn.btn-lg.btn-primary.dale(type='submit', name='go')  Crear
 
                         
    
