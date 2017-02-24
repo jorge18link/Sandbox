@@ -28,6 +28,33 @@ function ensureAuthenticated(req, res, next){
 	}
 }
 
+router.post('/modifContrasena',ensureAuthenticated,validacion,function(req,res){
+	var nuevaContraseña=req.body.nContraseña;
+	var antiguaContraseña=req.user.Contrasena;
+	var validarAntigua=req.body.validarAntigua;
+	var idUsuario=req.user._id;
+	var busca= {_id : idUsuario}
+	var modificacion={
+		Contrasena: nuevaContraseña
+	}
+	console.log('mostrar contraseñas');
+	console.log(antiguaContraseña);
+	console.log(validarAntigua);
+	if(antiguaContraseña==validarAntigua){
+		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
+				if(err){					
+				console.log("Something wrong when updating data!");
+				res.json({cambio:0, mensaje:'Algo salió mal'});
+				}
+				console.log("Contrasena modificado con exito");
+				res.json({cambio: 1, mensaje:'Contraseña cambiada con éxito'});
+				//console.log(doc);
+			}); 
+	}else{
+		console.log("No coincide")
+		res.json({cambio:0, mensaje:'Contraseña no coinciden'});
+	}
+})
 
 router.get('/crear',ensureAuthenticated,validacion,function(req,res){
     res.render('usua');

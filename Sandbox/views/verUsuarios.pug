@@ -6,9 +6,7 @@ html
     title SandBox - Estudiantes
     // Latest compiled and minified CSS
     link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandBox/css/styles.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='/public/sandBox/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
@@ -105,7 +103,7 @@ html
           <li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
         li.divider(role='presentation')
         li
-          a(href='perfil-estudiante.html')
+          a(href='/users/perfil')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
@@ -127,7 +125,7 @@ html
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Usuarios
             #body-pan.panel-body
-              .sb-desc.col-md-12.col-sm-12
+              .sb-desc.col-md-12.col-sm-12.table-responsive
                 table#example.table.table-striped.table-bordered.dt-responsive.nowrap(cellspacing='0', width='100%')
                   thead
                     tr
