@@ -37,6 +37,10 @@ router.get('/perfil',ensureAuthenticated,validacion,function(req,res){
 	res.render('perfil');
 })
 
+router.get('/perfil/Insignias',function(req,res){
+	res.render('perfilInsignias');
+})
+
 router.get('/',ensureAuthenticated,validacion, function(req, res){
 	User.find({}, function(err, users) {
     if(err) throw err;

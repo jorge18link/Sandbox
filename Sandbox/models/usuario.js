@@ -10,7 +10,15 @@ var usuarioSchema = new Schema({
    Identificacion:String,
    Nombres:String,
    Apellidos:String,
-   Carrera:String
+   Carrera:String,
+   puntajeObtenido:Number,
+   insigNovato:Boolean,
+   insigPro:Boolean,
+   insigExperto:Boolean,
+   insigIndistructible:Boolean,
+   insigDuroMatar:Boolean,
+   insigRapidoFurioso:Boolean,
+   ejerciciosCompletados:Number
 })
 
 var User=module.exports=mongoose.model('usuario',usuarioSchema);
