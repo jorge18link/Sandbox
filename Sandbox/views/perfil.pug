@@ -80,22 +80,18 @@ html
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
       h2(style='margin-top: 17px; padding-left: 10px;') Perfil
       ul.nav.menu
-        li
+        li.perfil1
           a.cambiaContra(href='#')
             svg.glyph.stroked.pencil
               use(xlink:href='#stroked-pencil')
             | Cambiar Contraseña2
-        li
+        li.perfil2
           a(href='#')
             svg.glyph.stroked.cancel
               use(xlink:href='#stroked-cancel')
             | Cerrar Sesion
         li.divider(role='presentation')
-        li.active
-          a(href='perfil.html')
-            svg.glyph.stroked.male-user
-              use(xlink:href='#stroked-male-user')
-            |  Perfil
+
     // /.sidebar
     //
       Active Page
@@ -118,8 +114,35 @@ html
           h3(style='margin-top: 0px; margin-bottom: 0px;') profesor@espol.edu.ec
           h3(style='margin-top: 0px; margin-bottom: 0px;') 1 de mayo de 1985
           h4(style='margin-top: 0px; margin-bottom: 30px;') Profesor
-      
-        
+      .alert.alert-success#alertaExito
+        #mensajeAlertaExito
+      .alert.alert-warning#alertaWarning
+        #mensajeAlerta
+      div.row
+        .col-sm-3
+        .CambioContra.col-sm-6
+          .header
+            h3
+              | Cambiar Contraseña
+              span.extra-title.muted
+            hr
+          .form
+            .form-group.row
+              label.col-sm-3.col-form-label Contraseña Anterior: 
+              .col-sm-9
+                input#old_password.form-control(type='password', name='old_password')
+            .form-group.row
+              label.col-sm-3.col-form-label New Password
+              .col-sm-9
+                input#new_password.form-control(type='password', name='new_password')
+            .form-group.row
+              label.col-sm-3.col-form-label(for='confirm_password') Confirmar Contraseña
+              .col-sm-9
+                input#confirm_password.form-control(type='password', name='confirm_password')
+              .errorC
+                p Las contraseñas no coinciden
+            button#password_modal_save.btn.btn-primary(href='#') Guardar
+        .col-sm-3
      
     
      

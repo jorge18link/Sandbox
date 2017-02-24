@@ -6,9 +6,7 @@ html
     title SandBox - Estudiantes
     // Latest compiled and minified CSS
     link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandBox/css/styles.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='/public/sandBox/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
@@ -16,7 +14,6 @@ html
     // Icons
     script(src='/public/sandBox/js/lumino.glyphs.js')
     script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
-    script(type='text/javascript', scr='/public/sandBox/js/jquery.dataTables.min.js').
     script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').    
     style(type='text/css').
       .sb-ejer{
@@ -100,12 +97,9 @@ html
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
             | Crear Usuario
-        //
-          <li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
-          <li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
         li.divider(role='presentation')
         li
-          a(href='perfil-estudiante.html')
+          a(href='/users/perfil')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
@@ -127,7 +121,7 @@ html
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Usuarios
             #body-pan.panel-body
-              .sb-desc.col-md-12.col-sm-12
+              .sb-desc.col-md-12.col-sm-12.table-responsive
                 table#example.table.table-striped.table-bordered.dt-responsive.nowrap(cellspacing='0', width='100%')
                   thead
                     tr
@@ -202,13 +196,8 @@ html
                               button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
                               button.btn.btn-primary.guardar(type='button') Guardar          
           // ============/Aqui Trabajo================
-          // ============Aqui tambien Trabajo================
-        // /.row
-      // /.row
-    // /.main
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
-    script(src='/public/sandBox/js/chart.min.js')
     script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
     script(src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
@@ -216,7 +205,4 @@ html
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
     link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css')
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1', crossorigin='anonymous')
-    script(src='/public/sandBox/js/easypiechart.js')
-    script(src='/public/sandBox/js/bootstrap-datepicker.js')
-    script(type='text/javascript', src='/public/sandBox/js/index.js')
     script(src='/public/js/usuario.js')
