@@ -58,7 +58,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='../index.html')
+          a.navbar-brand(href='/')
             span SandBox 
             | Profesores
           ul.user-menu
@@ -70,12 +70,12 @@ html
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='perfil-estudiante.html')
+                  a(href='/perfil')
                     svg.glyph.stroked.male-user
-                      use(xlink:href='#stroked-male-user')
+                      use(xlink:href='/perfil')
                     |  Ver mi perfil
                 li
-                  a(href='../index.html')
+                  a(href='/logout')
                     svg.glyph.stroked.cancel
                       use(xlink:href='#stroked-cancel')
                     |  Cerrar Sesión
@@ -95,7 +95,7 @@ html
             |  Crear Ejercicio
         li.divider(role='presentation')
         li
-          a(href='perfil-estudiante.html')
+          a(href='/perfil')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil

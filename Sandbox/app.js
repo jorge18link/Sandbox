@@ -44,7 +44,10 @@ app.use(multipart()) ;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, '/bower_components')));
 app.use('/public',  express.static( path.join(__dirname, '/public')));
-
+app.use(function(req, res, next) {
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
 
 // Express Session
 app.use(session({

@@ -52,9 +52,9 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='../index.html')
+          a.navbar-brand(href='/inicio')
             span SandBox 
-            | Estudiantes
+            | Administrador
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -64,12 +64,12 @@ html
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='perfil-estudiante.html')
+                  a(href='/perfil')
                     svg.glyph.stroked.male-user
-                      use(xlink:href='#stroked-male-user')
+                      use(xlink:href='/perfil')
                     |  Ver mi perfil
                 li
-                  a(href='../index.html')
+                  a(href='/logout')
                     svg.glyph.stroked.cancel
                       use(xlink:href='#stroked-cancel')
                     |  Cerrar Sesión
@@ -89,7 +89,7 @@ html
             | Crear Usuario
         li.divider(role='presentation')
         li
-          a(href='perfil-estudiante.html')
+          a(href='/perfil')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
