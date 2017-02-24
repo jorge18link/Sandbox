@@ -52,7 +52,7 @@ router.post('/modifContrasena',ensureAuthenticated,validacion,function(req,res){
 			}); 
 	}else{
 		console.log("No coincide")
-		res.json({cambio:0, mensaje:'Contraseña no coinciden'});
+		res.json({cambio:0, mensaje:'La contraseña anterior no coincide'});
 	}
 })
 

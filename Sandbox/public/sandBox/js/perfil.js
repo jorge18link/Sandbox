@@ -1,6 +1,10 @@
 function redireccion(){
     window.location="/users/perfil";
 }
+function ocultarNotifNoCoincideNuevos(){
+    $('.errorC').hide();
+}
+ 
 
 $( document ).ready(function() {
     $('#alertaExito').hide();
@@ -41,12 +45,16 @@ $( document ).ready(function() {
                         console.log("chao");
                         $('#mensajeAlerta').text(usuario.mensaje);
                         $('#alertaWarning').show();
+                        setTimeout(function() {
+                            $('#alertaWarning').hide();
+                        }, 4000);
                         $('#alertaExito').hide();
                     } 
             }
             }); 
         }else{
             $('.errorC').show();
+            setTimeout("ocultarNotifNoCoincideNuevos()",4000 );
         }
 
     })
