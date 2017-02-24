@@ -100,21 +100,21 @@ router.get('/perfil/Insignias',ensureAuthenticated,function(req,res){
 		 	}
 		*/
 		//res.send(ejercicios);
-	});
+		});
 
-	var today = moment().startOf('day');
-	console.log("El dia es: "+today);
-	res.send(today)
-	var tomorrow = moment(today).add(1, 'days');
-/*
-MyModel.find({
-  createdAt: {
-    $gte: today.toDate(),
-    $lt: tomorrow.toDate()
-  }
-})
-*/
-
+		//var today = moment().startOf('day');
+		//console.log("El dia es: "+today);
+		//var tomorrow = moment(today).add(1, 'days');
+		//res.send(today)
+	
+		/*
+		MyModel.find({
+			createdAt: {
+				$gte: today.toDate(),
+				$lt: tomorrow.toDate()
+			}
+		})
+		*/
 })
 
 module.exports = router;
