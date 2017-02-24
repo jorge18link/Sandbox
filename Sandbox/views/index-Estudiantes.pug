@@ -48,6 +48,27 @@ html
       .war{
         height:40vh;
       }
+      span h3{
+              color: #323133;
+      font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+      letter-spacing: -1px;
+      text-decoration: none; 
+      text-shadow: 1px 1px #fff, 0 0 #0e0e0e, 2px 3px 1px #e3e3e3; 
+      text-transform: none; 
+      word-spacing: -2px;
+      }
+      .tag{
+        border-radius: 2vh;
+        border-top-left-radius: 8vw;
+        border-bottom-left-radius:8vw;
+        margin-left: 5rem;
+        padding-left:0px
+      }
+      .tag img{
+         margin-left:0px;
+         padding-left:0px;
+      }
+      
   body
     //
       Navigation
@@ -123,34 +144,15 @@ html
       // /.row
       br
       .row
-        .col-xs-12.col-md-6.col-lg-3.tag(name="Easy")
-          .panel.panel-orange.panel-widget
-            .row.no-padding
-              .col-sm-3.col-lg-5.widget-left
-                svg.glyph.stroked.tag
-                  use(xlink:href='#stroked-tag')
-              .col-sm-9.col-lg-7.widget-right
-                .large
-                  | Facil
-        .col-xs-12.col-md-6.col-lg-3.tag(name="Normal")
-          .panel.panel-teal.panel-widget
-            .row.no-padding
-              .col-sm-3.col-lg-5.widget-left
-                svg.glyph.stroked.star
-                  use(xlink:href='#stroked-tag')
-              .col-sm-9.col-lg-7.widget-right
-                .large
-                  | Intermedio
-        .col-xs-12.col-md-6.col-lg-3.tag(name="Hard")
-          .panel.panel-red.panel-widget
-            .row.no-padding
-              .col-sm-3.col-lg-5.widget-left
-                svg.glyph.stroked.arrow.up
-                  use(xlink:href='#stroked-tag')
-              .col-sm-9.col-lg-7.widget-right
-                .large
-                  | Dificil
-      // /.row
+        .col-xs-12.col-md-2.tag.panel.panel-teal(name='Easy')
+          img.col-md-6(src='/public/img/choose.png').img-responsive
+          h3 Facil
+        .col-xs-12.col-md-2.tag.panel.panel-orange(name="Normal")
+          img.col-md-6(src='/public/img/choose.png').img-responsive
+          h3 Medio
+        .col-xs-12.col-md-2.tag.panel.panel-red(name="Hard").img-responsive
+          img.col-md-6(src='/public/img/choose.png')
+          h3 Dificil
       .row
         .col-lg-12
           // ============Aqui Trabajo================

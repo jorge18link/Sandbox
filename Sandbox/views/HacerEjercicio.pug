@@ -34,7 +34,7 @@ html
       color: black;
       font-size: large;
       }
-      #body-pan{
+      #body-pan {
       background-color: #9BD0F5;
       }
       #pane-techo{
@@ -64,8 +64,7 @@ html
         height: 75rem;
       }
       .codigo{
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-radius:5px;
         margin-top:15px;
         background-color:black;
         color:white;
@@ -77,19 +76,13 @@ html
         border-radius:5px;
         margin: 0.5rem
       }
-      .barra{
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        height:6rem;
-        background-color:black;
-        opacity: 0.8;
+      .tittle{
+        float:left;
       }
-      .out{
-        border-radius:15px;
-        height: 28rem;
-        background-color:black;
-        
+      .img-responsive{
+      width: 50px; height: 50px;
       }
+      
   body
     //
       Navigation
@@ -170,20 +163,21 @@ html
                 p= list.descripcion
                 h2 Indicaciones:
                 p="Utilice las siguientes variables de entrada: "+ list.datosDeEntrada     
-              .col-md-8.txt
-                h3 ingrese el codigo aqui:
+              .col-md-8
                 
-                textarea#exampleTextarea.form-control.col-md-12.codigo(rows='12')
-
-               
-                .col-md-12.barra
-                  form(action='/ejerciciosEstudiante/upload', method='POST', enctype='multipart/form-data')
-                    input(type='file', name='archivo')
-                    button.btn.btn-success.btn-lg(type='submit', value='Subir') submit
-                 
+                h3.tittle Python 
+                img.img-responsive(src="/public/img/00.png")
+                div.panel.panel-default.col-md-7(style='background-color:#5094C4;border-radius:5px; margin-top:10px')
+                 div.panel-body
+                    .form(id='formulario',action='#')
+                      div.form-group
+                        h2 Suba Su Codigo:
+                        input(type='file', name='archivo')
+                        button.btn.btn-success.btn-lg(value='Subir') submit
                 br
-                h3 Script Output
-                .col-md-12.out
+                h3.col-md-8 Script Output
+                .col-md-8(style='margin-left:3vw')
+                  textarea#exampleTextarea.form-control.codigo(rows='10')
                 
         
                      
@@ -203,4 +197,4 @@ html
     script(src='/public/sandbox/js/chart.min.js')
     script(src='/public/sandbox/js/easypiechart.js')
     script(src='/public/sandbox/js/bootstrap-datepicker.js')
-    script(type='text/javascript', src='public/sandbox/js/index.js')
+    script(src='/public/js/mostrar.js')

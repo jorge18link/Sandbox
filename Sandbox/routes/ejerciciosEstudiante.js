@@ -2,6 +2,10 @@ var Ejercicio=require('../models/ejercicio')
 var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
+var PythonShell=require('python-shell');
+
+
+
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
@@ -48,18 +52,27 @@ router.post('/upload', function(req, res) {
 
    var tmp_path = req.files.archivo.path
    var tipo = req.files.archivo.type;
-   if(tipo=='text/x-script.phyton'){
+   
 		var nombreArchivo= req.files.archivo.name;
 		var target_path='./archivos/'+nombreArchivo;
+		var pyshell=new PythonShell(target_path);
+		
 
 
 		fs.rename(tmp_path,target_path,function(err){
 			if(err) throw err;
 			fs.unlink(tmp_path,function(err){
-				res.send('ya se subio el archivo');
+				pyshell.on('message', function (message) {
+					// received a message sent from the Python script (a simple "print" statement)
+					console.log(message);
+					res.send(message);
+
+				});
+				
 			});
 		});
-   }
+   
+
 
 })
 module.exports = router;
