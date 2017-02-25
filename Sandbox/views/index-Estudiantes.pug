@@ -5,7 +5,6 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title SandBox - Estudiantes
     link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandBox/css/styles.css', rel='stylesheet')
     script(src='/public/sandBox/js/lumino.glyphs.js')
     style(type='text/css').
@@ -82,14 +81,13 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/inicio')
-            span SandBox 
-            | Estudiantes
+            span.rol
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 svg.glyph.stroked.male-user
                   use(xlink:href='#stroked-male-user')
-                |  Fernando Sánchez Zambrano 
+                label.nombreUser
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
@@ -107,15 +105,10 @@ html
       h2(style='margin-top: 17px; padding-left: 10px;') Menú Sandbox
       ul.nav.menu
         li.active
-          a(href='index.html')
+          a(href='/inicio')
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
             | Ejercicios
-        li
-          a(href='libros.html')
-            svg.glyph.stroked.upload
-              use(xlink:href='#stroked-upload')
-            |  Libros
         li.divider(role='presentation')
         li
           a(href='/perfil')
@@ -127,7 +120,7 @@ html
       .row
         ol.breadcrumb
           li
-            a(href='#')
+            a(href='/inicio')
               svg.glyph.stroked.home
                 use(xlink:href='#stroked-home')
           li.active Ejercicios
@@ -157,7 +150,5 @@ html
     // /.main
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
-    script(src='/public/sandBox/js/chart.min.js')
-    script(src='/public/sandBox/js/easypiechart.js')
-    script(src='/public/sandBox/js/bootstrap-datepicker.js')
     script(src='/public/js/FindExercise.js')
+    script(src='/public/js/mostrar-Usuario.js')

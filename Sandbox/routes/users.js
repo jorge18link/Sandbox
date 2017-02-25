@@ -28,14 +28,9 @@ function ensureAuthenticated(req, res, next){
 	}
 }
 
-
-
 router.get('/crear',ensureAuthenticated,validacion,function(req,res){
-    res.render('usua');
+    res.render('usuarioCrear');
 })
-
-
-
 
 router.get('/',ensureAuthenticated,validacion, function(req, res){
 	User.find({}, function(err, users) {
@@ -77,7 +72,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 							res.end('error');
 						} else {
 							console.log('Message sent:'  + response.message);
-							res.render('usua',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
+							res.render('usuarioCrear',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
 						}
 				})
  		 }
@@ -129,8 +124,6 @@ router.put('/modificar/:id',ensureAuthenticated, function(req,res){
 			res.send('Usuario Modificado con exito');
 			//console.log(doc);
 		});
-
-	
 });
 
 module.exports = router;
