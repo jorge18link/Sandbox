@@ -3,8 +3,9 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title SandBox - Estudiantes
+    title SandBox - Administrador
     link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
     // Icons
     script(src='/public/sandbox/js/lumino.glyphs.js')
@@ -21,12 +22,14 @@ html
       padding-top: 20px;
       padding-right: 10px;
       padding-left: 10px;
-      height: 77vh;
+      overflow-y:scroll;
+      height: 56vh;
       }
-      .ejercicios{
+      .cursos{
       background-color: rgba(255,255,255,0.8);
+      margin-top: 10px;
       }
-      .ejercicios p{
+      .cursos p{
       color: black;
       font-size: large;
       }
@@ -37,12 +40,18 @@ html
       background-color: #5094C4;
       color: white;
       }
+      .titulo{
+        margin-top: 10px;
+      }
+      .btn.btn-lg.btn-primary.dale{
+        margin-top:10px;
+        margin-bottom:10px;
+      }
       .form-control{
       max-width: 550px
       }
   body
-    //
-      Navigation
+    //Navigation
       ==========================================
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
@@ -77,7 +86,7 @@ html
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
       ul.nav.menu
         h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
-        li.active
+        li
           a(href='/users/crear')
             svg.glyph.stroked.blank.document
               use(xlink:href='#stroked-blank-document')
@@ -89,7 +98,7 @@ html
             | Usuarios
         li.divider(role='presentation')
         h3(style='margin-top: 17px; padding-left: 10px;') Cursos
-        li
+        li.active
           a(href='/cursos/crear')
             svg.glyph.stroked.blank.document
               use(xlink:href='#stroked-blank-document')
@@ -120,37 +129,24 @@ html
         .col-lg-12
           // ============Aqui Trabajo================
           .panel.panel-default
-            #pane-techo.panel-heading.col-md-12 Crear Usuarios
+            #pane-techo.panel-heading.col-md-12 Nuevo Curso
             #body-pan.panel-body
-              .sb-desc.col-md-12.col-sm-12
-                form(method='post', action='/users/crear', role='form')
-                  .form-group
-                    label(for='ejemplo_email_1') Email
-                    input.form-control(name='CorreoElectronico', type='email', placeholder='Introduzca email')
-                  .form-group
-                    label(for='rol') Rol
-                    input.form-control(name='Rol', type='text', placeholder='Introduce el rol')
-                  .form-group
-                    label(for='sel1') Tipo de identificación: 
-                    select#sel1.form-control(name='TipoDeIdentificacion')
-                      option Cédula
-                      option Matrícula
-                  .form-group
-                    label(for='identificación') identificacion
-                    input.form-control(type='text', name='Identificacion', placeholder='Ingrese identificación: ')
-                  .form-group
-                    label(for='nombre') Nombre
-                    input.form-control(name='Nombres', type='text', placeholder='Introduzca cedula o Matrícula')
-                  .form-group
-                    label(for='apellidos') Apellidos
-                    input.form-control(name='Apellidos', type='text', placeholder='Introduce los apellidos')
-                  .form-group
-                    label(for='Carrera') Carrera
-                    input.form-control(name='Carrera', type='text', placeholder='Introduce la carrera')
-                  button.btn.btn-default(type='submit') Enviar
+              .cursos.col-md-4
+                form(method='post', action='/cursos/crear')
+                  p.titulo Paralelo:
+                  input.form-control(type='number', name='paralelo', placeholder='Paralelo', min='1')
+                  p.titulo Profesor:
+                  input.form-control(type='text', name='profesor', placeholder='Profesor')
+                  //p.titulo Estudiantes:
+                  //input.form-control(type='text', name='estudiantes', placeholder='Estudiantes')
+                  button.btn.btn-lg.btn-primary.dale(type='submit', name='go')  Crear
           // ============/Aqui Trabajo================
         // /.row
       // /.row
     // /.main
     script(src='/public/sandbox/js/jquery-1.11.1.min.js')
     script(src='/public/sandbox/js/bootstrap.min.js')
+    script(src='/public/sandbox/js/chart.min.js')
+    script(src='/public/sandbox/js/easypiechart.js')
+    script(src='/public/sandbox/js/bootstrap-datepicker.js')
+    script(type='text/javascript', src='/public/sandbox/js/index.js')

@@ -1,16 +1,17 @@
 var mongoose= require('mongoose');
 var bcrypt = require('bcrypt');
-var Schema = require('mongoose').Schema
-
-require('../models/usuario');
-var usuario =mongoose.model('usuario');
+var Schema = require('mongoose').Schema;
+var ObjectIdSchema = Schema.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
+var usuario = require('../models/usuario');
 
 var cursoSchema = new Schema({
-    Paralelo:String,
-    Profesor: {type:Schema.ObjectId, ref: "usuario"},
-    Estudiantes: {type:Schema.ObjectId, ref: "usuario"}
+    paralelo: {type:ObjectIdSchema, default: function () { return new ObjectId()} },
+    profesor: {type:Schema.ObjectId, ref: 'usuario'}
+    //profesor: {type:Schema.ObjectId, ref: 'usuario'},
+    //estudiantes: [{type:Schema.ObjectId, ref: 'usuario'}]
+}, {
+    versionKey: false
 });
 
-var curso=module.exports=mongoose.model('curso',cursoSchema);
-
-
+var Curso=module.exports=mongoose.model('curso',cursoSchema);

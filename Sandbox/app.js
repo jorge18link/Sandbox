@@ -19,7 +19,7 @@ mongoose.connection.on('open', function (err) {
   if (err) return console.log('No se ha podido conectar con la base de datos')
   // Iniciamos nuestro servidor Express o ejecutamos nuestra función que crea documentos, por ejemplo..
 })
-
+mongoose.Promise = global.Promise;
 
 
 var index = require('./routes/index');

@@ -3,55 +3,55 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title SandBox - Estudiantes
-    // Latest compiled and minified CSS
-    link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandBox/css/datepicker3.css', rel='stylesheet')
-    link(href='/public/sandBox/css/styles.css', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='/public/sandBox/css/dataTables.bootstrap.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css')
+    title SandBox - Administrador
+    link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
+    link(href='/public/sandbox/css/styles.css', rel='stylesheet')
     // Icons
-    script(src='/public/sandBox/js/lumino.glyphs.js')
-    script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
-    script(type='text/javascript', scr='/public/sandBox/js/jquery.dataTables.min.js').
-    script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').    
+    script(src='/public/sandbox/js/lumino.glyphs.js')
     style(type='text/css').
       .sb-ejer{
-      background-color: rgba(0,0,0,0.3);
-      padding-left: 20px;
-      padding-bottom: 20px;
+        background-color: rgba(0,0,0,0.3);
+        padding-left: 20px;
+        padding-bottom: 20px;
       }
       .sb-ejer h3{
-      color:orange;
+        color:orange;
       }
       .sb-desc{
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      overflow-y:scroll;
-      height: 56vh;
+        padding-top: 20px;
+        padding-right: 10px;
+        padding-left: 10px;
+        overflow-y:scroll;
+        height: 56vh;
       }
-      .ejercicios{
-      background-color: rgba(255,255,255,0.8);
+      .cursos{
+        background-color: rgba(255,255,255,0.8);
+        margin-top: 10px;
       }
-      .ejercicios p{
-      color: black;
-      font-size: large;
+      .cursos p{
+        color: black;
+        font-size: large;
       }
       #body-pan{
-      background-color: #9BD0F5;
+        background-color: #9BD0F5;
       }
       #pane-techo{
-      background-color: #5094C4;
-      color: white;
+        background-color: #5094C4;
+        color: white;
       }
-      
+      .titulo{
+        margin-top: 10px;
+      }
+      .btn.btn-lg.btn-primary.dale{
+        margin-top:10px;
+        margin-bottom:10px;
+      }
+      .form-control{
+        max-width: 550px
+      }
   body
-    //
-      Navigation
+    //Navigation
       ==========================================
     nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
       .container-fluid
@@ -61,52 +61,56 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='/inicio')
-            span SandBox 
+          a.navbar-brand(href='../index.html')
+            span SandBox
             | Administrador
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 svg.glyph.stroked.male-user
                   use(xlink:href='#stroked-male-user')
-                |  Karen Lilibeth Borbor
+                |  Fernando Sánchez Zambrano
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='/perfil')
+                  a(href='#')
                     svg.glyph.stroked.male-user
-                      use(xlink:href='/perfil')
+                      use(xlink:href='#stroked-male-user')
                     |  Ver mi perfil
                 li
-                  a(href='/logout')
+                  a(href='#')
                     svg.glyph.stroked.cancel
                       use(xlink:href='#stroked-cancel')
                     |  Cerrar Sesión
       // /.container-fluid
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
-      h2(style='margin-top: 17px; padding-left: 10px;') Administrar
       ul.nav.menu
+        h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
         li
-          a(href='sandbox-crearUsuarios.html')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Ejercicios
+          a(href='/users/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Usuario
         li
           a(href='sandbox-verUsuarios.html')
-            svg.glyph.stroked.clipboard.with.paper
-              use(xlink:href='#stroked-clipboard-with-paper')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
             | Usuarios
+        li.divider(role='presentation')
+        h3(style='margin-top: 17px; padding-left: 10px;') Cursos
+        li
+          a(href='/cursos/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Curso
         li.active
-          a(href='#')
-            svg.glyph.stroked.paperclip
-              use(xlink:href='#stroked-paperclip')
+          a(href='/cursos')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
             | Cursos
-        //
-          <li><a href="deberes.html"><svg class="glyph stroked paperclip"><use xlink:href="#stroked-paperclip"/></svg>Deberes</a></li>
-          <li><a href="libros.html"><svg class="glyph stroked upload"><use xlink:href="#stroked-upload"/></svg> Libros</a></li>
         li.divider(role='presentation')
         li
-          a(href='perfil-estudiante.html')
+          a(href='#')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
@@ -124,23 +128,14 @@ html
       .row
         .col-lg-12
           // ============Aqui Trabajo================
-          h2 Hola World!
+          h2 Hello World!
           // ============/Aqui Trabajo================
-          // ============Aqui tambien Trabajo================
         // /.row
       // /.row
     // /.main
-    script(src='/public/sandBox/js/jquery-1.11.1.min.js')
-    script(src='/public/sandBox/js/bootstrap.min.js')
-    script(src='/public/sandBox/js/chart.min.js')
-    script(src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js')
-    script(src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css')
-    link(rel='stylesheet', type='text/css', href='https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css')
-    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1', crossorigin='anonymous')
-    script(src='/public/sandBox/js/easypiechart.js')
-    script(src='/public/sandBox/js/bootstrap-datepicker.js')
-    script(type='text/javascript', src='/public/sandBox/js/index.js')
-    script(src='/public/js/usuario.js')
+    script(src='/public/sandbox/js/jquery-1.11.1.min.js')
+    script(src='/public/sandbox/js/bootstrap.min.js')
+    script(src='/public/sandbox/js/chart.min.js')
+    script(src='/public/sandbox/js/easypiechart.js')
+    script(src='/public/sandbox/js/bootstrap-datepicker.js')
+    script(type='text/javascript', src='/public/sandbox/js/index.js')
