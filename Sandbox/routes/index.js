@@ -104,10 +104,6 @@ router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 	}
 })
 
-router.get('/perfil/Insignias',ensureAuthenticated, function(req,res){
-	res.render('perfilInsignias');
-})
-
 router.get('/usulog',function(req,res){
 	res.send(req.user);
 })
