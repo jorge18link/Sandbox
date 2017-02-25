@@ -58,52 +58,58 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='../index.html')
-            span SandBox 
-            | Usuarios
+            span SandBox
+            | Administrador
           ul.user-menu
             li.dropdown.pull-right
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 svg.glyph.stroked.male-user
                   use(xlink:href='#stroked-male-user')
-                |  Fernando Sánchez Zambrano 
+                |  Fernando Sánchez Zambrano
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='perfil-estudiante.html')
+                  a(href='#')
                     svg.glyph.stroked.male-user
                       use(xlink:href='#stroked-male-user')
                     |  Ver mi perfil
                 li
-                  a.ChagePassword
-                    svg.glyph.simple.pencil
-                      use(xlink:href='#simple-pencil')
-                    |  Cambiar Contraseña
-                li
-                  a(href='../index.html')
+                  a(href='#')
                     svg.glyph.stroked.cancel
                       use(xlink:href='#stroked-cancel')
                     |  Cerrar Sesión
       // /.container-fluid
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
-      h2(style='margin-top: 17px; padding-left: 10px;') Usuarios
       ul.nav.menu
-        li.active
-          a(href='sandbox-verUsuarios.html')
-            svg.glyph.stroked.clipboard.with.paper
-              use(xlink:href='#stroked-clipboard-with-paper')
-            | Ver Usuarios
+        h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
         li
           a(href='/users/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Usuario
+        li.active
+          a(href='/users')
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
-            | Crear Usuario
+            | Usuarios
+        li.divider(role='presentation')
+        h3(style='margin-top: 17px; padding-left: 10px;') Cursos
+        li
+          a(href='/cursos/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Curso
+        li
+          a(href='/cursos')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Cursos
         li.divider(role='presentation')
         li
-          a(href='/users/perfil')
+          a(href='#')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
-
     // /.sidebar
     .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
       .row
@@ -112,7 +118,7 @@ html
             a(href='#')
               svg.glyph.stroked.home
                 use(xlink:href='#stroked-home')
-          li.active Ejercicios
+          li.active Cursos
       // /.row
       br
       .row

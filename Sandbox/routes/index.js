@@ -75,12 +75,46 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
+
 function sumarDias(fecha, dias){
   fecha.setDate(fecha.getDate() + dias);
   return fecha;
 }
 
-router.get('/perfil/Insignias',function(req,res){
+router.get('/perfil',ensureAuthenticated,function(req,res){
+	res.render('perfil');
+})
+
+
+router.post('/modifContrasena',ensureAuthenticated,function(req,res){
+	var nuevaContraseña=req.body.nContraseña;
+	var antiguaContraseña=req.user.Contrasena;
+	var validarAntigua=req.body.validarAntigua;
+	var idUsuario=req.user._id;
+	var busca= {_id : idUsuario}
+	var modificacion={
+		Contrasena: nuevaContraseña
+	}
+	console.log('mostrar contraseñas');
+	console.log(antiguaContraseña);
+	console.log(validarAntigua);
+	if(antiguaContraseña==validarAntigua){
+		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
+				if(err){					
+				console.log("Something wrong when updating data!");
+				res.json({cambio:0, mensaje:'Algo salió mal'});
+				}
+				console.log("Contrasena modificado con exito");
+				res.json({cambio: 1, mensaje:'Contraseña cambiada con éxito'});
+				//console.log(doc);
+			}); 
+	}else{
+		console.log("No coincide")
+		res.json({cambio:0, mensaje:'La contraseña anterior no coincide'});
+	}
+})
+
+	router.get('/perfil/Insignias',function(req,res){
 	/*
 	var idUser = req.user._id
 	var contEjercicios = 0;

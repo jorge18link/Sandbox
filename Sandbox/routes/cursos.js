@@ -1,11 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var nodemailer=require('nodemailer');
-
+var mongoose= require('mongoose');
 var Curso =require('../models/curso');
+var User = require('../models/usuario');
 
-/*var User=require('../models/usuario');
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
+
 var validacion=function(req,res,next){
+    console.log(req.user.Rol);
     if(req.user.Rol !="Administrador"){
         res.sendStatus(401);
         return;
@@ -13,27 +21,13 @@ var validacion=function(req,res,next){
     next();
 }
 
-var smtpTransport = nodemailer.createTransport({
-    service: "gmail",
-    host: "smtp.gmail.com",
-    auth: {
-        user: 'lilibeth.karen@gmail.com',
-        pass: 'redkaren94'
-    }
-});
-
-function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        //req.flash('error_msg','You are not logged in');
-        res.redirect('/');
-    }
-}*/
-
 router.get('/', function(req, res){
-    res.render('verCursos'); //curso pero debe cambiarse a la vista que usa el framework
+    res.render('verCursos');
 });
+
+router.get('/crear', function(req,res){
+    res.render('nuevoCurso');
+})
 
 router.get('/:id', function(req, res){
     idCurso=req.params.id;
@@ -44,43 +38,62 @@ router.get('/:id', function(req, res){
     });
 });
 
-//router.post('/crear', function(req, res){
-//});
+router.post('/crear',function(req, res){
+    var temp = req.body.profesor.split(" ");
+    var nombres = temp[0] + " " + temp[1];
+    var apellidos = temp[2] + " " + temp[3];
+    console.log(nombres);
+    console.log(apellidos);
+    var query = {Nombres: nombres, Apellidos: apellidos};
 
-router.put('/modificar/:id', function(req,res){
-    idCurso = req.params.id
-    //query de busqueda
-    var busca = {_id: idCurso};
-    /*
-     User.findOne(busca,function(err, user){
-     console.log('Usuario Anterior:');
-     console.log(user);
-     });
-     */
-    //Se toman los datos de la vista con los parametros que vas a modificar
-    var modificacion = { //Verificar esto ! son objetos
-        Paralelo: req.body.paralelo,
-        Profesor: req.body.profesor,
-        Estudiantes: req.body.estudiantes
-    }
+    User.findOne(query).exec(function (err, user){
 
-    //Ejemplo ----> Cat.findOneAndUpdate({age: 17}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
-    User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
-        if(err){
-            console.log("Something wrong when updating data!");
+        if (err) {
+            return err;
         }
-        console.log('Usuario Modificado con exito');
-        //console.log(doc);
+        console.log(user);
+        var json2 = json(user);
+        json2[0].identifica
+        var nuevoCurso= new Curso({
+            paralelo: req.body.paralelo,
+            profesor: user._id,
+            //estudiantes: []
+        });
+
+        nuevoCurso.save(function(error) {
+            if (error) {
+                return error;
+            }
+            console.log('Curso creado con exito');
+        });
     });
 
-    //Aqui Carga la pagina que sigue
-    res.redirect('/');
+    res.redirect('/cursos')
+});
+
+router.put('/modificar/:id', function(req,res){
+    var id = req.params.id;
+    var search = {_id: id};
+
+    var modificacion = {
+        paralelo: req.body.paralelo,
+        profesor: req.body.profesor
+        //estudiantes: req.body.estudiantes
+    }
+
+    Curso.findOneAndUpdate(search, {$set:modificacion}, {new: true}, function(err, doc){
+        if(err){
+            console.log("Error al modificar el curso!");
+        }
+        console.log('Curso modificado con exito!');
+    });
+    res.redirect('/cursos');
 });
 
 router.delete('/eliminar/:id', function(req,res){
-    idCurso = req.params.id
-    var busca = {_id: idCurso};
-    Curso.findOne(busca,function(err, curso){
+    var id = req.params.id;
+    var search = {_id: id};
+    Curso.findOne(search,function(err, curso){
         if(err) throw err;
         curso.remove();
         console.log('Curso eliminado con exito');

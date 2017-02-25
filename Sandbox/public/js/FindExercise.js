@@ -1,26 +1,12 @@
-$( document ).ready(function() {
-      console.log( "ready!" );
-      var name="";
-      $("body").on("click",".tag",function(){
-             name=$(this).attr("name");
-              $.ajax({
-                url:"/ejerciciosEstudiante/obtener/"+name,
-                type: 'get',
-                success:function(data){
-                     var count=-1;
-                    for (i in data){
-                        count++;
-                    }
-                    var valor=Math.floor((Math.random() * count));
-                    console.log(data[valor]);
-                    console.log(count);
-                    
-                    $('.conte').empty();
-                    if(valor>-1){
+function crear(count,valor,data){
+    console.log(data)
+    console.log("valor2: "+ valor)
+   $('.conte').empty();
+                    if(count>-1){
                         
                             $('.conte').append($('<h2>').text("Titulo:"),$('<p>').text(data[valor].titulo),$('<h2>').text("Descripcion: "),$('<p>').text(data[valor].descripcion),
                                 $('<button>',{'class':'btn btn-success btn-lg comenzar','name':data[valor]._id}).text("Comenzar"),
-                                $('<button>',{'class':'btn btn-warning btn-lg tag',"name":data[valor].dificultad}).text('Saltar')
+                                $('<button>',{'class':'btn btn-warning btn-lg saltar',"name":data[valor].dificultad}).text('Saltar')
                             )
                         
                     }else{
@@ -34,18 +20,49 @@ $( document ).ready(function() {
                         
 
                     }
-                    //$('.conte').append($('<p>').text("titulo"))
+}
+
+$( document ).ready(function() {
+      console.log( "ready!" );
+      var name="";
+      var json;
+      var valor=0,count=-1;
+      $("body").on("click",".tag",function(){
+            valor=0
+            count=-1
+             name=$(this).attr("name");
+             $.ajax({
+                url:"/ejerciciosEstudiante/obtener/"+name,
+                type: 'get',
+                success:function(data){
+                    console.log("success")
+                    for (i in data){
+                        count++;
+                    }
+                    console.log(count)
+                    json=data;
+                    valor=Math.floor(Math.random() *(count+1));
+                    crear(count,valor,json);    
                 }
             })
+            
       });
+
       $("body").on("click",".comenzar",function(){
          name=$(this).attr("name");
-         console.log(name);
          location.href="/ejerciciosEstudiante/realizar/"+name;
          
       })
-     // $('<img>',{'class':'img-responsive col-md-offset-3',"src":"https://openclipart.org/download/215225/rs_caution_geek_man.svg"})
-      
+
+      $("body").on("click",".saltar",function(){
+          console.log("comienza saltar")
+          console.log("count: "+ count)
+          valor=Math.round(Math.random() *(count)  );
+          console.log("valor1:"+valor);
+          crear(count,valor,json);
+
+      })
+     
       
 
       
