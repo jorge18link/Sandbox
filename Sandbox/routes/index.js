@@ -30,13 +30,12 @@ router.get('/inicio', function(req, res){
 });
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
+	function(username, password, done) {
 		User.getUserByUsername(username, function(err, user){
 			if(err) throw err;
 			if(!user){
 				return done(null, false, {message: 'Unknown User'});		
 			}
- 
 			User.comparePassword(password, user.Contrasena, function(err, isMatch){
 				if(err) throw err;
 				if(isMatch){
@@ -45,26 +44,25 @@ passport.use(new LocalStrategy(
 					return done(null, false, {message: 'Invalid password'});
 				}
 			});
-   });
+		});
 }));
-
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
-    done(err, user);
-  });
+	User.getUserById(id, function(err, user) {
+		done(err, user);
+	});
 });
 
 router.post('/login',
 	passport.authenticate('local', {successRedirect:'/inicio', failureRedirect:'/',failureFlash: true}),
-  function(req, res) {
-		
-    res.redirect('/inicio');
-});
+  	function(req, res) {
+		res.redirect('/inicio');
+	}
+);
 
 router.get('/logout', function(req, res){
 	console.log("deslogeando y tu usuario era:"+req.user);
@@ -75,16 +73,9 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
-
-function sumarDias(fecha, dias){
-  fecha.setDate(fecha.getDate() + dias);
-  return fecha;
-}
-
 router.get('/perfil',ensureAuthenticated,function(req,res){
 	res.render('perfil');
 })
-
 
 router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 	var nuevaContraseña=req.body.nContraseña;
@@ -95,74 +86,54 @@ router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 	var modificacion={
 		Contrasena: nuevaContraseña
 	}
-	console.log('mostrar contraseñas');
-	console.log(antiguaContraseña);
-	console.log(validarAntigua);
+	//console.log('mostrar contraseñas');
+	//console.log(antiguaContraseña);
+	//console.log(validarAntigua);
 	if(antiguaContraseña==validarAntigua){
 		User.findOneAndUpdate(busca, {$set:modificacion}, {new: true}, function(err, doc){
-				if(err){					
+			if(err){					
 				console.log("Something wrong when updating data!");
 				res.json({cambio:0, mensaje:'Algo salió mal'});
-				}
-				console.log("Contrasena modificado con exito");
-				res.json({cambio: 1, mensaje:'Contraseña cambiada con éxito'});
-				//console.log(doc);
-			}); 
+			}
+			console.log("Contrasena modificado con exito");
+			res.json({cambio: 1, mensaje:'Contraseña cambiada con éxito'});
+		}); 
 	}else{
-		console.log("No coincide")
+		console.log("No coincide");
 		res.json({cambio:0, mensaje:'La contraseña anterior no coincide'});
 	}
 })
 
-	router.get('/perfil/Insignias',function(req,res){
-	/*
-	var idUser = req.user._id
+router.get('/perfil/Insignias',ensureAuthenticated, function(req,res){
+	idUser = req.user._id;
 	var contEjercicios = 0;
 	var contEjerciciosSemana = 0;
 	busca = {idUsuario : idUser};
-	console.log("El id del usuario logeado es: "+idUser);
+	//console.log("El id del usuario logeado es: " + idUser);
 
 	EjercicioResuelto.find(busca, function(err, ejercicios) {
-    if(err) throw err;
+	if(err) throw err;
 		contEjercicios = Object.keys(ejercicios).length;
-		console.log("la cantidad de ejercicios resueltos son: "+contEjercicios);
-		console.log(ejercicios)
-	});
-	
-	var hoy = new Date();
-	
-	var day1=  hoy.getDate();
-	var month1=  hoy.getMonth();
-	var year1= hoy.getFullYear();
-	
-	var eseDia = sumarDias(hoy, -7)
-  var day0= eseDia.getDate();
-	var month0= eseDia.getMonth();
-	var year0= eseDia.getFullYear();
-	*/
+		//console.log("la cantidad de ejercicios resueltos son: "+contEjercicios);
 
-	idu="58aef054a174c10fb8bf2271"
-	var momento = moment().format('YYYY MM DD');
-	
-	
-	
-  
-	//La fecha debe estar guardada asi YYYY-MM-DD
-	//db.posts.find({"created_on": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
-	/*
-	busca={
-		fecha:{
-			$gte: new Date(year1,month1,day1),
-			$lt: new Date(year0,month0,day0)
+		var hoy = new Date();
+		var eseDia = new Date();
+		eseDia.setDate(hoy.getDate()-8);
+
+		for(var i in ejercicios){
+			if(ejercicios[i].fecha > eseDia){
+				contEjerciciosSemana ++;
+			}
 		}
-	}
+		//console.log("La cantidad de ejercicios por semana es: "+contEjerciciosSemana);
+		
+		var respuesta = {
+			total : contEjercicios,
+			totalSemana: contEjerciciosSemana
+		}
 
-	EjercicioResuelto.find(busca, function(err, ejercicios) {
-		if(err) throw err;
-		contEjerciciosSemana = Object.keys(ejercicios).length;
-		console.log("la cantidad de ejercicios resueltos por semana son: "+contEjerciciosSemana);
+		res.render('perfilInsignias',respuesta);
 	});
-	*/
 });
 
 module.exports = router;
