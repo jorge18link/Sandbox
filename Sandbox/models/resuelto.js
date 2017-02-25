@@ -3,7 +3,8 @@ var Schema = require('mongoose').Schema
 
 var resueltoSchema = new Schema({
    idUsuario:String,
-   fecha:Date
+   fecha:Date,
+   puntos:Number
 })
 
 var resuelto=module.exports=mongoose.model('resuelto',resueltoSchema);

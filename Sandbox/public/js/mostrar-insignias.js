@@ -12,7 +12,7 @@ $( document ).ready(function() {
         success:function(respuesta){
             var total = respuesta.total;
             var totalSemana = respuesta.totalSemana;
-            var puntaje="wip"
+            var puntaje = respuesta.totalPuntos;
             $('.numResueltos').text(total)
             $('.puntuacion').text(puntaje)
             //aqui trabaja porque ajax es asincrono y si trabajas fuera puede que no obtengas los datos a tiempo

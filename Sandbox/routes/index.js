@@ -112,6 +112,7 @@ router.get('/totalInsignias', function(req,res){
 	idUser = req.user._id;
 	var contEjercicios = 0;
 	var contEjerciciosSemana = 0;
+	var contarPuntos=0; //Aqui modifique
 	busca = {idUsuario : idUser};
 	//console.log("El id del usuario logeado es: " + idUser);
 
@@ -125,6 +126,7 @@ router.get('/totalInsignias', function(req,res){
 		eseDia.setDate(hoy.getDate()-8);
 
 		for(var i in ejercicios){
+			contarPuntos = contarPuntos + ejercicios[i].puntos;//Aqui modifique
 			if(ejercicios[i].fecha > eseDia){
 				contEjerciciosSemana ++;
 			}
@@ -133,7 +135,8 @@ router.get('/totalInsignias', function(req,res){
 		
 		var respuesta = {
 			total : contEjercicios,
-			totalSemana: contEjerciciosSemana
+			totalSemana: contEjerciciosSemana,
+			totalPuntos: contarPuntos//Aqui modifique
 		}
 		res.send(respuesta);
 	});
