@@ -75,46 +75,60 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
-router.get('/perfil/Insignias',ensureAuthenticated,function(req,res){
+function sumarDias(fecha, dias){
+  fecha.setDate(fecha.getDate() + dias);
+  return fecha;
+}
+
+router.get('/perfil/Insignias',function(req,res){
+	/*
 	var idUser = req.user._id
 	var contEjercicios = 0;
 	var contEjerciciosSemana = 0;
 	busca = {idUsuario : idUser};
 	console.log("El id del usuario logeado es: "+idUser);
 
-	EjercicioResuelto.find({}, function(err, ejercicios) {
+	EjercicioResuelto.find(busca, function(err, ejercicios) {
     if(err) throw err;
-		//console.log("Sus ejercicios resueltos son: ");
-		//console.log(ejercicios);
 		contEjercicios = Object.keys(ejercicios).length;
 		console.log("la cantidad de ejercicios resueltos son: "+contEjercicios);
-		/*
-		leng=3;
-		maximo=leng-1;
-		minimo=0
- 			cont=0
-			while(cont<100){
-				cont++;
-				num =Math.floor(Math.random()*(maximo-minimo+1)+(minimo));
-      	console.log(num);
-		 	}
-		*/
-		//res.send(ejercicios);
-		});
-
-		//var today = moment().startOf('day');
-		//console.log("El dia es: "+today);
-		//var tomorrow = moment(today).add(1, 'days');
-		//res.send(today)
+		console.log(ejercicios)
+	});
 	
-		/*
-		MyModel.find({
-			createdAt: {
-				$gte: today.toDate(),
-				$lt: tomorrow.toDate()
-			}
-		})
-		*/
-})
+	var hoy = new Date();
+	
+	var day1=  hoy.getDate();
+	var month1=  hoy.getMonth();
+	var year1= hoy.getFullYear();
+	
+	var eseDia = sumarDias(hoy, -7)
+  var day0= eseDia.getDate();
+	var month0= eseDia.getMonth();
+	var year0= eseDia.getFullYear();
+	*/
+
+	idu="58aef054a174c10fb8bf2271"
+	var momento = moment().format('YYYY MM DD');
+	
+	
+	
+  
+	//La fecha debe estar guardada asi YYYY-MM-DD
+	//db.posts.find({"created_on": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+	/*
+	busca={
+		fecha:{
+			$gte: new Date(year1,month1,day1),
+			$lt: new Date(year0,month0,day0)
+		}
+	}
+
+	EjercicioResuelto.find(busca, function(err, ejercicios) {
+		if(err) throw err;
+		contEjerciciosSemana = Object.keys(ejercicios).length;
+		console.log("la cantidad de ejercicios resueltos por semana son: "+contEjerciciosSemana);
+	});
+	*/
+});
 
 module.exports = router;
