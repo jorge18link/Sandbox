@@ -105,6 +105,14 @@ router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 })
 
 router.get('/perfil/Insignias',ensureAuthenticated, function(req,res){
+	res.render('perfilInsignias');
+})
+
+router.get('/usulog',function(req,res){
+	res.send(req.user);
+})
+
+router.get('/totalInsignias', function(req,res){
 	idUser = req.user._id;
 	var contEjercicios = 0;
 	var contEjerciciosSemana = 0;
@@ -131,8 +139,7 @@ router.get('/perfil/Insignias',ensureAuthenticated, function(req,res){
 			total : contEjercicios,
 			totalSemana: contEjerciciosSemana
 		}
-
-		res.render('perfilInsignias',respuesta);
+		res.send(respuesta);
 	});
 });
 

@@ -17,44 +17,35 @@ html
       Embedded Stylesheet
       ==================================================
     style(type='text/css').
-      .sb-ejer{
-      background-color: rgba(0,0,0,0.6);
-      }
-      .sb-ejer h3{
-      color:orange;
-      }
-      .sb-desc{
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      background-image: url("../img/coding.jpg");
-      background-position: center;
-      background-repeat: no-repeat;
-      }
-      .ejercicios{
-      background-color: rgba(255,255,255,0.8);
-      }
-      .ejercicios p{
-      color: black;
-      font-size: large;
-      }
       .insNovato{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
       .insPro{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
       .insExperto{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
       .insIndestrucible{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
       .insDuroDeMatar{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
       .insRapYFurioso{
-          width: 50px;
+          width: 200px;
+          margin-bottom: 8px;
+          margin-top: 20px;
       }
   body
     //
@@ -68,7 +59,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='../index.html')
+          a.navbar-brand(href='/inicio')
             span SandBox 
             | Usuarios
           ul.user-menu
@@ -76,21 +67,21 @@ html
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 svg.glyph.stroked.male-user
                   use(xlink:href='#stroked-male-user')
-                |  Marco Antonio Calderón 
+                label.nombreUser 
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
-                  a(href='perfil.html')
+                  a(href='#')
                     svg.glyph.stroked.male-user
                       use(xlink:href='#stroked-male-user')
                     |  Ver mi perfil
                 li
-                  a(href='perfil.html')
+                  a(href='#')
                     svg.glyph.signia.thin-wood-pencil
                       use(xlink:href='#signia-thin-wood-pencil')
                     | Cambiar Contraseña
                 li
-                  a(href='../index.html')
+                  a(href='/logout')
                     svg.glyph.stroked.cancel
                       use(xlink:href='#stroked-cancel')
                     |  Cerrar Sesión
@@ -104,16 +95,16 @@ html
               use(xlink:href='#stroked-pencil')
             | Cambiar Contraseña2
         li
-          a(href='#')
+          a(href='/logout')
             svg.glyph.stroked.cancel
               use(xlink:href='#stroked-cancel')
             | Cerrar Sesion
         li.divider(role='presentation')
         li.active
-          a(href='perfil.html')
+          a(href='#')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
-            |  Perfil
+            |  Mis Insignias
     // /.sidebar
     //
       Active Page
@@ -125,17 +116,17 @@ html
             a(href='#')
               svg.glyph.stroked.home
                 use(xlink:href='#stroked-home')
-          li.active Perfil
+          li.active Usuario
       // /.row
         Perfil Header
         ==========================================
-      .row.present
+      .row.present(style='margin-bottom: 20px')
         .col-xs-12.col-sm-12.col-md-12.col-lg-12(style='text-align: center;')
           img.img-circle.team-img(src='/public/img/icon.png', alt='...', style='width: 100px; height: 100px; margin-top: 30px; border: black 1px solid;')
-          h2(style='margin-bottom: 0px;') Marco Antonio Calderón Argüello
-          h3(style='margin-top: 0px; margin-bottom: 0px;') profesor@espol.edu.ec
-          h3(style='margin-top: 0px; margin-bottom: 0px;') 1 de mayo de 1985
-          h4(style='margin-top: 0px; margin-bottom: 30px;') Profesor
+          h2.nombreUser(style='margin-bottom: 0px;') 
+          h3.correo(style='margin-top: 0px; margin-bottom: 0px;')
+          h4.rol(style='margin-top: 0px; margin-bottom: 0px;')
+          
       .row
         ol.breadcrumb
             li
@@ -144,28 +135,34 @@ html
                     use(xlink:href='#stroked-home')
             li Tus insignias
         .row
-            .novato.col-md-4(hidden="true")
-                img.insNovato(src='https://lh3.googleusercontent.com/-SnClPAhUab4/AAAAAAAAAAI/AAAAAAAACuc/LYjDouflw6o/photo.jpg')
-                p aqui va la insignia novato
-            .pro.col-md-4(hidden="true")
-                img.insPro(src='http://crfoodspecialties.com/images/logos/logo-grupo-pro.png')
-                p aqui va la insignia pro
-            .experto.col-md-4(hidden="true")
-                img.insExperto(src='http://www.telrad.com/wp-content/uploads/2014/07/aae_logo.png')
-                p aqui va la insignia experto
-            .indestructible.col-md-4(hidden="true")
-                img.insIndestrucible(src='http://i1.kym-cdn.com/photos/images/facebook/000/234/073/c12.png')
-                p aqui va la insignia indestructible
-            .duroDeMatar.col-md-4(hidden="true")
-                img.insDuroDeMatar(src='http://static.tumblr.com/kwsiee3/0ZElde6bc/krillin.jpg')
-                p aqui va la insignia duro de duro de matar
-            .rapidoFurioso.col-md-4(hidden="true")
-                img.insRapYFurioso(src='http://a.espncdn.com/i/teamlogos/nhl/500/scoreboard/ana.png')
-                p aqui va la insignia rapido y furioso
+            .novato.col-md-4.text-center(hidden="true")
+                img.insNovato(src='/public/img/i00.png')
+                br
+                p Novato
+            .pro.col-md-4.text-center(hidden="true")
+                img.insPro(src='/public/img/i01.png')
+                br
+                p Pro
+            .experto.col-md-4.text-center(hidden="true")
+                img.insExperto(src='/public/img/i02.png')
+                br
+                p Experto
+            .indestructible.col-md-4.text-center(hidden="true")
+                img.insIndestrucible(src='/public/img/i03.png')
+                br
+                p Indestructible
+            .duroDeMatar.col-md-4.text-center(hidden="true")
+                img.insDuroDeMatar(src='/public/img/i04.png')
+                br
+                p Duro de matar
+            .rapidoFurioso.col-md-4.text-center(hidden="true")
+                img.insRapYFurioso(src='/public/img/i06.png')
+                br
+                p Rápido y furioso
     //
       Javascripts
       ==================================================
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
-    //script(src='/public/sandBox/js/chart.min.js')
-    script(src='/public/sandBox/js/perfil.js')
+    script(src='/public/js/mostrar-insignias.js')
+    script(src='/public/js/mostrar-Usuario.js')
