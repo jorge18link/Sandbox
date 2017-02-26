@@ -110,37 +110,49 @@ router.get('/usulog',function(req,res){
 
 router.get('/totalInsignias', function(req,res){
 	idUser = req.user._id;
-	var contEjercicios = 0;
-	var contEjerciciosSemana = 0;
-	var contarPuntos=0; //Aqui modifique
+	var contEjercicios=0;
+	var contEjerciciosSemana=0;
+	var contarPuntos=0;
 	busca = {idUsuario : idUser};
 	//console.log("El id del usuario logeado es: " + idUser);
 
 	EjercicioResuelto.find(busca, function(err, ejercicios) {
-	if(err) throw err;
+		if(err){
+			console.log("ocurrio un error al buscar usuario con id: "+idUser);
+			throw err;
+		} 
 		contEjercicios = Object.keys(ejercicios).length;
 		//console.log("la cantidad de ejercicios resueltos son: "+contEjercicios);
-
 		
-		//Aqui es donde voy a trabajar con las fechas(tienes que sacarlo de este find y hacer otro find por fechas y usuarios)
-		//------------------------------------------------------------------------------
+		for(var i in ejercicios){
+			contarPuntos = contarPuntos + ejercicios[i].puntos;
+		}
+
+		//Buscar por fecha rango de fecha e idUser
 		var hoy = new Date();
 		var eseDia = new Date();
 		eseDia.setDate(hoy.getDate()-8);
-		for(var i in ejercicios){
-			contarPuntos = contarPuntos + ejercicios[i].puntos;//Aqui modifique
-			if(ejercicios[i].fecha > eseDia){
-				contEjerciciosSemana ++;
+
+		var busca2={
+			idUsuario: idUser,
+			fecha : {$gte: eseDia}
+		}
+
+		EjercicioResuelto.find(busca2, function(err2, ejercicios2) {
+			if(err2){
+				console.log("ocurrio un error al buscar usuario con id: "+idUser);
+				throw err2;
 			}
-		}
-		//console.log("La cantidad de ejercicios por semana es: "+contEjerciciosSemana);
-		//------------------------------------------------------------------------------
-		var respuesta = {
-			total : contEjercicios,
-			totalSemana: contEjerciciosSemana,
-			totalPuntos: contarPuntos//Aqui modifique
-		}
-		res.send(respuesta);
+			contEjerciciosSemana = Object.keys(ejercicios2).length;
+			//console.log("ejercicios2: "+ejercicios2);
+			var respuesta = {
+				total : contEjercicios,
+				totalSemana: contEjerciciosSemana,
+				totalPuntos: contarPuntos
+			}
+			//console.log(respuesta);
+			res.send(respuesta);
+		});
 	});
 });
 

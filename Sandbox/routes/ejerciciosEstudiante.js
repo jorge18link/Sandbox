@@ -54,7 +54,7 @@ router.post('/upload/:idEjer', function(req, res) {
 	var puntos=0;
 	var tmp_path = req.files.archivo.path
 	var tipo = req.files.archivo.type;
-	var id= req.user._id;
+	var idUserLogeado= req.user._id;
 	var fechanow= new Date();
 	var busca = {_id: idEjercicio};
 	var mensaje;
@@ -74,37 +74,25 @@ router.post('/upload/:idEjer', function(req, res) {
 	Ejercicio.findOne(busca,function(err, ej){
 		if(err) throw err;
 		if(ej.dificultad=='Easy')puntos=5;
-		if(ej.dificultad=='Normal')puntos==10;
-		if(ej.dificultad=='Hard')puntos==15;
+		if(ej.dificultad=='Normal')puntos=10;
+		if(ej.dificultad=='Hard')puntos=15;
 		var uno = (String(ej.datosDeSalida)).concat("\r");
 		var dos = mensaje;
 		if(uno==dos){
-				var nuevo=new EjercicioResuelto({
-				idUsuario: id,
+			var nuevo=new EjercicioResuelto({
+				idUsuario: idUserLogeado,
 				fecha:fechanow,
 				puntos:puntos
 			 })
 			nuevo.save(function(err){
-				if(error){
-					console.log(error)
+				if(err){
+					console.log(err);
 				}
 			});
-		
-		res.send("funciona bitch!")
+			res.send("funciona bitch!");
 		}else{
-			res.send("no funciona :(")
+			res.send('no funciona :(');
 		}
 	});
-		/*
-		var nuevo=new EjercicioResuelto({
-			idUsuario: id,
-			fecha:fechanow,
-			puntos:puntos
-		})
-		nuevo.save(function(err){
-			if(error){
-				console.log(error)
-			}
-		});*/
 })
 module.exports = router;
