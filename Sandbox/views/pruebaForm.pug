@@ -1,0 +1,11 @@
+doctype html
+html(ng-app='app')
+    head
+        
+    body
+        form#formulario(action="#")
+            h2 Suba Su Codigo:
+            input(type="file", name="archivo")
+            button(type="submit") Submit
+        script(src='/public/sandbox/js/jquery-1.11.1.min.js')
+        script(src='/public/js/mostrar.js')

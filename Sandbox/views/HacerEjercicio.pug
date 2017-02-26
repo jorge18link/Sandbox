@@ -162,11 +162,11 @@ html
                 img.img-responsive(src="/public/img/00.png")
                 div.panel.panel-default.col-md-7(style='background-color:#5094C4;border-radius:5px; margin-top:10px')
                  div.panel-body
-                    .form(id='formulario',action='#')
+                    form(id='formulario',action='#')
                       div.form-group
                         h2 Suba Su Codigo:
                         input(type='file', name='archivo')
-                        button.btn.btn-success.btn-lg(value='Subir') submit
+                        button.btn.btn-success.btn-lg(value='Subir' name=list._id) submit
                 br
                 h3.col-md-8 Script Output
                 .col-md-8(style='margin-left:3vw')

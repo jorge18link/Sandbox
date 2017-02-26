@@ -121,10 +121,12 @@ router.get('/totalInsignias', function(req,res){
 		contEjercicios = Object.keys(ejercicios).length;
 		//console.log("la cantidad de ejercicios resueltos son: "+contEjercicios);
 
+		
+		//Aqui es donde voy a trabajar con las fechas(tienes que sacarlo de este find y hacer otro find por fechas y usuarios)
+		//------------------------------------------------------------------------------
 		var hoy = new Date();
 		var eseDia = new Date();
 		eseDia.setDate(hoy.getDate()-8);
-
 		for(var i in ejercicios){
 			contarPuntos = contarPuntos + ejercicios[i].puntos;//Aqui modifique
 			if(ejercicios[i].fecha > eseDia){
@@ -132,7 +134,7 @@ router.get('/totalInsignias', function(req,res){
 			}
 		}
 		//console.log("La cantidad de ejercicios por semana es: "+contEjerciciosSemana);
-		
+		//------------------------------------------------------------------------------
 		var respuesta = {
 			total : contEjercicios,
 			totalSemana: contEjerciciosSemana,

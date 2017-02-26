@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
 var PythonShell=require('python-shell');
-
+var EjercicioResuelto= require('../models/resuelto')
 
 
 
@@ -27,6 +27,7 @@ var validacion=function(req,res,next){
 router.get('/',ensureAuthenticated,validacion,function(req,res){
     res.render('index-Estudiantes')
 })
+
 router.get('/realizar/:id',function(req,res){
     var id=req.params.id;
 	var busca = {_id: id};
@@ -46,33 +47,64 @@ router.get('/obtener/:dificultad',ensureAuthenticated,validacion,function(req,re
 	});   
 })
 
-router.post('/upload', function(req, res) {
+router.post('/upload/:idEjer', function(req, res) {
    //El modulo 'fs' (File System) que provee Nodejs nos permite manejar los archivos
-   var fs = require('fs')
-
-   var tmp_path = req.files.archivo.path
-   var tipo = req.files.archivo.type;
-   
-		var nombreArchivo= req.files.archivo.name;
-		var target_path='./archivos/'+nombreArchivo;
-		var pyshell=new PythonShell(target_path);
-		
-
-
-		fs.rename(tmp_path,target_path,function(err){
-			if(err) throw err;
-			fs.unlink(tmp_path,function(err){
-				pyshell.on('message', function (message) {
-					// received a message sent from the Python script (a simple "print" statement)
-					console.log(message);
-					res.send(message);
-
-				});
-				
+	var fs = require('fs')
+	var idEjercicio= req.params.idEjer;
+	var puntos=0;
+	var tmp_path = req.files.archivo.path
+	var tipo = req.files.archivo.type;
+	var id= req.user._id;
+	var fechanow= new Date();
+	var busca = {_id: idEjercicio};
+	var mensaje;
+	var nombreArchivo= req.files.archivo.name;
+	var target_path='./archivos/'+nombreArchivo;
+	var pyshell=new PythonShell(target_path);
+	
+	fs.rename(tmp_path,target_path,function(err){
+		if(err) throw err;
+		fs.unlink(tmp_path,function(err){
+			pyshell.on('message', function (message) {
+				mensaje=message;
 			});
 		});
-   
+	});
 
-
+	Ejercicio.findOne(busca,function(err, ej){
+		if(err) throw err;
+		if(ej.dificultad=='Easy')puntos=5;
+		if(ej.dificultad=='Normal')puntos==10;
+		if(ej.dificultad=='Hard')puntos==15;
+		var uno = (String(ej.datosDeSalida)).concat("\r");
+		var dos = mensaje;
+		if(uno==dos){
+				var nuevo=new EjercicioResuelto({
+				idUsuario: id,
+				fecha:fechanow,
+				puntos:puntos
+			 })
+			nuevo.save(function(err){
+				if(error){
+					console.log(error)
+				}
+			});
+		
+		res.send("funciona bitch!")
+		}else{
+			res.send("no funciona :(")
+		}
+	});
+		/*
+		var nuevo=new EjercicioResuelto({
+			idUsuario: id,
+			fecha:fechanow,
+			puntos:puntos
+		})
+		nuevo.save(function(err){
+			if(error){
+				console.log(error)
+			}
+		});*/
 })
 module.exports = router;
