@@ -22,7 +22,11 @@ var validacion=function(req,res,next){
 }
 
 router.get('/', function(req, res){
-    res.render('verCursos');
+    var Curso=mongoose.model('curso');
+    Curso.find({}, function(err, course) {
+        if(err) throw err;
+        res.render('verCursos', {Courses:course});
+    });
 });
 
 router.get('/crear', function(req,res){
@@ -42,8 +46,6 @@ router.post('/crear',function(req, res){
     var temp = req.body.profesor.split(" ");
     var nombres = temp[0] + " " + temp[1];
     var apellidos = temp[2] + " " + temp[3];
-    console.log(nombres);
-    console.log(apellidos);
     var query = {Nombres: nombres, Apellidos: apellidos};
 
     User.findOne(query).exec(function (err, user){
@@ -51,13 +53,11 @@ router.post('/crear',function(req, res){
         if (err) {
             return err;
         }
-        console.log(user);
-        var json2 = json(user);
-        json2[0].identifica
+
         var nuevoCurso= new Curso({
             paralelo: req.body.paralelo,
-            profesor: user._id,
-            //estudiantes: []
+            profesor: req.body.profesor,
+            estudiantes: []
         });
 
         nuevoCurso.save(function(error) {

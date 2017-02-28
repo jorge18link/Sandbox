@@ -127,7 +127,21 @@ html
       .row
         .col-lg-12
           // ============Aqui Trabajo================
-          h2 Hello World!
+          h1.page-header(style='margin-left: 20px;') Todos los Cursos
+          each course, i in Courses
+            .col-lg-8.ej1
+              .panel.panel-blue.panel-widget
+                .row.no-padding
+                  .col-sm-3.col-lg-2.widget-left
+                    svg.glyph.stroked.app.window.with.content
+                      use(xlink:href='#stroked-app-window-with-content')
+                  .col-lg-10.widget-right
+                    p
+                      b Paralelo:
+                      | #{course.paralelo}
+                    p
+                      b Profesor:
+                      | #{course.profesor}
           // ============/Aqui Trabajo================
         // /.row
       // /.row
