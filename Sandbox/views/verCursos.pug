@@ -50,103 +50,144 @@ html
       .form-control{
         max-width: 550px
       }
-  body
-    //Navigation
-      ==========================================
-    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/inicio')
-            span.rol
-          ul.user-menu
-            li.dropdown.pull-right
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                svg.glyph.stroked.male-user
-                  use(xlink:href='#stroked-male-user')
-                label.nombreUser
-                span.caret
-              ul.dropdown-menu(role='menu')
-                li
-                  a(href='/perfil')
-                    svg.glyph.stroked.male-user
-                      use(xlink:href='#stroked-male-user')
-                    |  Ver mi perfil
-                li
-                  a(href='/logout')
-                    svg.glyph.stroked.cancel
-                      use(xlink:href='#stroked-cancel')
-                    |  Cerrar Sesión
-      // /.container-fluid
-    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
-      ul.nav.menu
-        h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
+      .col-lg-10.widget-right {
+        height: 135px;
+      }
+      .col-sm-3.col-lg-2.widget-left {
+        height: 135px;
+      }
+      .glyph.stroked.app.window.with.content {
+        margin-top: 10px;
+      }
+body
+  // ============Modal Modificar================
+  #modalModificar.modal.fade(aria-labelledby='exampleModalLabel', aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h3#exampleModalLabel.modal-title Modificar Curso
+        .modal-body
+          form
+            .form-group
+              label Paralelo
+              input#modiParalelo.form-control(type='number' name='paralelo', min='1')
+            .form-group
+              label Profesor
+              input#modiProfesor.form-control(type='text' name='profesor')
+        .modal-footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary.confirmarModificar(type='button') Modificar
+
+  // ============Navegación================
+  nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='/inicio')
+          span.rol
+        ul.user-menu
+          li.dropdown.pull-right
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              svg.glyph.stroked.male-user
+                use(xlink:href='#stroked-male-user')
+              label.nombreUser
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='/perfil')
+                  svg.glyph.stroked.male-user
+                    use(xlink:href='#stroked-male-user')
+                  |  Ver mi perfil
+              li
+                a(href='/logout')
+                  svg.glyph.stroked.cancel
+                    use(xlink:href='#stroked-cancel')
+                  |  Cerrar Sesión
+    // /.container-fluid
+  #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+    ul.nav.menu
+      h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
+      li
+        a(href='/users')
+          svg.glyph.stroked.folder
+            use(xlink:href='#stroked-folder')
+          | Usuarios
+      li
+        a(href='/users/crear')
+          svg.glyph.stroked.blank.document
+            use(xlink:href='#stroked-blank-document')
+          | Crear Usuario
+      li.divider(role='presentation')
+      h3(style='margin-top: 17px; padding-left: 10px;') Cursos
+      li.active
+        a(href='/cursos')
+          svg.glyph.stroked.folder
+            use(xlink:href='#stroked-folder')
+          | Cursos
+      li
+        a(href='/cursos/crear')
+          svg.glyph.stroked.blank.document
+            use(xlink:href='#stroked-blank-document')
+          | Crear Curso
+      li.divider(role='presentation')
+      li
+        a(href='/perfil')
+          svg.glyph.stroked.male-user
+            use(xlink:href='#stroked-male-user')
+          |  Perfil
+  // /.sidebar
+  .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
+    .row
+      ol.breadcrumb
         li
-          a(href='/users')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Usuarios
-        li
-          a(href='/users/crear')
-            svg.glyph.stroked.blank.document
-              use(xlink:href='#stroked-blank-document')
-            | Crear Usuario
-        li.divider(role='presentation')
-        h3(style='margin-top: 17px; padding-left: 10px;') Cursos
-        li.active
-          a(href='/cursos')
-            svg.glyph.stroked.folder
-              use(xlink:href='#stroked-folder')
-            | Cursos
-        li
-          a(href='/cursos/crear')
-            svg.glyph.stroked.blank.document
-              use(xlink:href='#stroked-blank-document')
-            | Crear Curso
-        li.divider(role='presentation')
-        li
-          a(href='/perfil')
-            svg.glyph.stroked.male-user
-              use(xlink:href='#stroked-male-user')
-            |  Perfil
-    // /.sidebar
-    .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
-      .row
-        ol.breadcrumb
-          li
-            a(href='/inicio')
-              svg.glyph.stroked.home
-                use(xlink:href='#stroked-home')
-          li.active Cursos
+          a(href='/inicio')
+            svg.glyph.stroked.home
+              use(xlink:href='#stroked-home')
+        li.active Cursos
+    // /.row
+    br
+    .row
+      .col-lg-12
+        // ============Aqui Trabajo================
+        h1.page-header(style='margin-left: 20px;') Todos los Cursos
+        each course, i in Courses
+          .col-lg-8.ej1
+            .panel.panel-blue.panel-widget
+              .row.no-padding
+                .col-sm-3.col-lg-2.widget-left
+                  svg.glyph.stroked.app.window.with.content
+                    use(xlink:href='#stroked-app-window-with-content')
+                .col-lg-10.widget-right
+                  p
+                    b Paralelo:
+                    | #{course.paralelo}
+                  p
+                    b Profesor:
+                    | #{course.profesor}
+                  button(name=course.id,data-toggle='modal',data-target='#modalModificar' style='margin-right: 10px;').btn.btn-info.panel-blue.modificar Modificar
+                  button(name=course.id,data-toggle='modal',data-target='#MyModal' style='margin-right: 10px;').btn.btn-info.panel-blue.eliminar Eliminar
+
+          // ============Modal eliminar================
+          #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+            .modal-dialog(role='document')
+              .modal-content
+                .modal-header
+                  h3#exampleModalLabel.modal-title Eliminar Curso
+                .modal-body
+                  | Está seguro que desea Eliminar este curso?
+                .modal-footer
+                  button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                  button.btn.btn-primary.confirmarEliminar(type='button') Save changes
+
+
+        // ============Aqui Trabajo================
       // /.row
-      br
-      .row
-        .col-lg-12
-          // ============Aqui Trabajo================
-          h1.page-header(style='margin-left: 20px;') Todos los Cursos
-          each course, i in Courses
-            .col-lg-8.ej1
-              .panel.panel-blue.panel-widget
-                .row.no-padding
-                  .col-sm-3.col-lg-2.widget-left
-                    svg.glyph.stroked.app.window.with.content
-                      use(xlink:href='#stroked-app-window-with-content')
-                  .col-lg-10.widget-right
-                    p
-                      b Paralelo:
-                      | #{course.paralelo}
-                    p
-                      b Profesor:
-                      | #{course.profesor}
-          // ============/Aqui Trabajo================
-        // /.row
-      // /.row
-    // /.main
-    script(src='/public/sandbox/js/jquery-1.11.1.min.js')
-    script(src='/public/sandbox/js/bootstrap.min.js')
-    //script(type='text/javascript', src='/public/sandbox/js/index.js')
-    script(src='/public/js/mostrar-Usuario.js')
+    // /.row
+  // /.main
+  script(src='/public/sandbox/js/jquery-1.11.1.min.js')
+  script(src='/public/sandbox/js/bootstrap.min.js')
+  script(type='text/javascript', src='/public/js/curso.js')

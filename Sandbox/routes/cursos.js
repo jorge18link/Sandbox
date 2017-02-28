@@ -78,16 +78,14 @@ router.put('/modificar/:id', function(req,res){
     var modificacion = {
         paralelo: req.body.paralelo,
         profesor: req.body.profesor
-        //estudiantes: req.body.estudiantes
     }
 
     Curso.findOneAndUpdate(search, {$set:modificacion}, {new: true}, function(err, doc){
         if(err){
             console.log("Error al modificar el curso!");
         }
-        console.log('Curso modificado con exito!');
+        return res.send('Ejercicio modificado con exito');
     });
-    res.redirect('/cursos');
 });
 
 router.delete('/eliminar/:id', function(req,res){
