@@ -77,6 +77,32 @@ router.get('/perfil',ensureAuthenticated,function(req,res){
 	res.render('perfil');
 })
 
+router.get('/reportes',ensureAuthenticated,function(req,res){
+	res.render('reportes');
+});
+
+router.get('/reportes/findAll',function(req,res){
+	//Le envias en el json en data--> date1 y date2 y te devuelve en success 
+	//todos los ejercicios por ese rango de fechas y manejas ese json para hacer los reportes
+	fecha1= req.body.date1;
+	fecha2= req.body.date2;
+
+	var busca={
+		fecha : {
+			$gte: fecha1,
+			$lte: fecha2
+		}
+	}
+
+	EjercicioResuelto.find(busca, function(err, ejercicios) {
+		if(err){
+			console.log("ocurrio un error al buscar todos los ejercicios resueltos por rango de fechas");
+			throw err;
+		}
+		res.send(ejercicios);
+	});
+});
+
 router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 	var nuevaContraseña=req.body.nContraseña;
 	var antiguaContraseña=req.user.Contrasena;
