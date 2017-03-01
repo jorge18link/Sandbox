@@ -11,6 +11,9 @@ html
     // Icons
     script(src='/public/sandbox/js/lumino.glyphs.js')
     style(type='text/css').
+      #esconde1, #esconde2, #esconde3, #esconde4, #esconde5, #esconde6, #esconde7, #esconde8 {
+        padding-left: 0px;
+      }
       .sb-ejer{
         background-color: rgba(0,0,0,0.3);
         padding-left: 20px;
@@ -52,10 +55,10 @@ html
         max-width: 550px
       }
       .col-lg-10.widget-right {
-        height: 135px;
+        height: 320px;
       }
       .col-sm-3.col-lg-2.widget-left {
-        height: 135px;
+        height: 320px;
       }
       .glyph.stroked.app.window.with.content {
         margin-top: 10px;
@@ -170,12 +173,20 @@ body
                 .col-lg-10.widget-right
                   p
                     b Paralelo:
-                    | #{course.paralelo}
+                    |   #{course.paralelo}
                   p
                     b Profesor:
-                    | #{course.profesor}
+                    |   #{course.profesor}
+                  button(id="t"+(i+1) style='margin-right:10px;').btn.btn-info.panel-blue Ver
                   button(name=course.id,data-toggle='modal',data-target='#modalModificar' style='margin-right: 10px;').btn.btn-info.panel-blue.modificar Modificar
                   button(name=course.id,data-toggle='modal',data-target='#MyModal' style='margin-right: 10px;').btn.btn-info.panel-blue.eliminar Eliminar
+                  div(id="esconde"+(i+1)).widget-right
+                    p
+                      b Estudiantes:
+                    each student in course.estudiantes
+                      | #{student}
+                      br
+
 
           // ============Modal eliminar================
           #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
@@ -197,6 +208,7 @@ body
   script(src='/public/sandbox/js/jquery-1.11.1.min.js')
   script('https://code.jquery.com/jquery-1.12.4.js')
   script(src='/public/sandbox/js/bootstrap.min.js')
+  script(type='text/javascript', src='/public/sandBox/js/navscript.js')
   script(src='/public/js/mostrar-Usuario.js')
   script(src='//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js')
   script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
