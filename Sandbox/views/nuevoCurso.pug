@@ -134,15 +134,22 @@ html
             #body-pan.panel-body
               .cursos.col-md-4(style='width: 387px;')
                 form(method='post', action='/cursos/crear')
+
                   p.titulo(style='margin-bottom: 20px;') Paralelo:
                   input.form-control(type='number', name='paralelo', placeholder='Número de paralelo', min='1')
+
                   p.titulo(style='margin-bottom: 0px; margin-top:20px;') Profesor:
                   div.ui-widget
                     label.control-label(for='autocomplete-profesor')
-                    input.form-control(style='margin-bottom:10px;' type='text', name='profesor', placeholder='Nombres y Apellidos' id='autocomplete-profesor')
-                  //p.titulo Estudiantes:
-                  //input.form-control(type='text', name='estudiantes', placeholder='Estudiantes')
+                    input.form-control(style='margin-bottom:0px;' type='text', name='profesor', placeholder='Nombres y Apellidos' id='autocomplete-profesor')
+
+                  p.titulo(style='margin-bottom: 0px; margin-top:20px;') Estudiantes:
+                  div.ui-widget
+                    label.control-label(for='autocomplete-estudiantes')
+                    input.form-control(style='margin-bottom:10px;' type='text', name='estudiantes', placeholder='Estudiantes' id='autocomplete-estudiantes')
+
                   button.btn.btn-lg.btn-primary.dale(type='submit', name='go')  Crear
+
           // ============/Aqui Trabajo================
         // /.row
       // /.row
@@ -157,6 +164,13 @@ html
       $(document).ready(function() {
         console.log('Autocomplete ready!');
       });
+
+      function split(val) {
+          return val.split(/,\s*/);
+      }
+      function extractLast(term) {
+          return split(term).pop();
+      }
 
       $("#autocomplete-profesor").autocomplete({
         source: function(req, resp){
@@ -180,14 +194,20 @@ html
         }
       });
 
-      $("#autocomplete-estudiante").autocomplete({
+      $("#autocomplete-estudiantes").on("keydown", function (event) {
+          if (event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active) {
+              event.preventDefault();
+          }
+      }).autocomplete({
+        minLength: 0,
         source: function (req, resp) {
           $.ajax({
             method: "GET",
-            url: "/cursos/estudiantes",
+            url: "/cursos/crear/estudiantes",
             dataType: "json",
             data: {
-              term: req.term
+              term: extractLast(req.term)
             },
             success: function (data) {
               console.log(data)
@@ -195,9 +215,17 @@ html
             }
           });
         },
-        change: function (event, ui) {
-          if (!ui.item) {
-            $(this).val('');
-          }
+        focus: function () {
+          return false;
+        },
+        select: function (event, ui) {
+          var terms = split(this.value);
+          terms.pop();
+          terms.push(ui.item.value);
+          terms.push("");
+          this.value = terms.join(", ");
+          console.log("Selected: " + ui.item.value);
+          return false;
+
         }
       });

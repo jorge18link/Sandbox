@@ -88,23 +88,21 @@ router.get('/crear/estudiantes', function(req,res){
 });
 
 router.post('/crear', ensureAuthenticated, function(req, res){
-    var temp = req.body.profesor.split(" ");
-    var nombres = temp[0] + " " + temp[1];
-    var apellidos = temp[2] + " " + temp[3];
+    var termino = req.body.profesor.split(" ");
+    var nombres = termino[0] + " " + termino[1];
+    var apellidos = termino[2] + " " + termino[3];
     var query = {Nombres: nombres, Apellidos: apellidos};
-
+    var Estudiantes = req.body.estudiantes.split(", ");
+    Estudiantes.pop(); //Se remueve la coma del final
     User.findOne(query).exec(function (err, user){
-
         if (err) {
             return err;
         }
-
         var nuevoCurso= new Curso({
             paralelo: req.body.paralelo,
             profesor: req.body.profesor,
-            estudiantes: []
+            estudiantes: Estudiantes
         });
-
         nuevoCurso.save(function(error) {
             if (error) {
                 return error;
@@ -119,10 +117,12 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 router.put('/modificar/:id', ensureAuthenticated, function(req,res){
     var id = req.params.id;
     var search = {_id: id};
-
+    var Estudiantes = req.body.estudiantes.split(", ");
+    Estudiantes.pop(); //Se remueve la coma del final
     var modificacion = {
         paralelo: req.body.paralelo,
-        profesor: req.body.profesor
+        profesor: req.body.profesor,
+        estudiantes: Estudiantes
     }
 
     Curso.findOneAndUpdate(search, {$set:modificacion}, {new: true}, function(err, doc){

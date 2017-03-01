@@ -34,14 +34,14 @@ $( document ).ready(function() {
     $("body").on("click",".confirmarModificar",function(){
         var paralelo =$('#modiParalelo').val();
         var profesor=$('#modiProfesor').val();
-
+        var Estudiantes=$('#modiEstudiantes').val();
         $.ajax({
             url:"cursos/modificar/"+lastId,
             type: 'put',
             data:{
                 paralelo : paralelo,
                 profesor: profesor,
-                //estudiantes:[]
+                estudiantes: Estudiantes
             },
             success:function(curso){
                 location.reload();

@@ -77,6 +77,9 @@ body
             div.ui-widget
               label.control-label(for='modiProfesor' style='margin-top:15px;') Profesor
               input#modiProfesor.form-control(type='text' name='profesor')
+            div.ui-widget
+              label.control-label(for='modiEstudiantes' style='margin-top:15px;') Estudiantes
+              input#modiEstudiantes.form-control(type='text' name='estudiantes', placeholder='Ingrese estudiantes')
         .modal-footer
           button.btn.btn-secondary(type='button', data-dismiss='modal') Close
           button.btn.btn-primary.confirmarModificar(type='button') Modificar
@@ -203,6 +206,13 @@ body
           console.log('Autocomplete ready!');
       });
 
+      function split(val) {
+          return val.split(/,\s*/);
+      }
+      function extractLast(term) {
+          return split(term).pop();
+      }
+
       $("#modiProfesor").autocomplete({
           source: function (req, resp) {
               $.ajax({
@@ -225,14 +235,20 @@ body
           }
       });
 
-      /*("#eudiantes").autocomplete({
+      $("#modiEstudiantes").on("keydown", function (event) {
+          if (event.keyCode === $.ui.keyCode.TAB &&
+              $(this).autocomplete("instance").menu.active) {
+              event.preventDefault();
+          }
+      }).autocomplete({
+          minLength: 0,
           source: function (req, resp) {
               $.ajax({
                   method: "GET",
-                  url: "cursos/estudiantes",
+                  url: "/cursos/crear/estudiantes",
                   dataType: "json",
                   data: {
-                      term: req.term
+                      term: extractLast(req.term)
                   },
                   success: function (data) {
                       console.log(data)
@@ -240,9 +256,17 @@ body
                   }
               });
           },
-          change: function (event, ui) {
-              if (!ui.item) {
-                  $(this).val('');
-              }
+          focus: function () {
+              return false;
+          },
+          select: function (event, ui) {
+              var terms = split(this.value);
+              terms.pop();
+              terms.push(ui.item.value);
+              terms.push("");
+              this.value = terms.join(", ");
+              console.log("Selected: " + ui.item.value);
+              return false;
+
           }
-      });*/
+      });
