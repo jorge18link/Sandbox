@@ -4,9 +4,11 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title SandBox - Administrador
+    link(href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet' )
     link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
     link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
+
     // Icons
     script(src='/public/sandbox/js/lumino.glyphs.js')
     style(type='text/css').
@@ -125,17 +127,19 @@ html
       // /.row
       br
       .row
-        .col-lg-12
+        .col-lg-12(style='width: 450px;')
           // ============Aqui Trabajo================
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Nuevo Curso
             #body-pan.panel-body
-              .cursos.col-md-4
+              .cursos.col-md-4(style='width: 387px;')
                 form(method='post', action='/cursos/crear')
-                  p.titulo Paralelo:
-                  input.form-control(type='number', name='paralelo', placeholder='Numero', min='1')
-                  p.titulo Profesor:
-                  input.form-control(type='text', name='profesor', placeholder='Nombres Apellidos')
+                  p.titulo(style='margin-bottom: 20px;') Paralelo:
+                  input.form-control(type='number', name='paralelo', placeholder='Número de paralelo', min='1')
+                  p.titulo(style='margin-bottom: 0px; margin-top:20px;') Profesor:
+                  div.ui-widget
+                    label.control-label(for='autocomplete-profesor')
+                    input.form-control(style='margin-bottom:10px;' type='text', name='profesor', placeholder='Nombres y Apellidos' id='autocomplete-profesor')
                   //p.titulo Estudiantes:
                   //input.form-control(type='text', name='estudiantes', placeholder='Estudiantes')
                   button.btn.btn-lg.btn-primary.dale(type='submit', name='go')  Crear
@@ -144,6 +148,56 @@ html
       // /.row
     // /.main
     script(src='/public/sandbox/js/jquery-1.11.1.min.js')
+    script('https://code.jquery.com/jquery-1.12.4.js')
     script(src='/public/sandbox/js/bootstrap.min.js')
-    //script(type='text/javascript', src='/public/sandbox/js/index.js')
     script(src='/public/js/mostrar-Usuario.js')
+    script(src='//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js')
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    script(type='text/javascript').
+      $(document).ready(function() {
+        console.log('Autocomplete ready!');
+      });
+
+      $("#autocomplete-profesor").autocomplete({
+        source: function(req, resp){
+          $.ajax({
+            method: "GET",
+            url: "/cursos/crear/profesor",
+            dataType: "json",
+            data: {
+            term: req.term
+            },
+            success: function(data) {
+              console.log(data)
+              resp(data);
+            }
+          });
+        },
+        change: function(event,ui){
+          if (!ui.item){
+            $(this).val('');
+          }
+        }
+      });
+
+      $("#autocomplete-estudiante").autocomplete({
+        source: function (req, resp) {
+          $.ajax({
+            method: "GET",
+            url: "/cursos/estudiantes",
+            dataType: "json",
+            data: {
+              term: req.term
+            },
+            success: function (data) {
+              console.log(data)
+              resp(data);
+            }
+          });
+        },
+        change: function (event, ui) {
+          if (!ui.item) {
+            $(this).val('');
+          }
+        }
+      });

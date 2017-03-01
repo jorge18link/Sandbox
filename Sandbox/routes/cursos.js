@@ -1,16 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
+var nodemailer=require('nodemailer');
 var Curso =require('../models/curso');
 var User = require('../models/usuario');
-
-function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        res.redirect('/');
-    }
-}
 
 var validacion=function(req,res,next){
     console.log(req.user.Rol);
@@ -21,7 +14,23 @@ var validacion=function(req,res,next){
     next();
 }
 
-router.get('/', function(req, res){
+var smtpTransport = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    auth: {
+        user: 'lilibeth.karen@gmail.com',
+        pass: 'redkaren94'
+    }
+});
+
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/');
+    }
+}
+router.get('/', ensureAuthenticated,validacion, function(req, res){
     var Curso=mongoose.model('curso');
     Curso.find({}, function(err, course) {
         if(err) throw err;
@@ -29,11 +38,11 @@ router.get('/', function(req, res){
     });
 });
 
-router.get('/crear', function(req,res){
+router.get('/crear', ensureAuthenticated,validacion, function(req,res){
     res.render('nuevoCurso');
 })
 
-router.get('/:id', function(req, res){
+router.get('/:id', ensureAuthenticated,validacion, function(req, res){
     idCurso=req.params.id;
     var busca = {_id: idCurso};
     Curso.findOne(busca,function(err, curso){
@@ -42,7 +51,43 @@ router.get('/:id', function(req, res){
     });
 });
 
-router.post('/crear',function(req, res){
+router.get('/crear/profesor', function(req,res){
+    var User = require('../models/usuario');
+    var busqueda = req.query.term;
+    User.find({}, function(err, usuarios){
+        if (err){
+            return err;
+        }
+        nombres = [];
+        for(i=0; i<usuarios.length; i++){
+            nombre_completo = usuarios[i].Nombres + " " + usuarios[i].Apellidos;
+            if (usuarios[i].Rol == "Profesor"  && nombre_completo.includes(busqueda)){
+                nombres.push(nombre_completo);
+            }
+        }
+        res.json(nombres);
+    });
+});
+
+router.get('/crear/estudiantes', function(req,res){
+    var User = require('../models/usuario');
+    var busqueda = req.query.term;
+    User.find(function(err, usuarios){
+        if (err){
+            res.send(err);
+        }
+        nombres = [];
+        for(i=0; i<usuarios.length; i++){
+            nombre_completo = usuarios[i].Nombres + " " + usuarios[i].Apellidos;
+            if (usuarios[i].Rol == "Estudiante" && nombre_completo.includes(busqueda)){
+                nombres.push(nombre_completo);
+            }
+        }
+        res.json(nombres);
+    });
+});
+
+router.post('/crear', ensureAuthenticated, function(req, res){
     var temp = req.body.profesor.split(" ");
     var nombres = temp[0] + " " + temp[1];
     var apellidos = temp[2] + " " + temp[3];
@@ -71,7 +116,7 @@ router.post('/crear',function(req, res){
     res.redirect('/cursos')
 });
 
-router.put('/modificar/:id', function(req,res){
+router.put('/modificar/:id', ensureAuthenticated, function(req,res){
     var id = req.params.id;
     var search = {_id: id};
 
@@ -88,7 +133,7 @@ router.put('/modificar/:id', function(req,res){
     });
 });
 
-router.delete('/eliminar/:id', function(req,res){
+router.delete('/eliminar/:id', ensureAuthenticated, function(req,res){
     var id = req.params.id;
     var search = {_id: id};
     Curso.findOne(search,function(err, curso){

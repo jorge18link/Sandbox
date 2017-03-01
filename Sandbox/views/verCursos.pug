@@ -4,6 +4,7 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title SandBox - Administrador
+    link(href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet')
     link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
     link(href='/public/sandbox/css/datepicker3.css', rel='stylesheet')
     link(href='/public/sandbox/css/styles.css', rel='stylesheet')
@@ -59,20 +60,22 @@ html
       .glyph.stroked.app.window.with.content {
         margin-top: 10px;
       }
+      .ui-autocomplete {
+          z-index: 5000;
+      }
 body
   // ============Modal Modificar================
   #modalModificar.modal.fade(aria-labelledby='exampleModalLabel', aria-hidden='true')
-    .modal-dialog(role='document')
+    .modal-dialog(rol='document')
       .modal-content
         .modal-header
           h3#exampleModalLabel.modal-title Modificar Curso
-        .modal-body
+        .modal-body(style='height:300px;')
           form
-            .form-group
-              label Paralelo
-              input#modiParalelo.form-control(type='number' name='paralelo', min='1')
-            .form-group
-              label Profesor
+            label Paralelo
+            input#modiParalelo.form-control(type='number' name='paralelo', min='1')
+            div.ui-widget
+              label.control-label(for='modiProfesor' style='margin-top:15px;') Profesor
               input#modiProfesor.form-control(type='text' name='profesor')
         .modal-footer
           button.btn.btn-secondary(type='button', data-dismiss='modal') Close
@@ -189,5 +192,57 @@ body
     // /.row
   // /.main
   script(src='/public/sandbox/js/jquery-1.11.1.min.js')
+  script('https://code.jquery.com/jquery-1.12.4.js')
   script(src='/public/sandbox/js/bootstrap.min.js')
-  script(type='text/javascript', src='/public/js/curso.js')
+  script(src='/public/js/mostrar-Usuario.js')
+  script(src='//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js')
+  script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+  script(src='/public/js/curso.js')
+  script(type='text/javascript').
+      $(document).ready(function () {
+          console.log('Autocomplete ready!');
+      });
+
+      $("#modiProfesor").autocomplete({
+          source: function (req, resp) {
+              $.ajax({
+                  method: "GET",
+                  url: "cursos/crear/profesor",
+                  dataType: "json",
+                  data: {
+                      term: req.term
+                  },
+                  success: function (data) {
+                      console.log(data)
+                      resp(data);
+                  }
+              });
+          },
+          change: function (event, ui) {
+              if (!ui.item) {
+                  $(this).val('');
+              }
+          }
+      });
+
+      /*("#eudiantes").autocomplete({
+          source: function (req, resp) {
+              $.ajax({
+                  method: "GET",
+                  url: "cursos/estudiantes",
+                  dataType: "json",
+                  data: {
+                      term: req.term
+                  },
+                  success: function (data) {
+                      console.log(data)
+                      resp(data);
+                  }
+              });
+          },
+          change: function (event, ui) {
+              if (!ui.item) {
+                  $(this).val('');
+              }
+          }
+      });*/
