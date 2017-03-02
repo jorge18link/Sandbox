@@ -18,49 +18,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reportes.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/reportes.pug">
+      <file leaf-file-name="nuevoCurso.pug" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/nuevoCurso.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="119" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reportes-curso.pug" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="133" column="119" lean-forward="false" selection-start-line="133" selection-start-column="119" selection-end-line="133" selection-end-column="119" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chart-all-curso.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/chart-all-curso.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+            <state relative-caret-position="402">
+              <caret line="168" column="42" lean-forward="true" selection-start-line="168" selection-start-column="42" selection-end-line="168" selection-end-column="42" />
               <folding>
-                <marker date="1488451797500" expanded="true" signature="2823:2837" ph="..." />
-                <marker date="1488451797500" expanded="true" signature="2920:2950" ph="..." />
-                <marker date="1488451797500" expanded="true" signature="3012:3021" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chart-all.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/chart-all.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="67" column="69" lean-forward="false" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
-              <folding>
-                <marker date="1488452025298" expanded="true" signature="2811:2825" ph="..." />
-                <marker date="1488452025298" expanded="true" signature="2908:2938" ph="..." />
-                <marker date="1488452025298" expanded="true" signature="3000:3009" ph="..." />
+                <marker date="1488452479329" expanded="true" signature="1795:1815" ph="..." />
               </folding>
             </state>
           </provider>
@@ -134,11 +98,11 @@
         <option value="$PROJECT_DIR$/views/usuarioCrear.pug" />
         <option value="$PROJECT_DIR$/views/verCursos.pug" />
         <option value="$PROJECT_DIR$/views/verUsuarios.pug" />
-        <option value="$PROJECT_DIR$/views/nuevoCurso.pug" />
         <option value="$PROJECT_DIR$/views/reportes.pug" />
         <option value="$PROJECT_DIR$/public/js/chart-all-curso.js" />
         <option value="$PROJECT_DIR$/public/js/chart-all.js" />
         <option value="$PROJECT_DIR$/views/reportes-curso.pug" />
+        <option value="$PROJECT_DIR$/views/nuevoCurso.pug" />
       </list>
     </option>
   </component>
@@ -383,12 +347,12 @@
       <workItem from="1487767634393" duration="10812000" />
       <workItem from="1488281303007" duration="3445000" />
       <workItem from="1488286131114" duration="25533000" />
-      <workItem from="1488317298417" duration="84353000" />
+      <workItem from="1488317298417" duration="84801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124155000" />
+    <option name="totallyTimeSpent" value="124603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -790,13 +754,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/nuevoCurso.pug">
+    <entry file="file://$PROJECT_DIR$/views/reportes.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="119" column="33" lean-forward="false" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
-          <folding>
-            <marker date="1488451411357" expanded="true" signature="1795:1815" ph="..." />
-          </folding>
+        <state relative-caret-position="293">
+          <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -824,19 +794,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/reportes.pug">
+    <entry file="file://$PROJECT_DIR$/views/nuevoCurso.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="133" column="119" lean-forward="false" selection-start-line="133" selection-start-column="119" selection-end-line="133" selection-end-column="119" />
-          <folding />
+        <state relative-caret-position="402">
+          <caret line="168" column="42" lean-forward="true" selection-start-line="168" selection-start-column="42" selection-end-line="168" selection-end-column="42" />
+          <folding>
+            <marker date="1488452479329" expanded="true" signature="1795:1815" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
