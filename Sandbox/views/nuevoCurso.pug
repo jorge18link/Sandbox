@@ -166,12 +166,11 @@ html
             #pane-techo.panel-heading.col-md-12 Nuevo Curso (.CSV)
             #body-pan.panel-body
               .cursos.col-md-4(style='width: 387px;')
-                form(action='upload_file.php', method='post', enctype='multipart/form-data')
-                  p.titulo(style='margin-bottom: 0px; margin-top:20px;') Filename:
-                  label(for='file')
-                  input#file(type='file', name='file')
-                  br
-                  button.btn.btn-lg.btn-primary.dale(type='submit', name='go2')  Crear
+                form(id='formulario',action='#')
+                      div.form-group
+                        h2 Suba Su Codigo:
+                        input(type='file', name='archivo')
+                        button.btn.btn-success.btn-lg(value='Subir' name='funka') submit
 
 
           // ============/Aqui Trabajo================
@@ -182,6 +181,7 @@ html
     script('https://code.jquery.com/jquery-1.12.4.js')
     script(src='/public/sandbox/js/bootstrap.min.js')
     script(src='/public/js/mostrar-Usuario.js')
+    script(src='/public/js/cursoCSV.js')
     script(src='//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js')
     script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
     script(type='text/javascript').
@@ -252,4 +252,6 @@ html
           return false;
 
         }
+
+        
       });

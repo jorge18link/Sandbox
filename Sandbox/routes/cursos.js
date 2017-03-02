@@ -87,6 +87,36 @@ router.get('/crear/estudiantes', function(req,res){
     });
 });
 
+router.post('/csv',function(req,res){
+    var fs = require('fs')
+    var csv = require('fast-csv')
+    var tmp_path = req.files.archivo.path;
+    var tipo = req.files.archivo.type;
+    var nombreArchivo= 'curso.csv';
+    var target_path='./archivos/'+nombreArchivo;
+    
+    
+    fs.rename(tmp_path,target_path,function(err){
+        if(err) throw err;
+        
+    });
+
+    fs.createReadStream("./archivos/curso.csv")
+        .pipe(csv())
+        .on('data',function(data){
+            console.log(data);
+            console.log(typeof(data));
+            for (i = 2; i < data.length; i++) { 
+                console.log(data[i]);
+            }
+        
+        })
+        .on('end',function(data){
+            console.log('Read finished');
+        });
+    
+});
+
 router.post('/crear', ensureAuthenticated, function(req, res){
     var termino = req.body.profesor.split(" ");
     var nombres = termino[0] + " " + termino[1];
