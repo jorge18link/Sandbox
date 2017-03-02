@@ -12,7 +12,8 @@ var usuarioSchema = new Schema({
    Apellidos:String,
    Carrera:String,
    puntajeObtenido:Number,
-   paralelo:Number
+   paralelo:Number,
+   resueltos:Number
 })
 
 var User=module.exports=mongoose.model('usuario',usuarioSchema);

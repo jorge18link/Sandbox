@@ -245,7 +245,7 @@ router.get('/obtener/top5/:paralelo',function(req,res){
     var temp=[]
     User.find({paralelo:paralelo},function(err,alumnos){
         alumnos.sort(condicionParaOrdenar)
-        for (i=0; i<3 ;i++){
+        for (i=0; i<5 ;i++){
             temp.push(alumnos[i])
         }
         res.send(temp)
