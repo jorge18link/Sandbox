@@ -108,6 +108,18 @@ router.post('/crear', ensureAuthenticated, function(req, res){
                 return err;
             }
             idEstudiantes.push(user2._id);
+
+            para= req.body.paralelo;
+            var modificacion={
+                paralelo: para
+            }
+
+            User.findOneAndUpdate(query2, {$set:modificacion}, function(err8, doc){
+                if(err8){					
+                    console.log("Something wrong when updating data!");
+                    throw err2;
+                }
+            });
         });
     }
 

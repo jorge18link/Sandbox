@@ -51,6 +51,7 @@ router.get('/:id',ensureAuthenticated,validacion, function(req, res){
 router.post('/crear', ensureAuthenticated, function(req, res){
 	req.body.Contrasena=Math.random().toString(36).slice(-8); 
 	req.body.puntajeObtenido=0;
+	req.body.paralelo=0;
 	var  nuevo=new User(req.body);
 	nuevo.save(function(err){ 
 		if (err) {

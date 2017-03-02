@@ -50,10 +50,10 @@ router.get('/obtener/:dificultad',ensureAuthenticated,validacion,function(req,re
 
 router.post('/upload/:idEjer', function(req, res) {
    //El modulo 'fs' (File System) que provee Nodejs nos permite manejar los archivos
-	var fs = require('fs');
+	var fs = require('fs')
 	var idEjercicio= req.params.idEjer;
 	var puntos=0;
-	var tmp_path = req.files.archivo.path;
+	var tmp_path = req.files.archivo.path
 	var tipo = req.files.archivo.type;
 	var idUserLogeado= req.user._id;
 	var fechanow= new Date();
@@ -97,11 +97,11 @@ router.post('/upload/:idEjer', function(req, res) {
 						console.log("Ocurrio un error al buscar data");
 						throw err1;
 					}
-					//console.log(usuario);
-					//console.log('los puntos del ejercicio son: '+puntos)
-					//console.log('los puntos antes de sumarle son: '+ usuario.puntajeObtenido)
+					console.log(usuario);
+					console.log('los puntos del ejercicio son: '+puntos)
+					console.log('los puntos antes de sumarle son: '+ usuario.puntajeObtenido)
 					var puntosUsuario = usuario.puntajeObtenido + puntos;
-					//console.log('los puntos obtenidos luego de sumar los puntos del ejercicio son: '+puntosUsuario )
+					console.log('los puntos obtenidos luego de sumar los puntos del ejercicio son: '+puntosUsuario )
 
 					var modificacion={
 						puntajeObtenido: puntosUsuario
@@ -116,6 +116,7 @@ router.post('/upload/:idEjer', function(req, res) {
 					});
 				});
 			});
+			
 		}else{
 			res.send("no funciona");
 		}
