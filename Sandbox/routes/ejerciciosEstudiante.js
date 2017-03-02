@@ -101,10 +101,12 @@ router.post('/upload/:idEjer', function(req, res) {
 					console.log('los puntos del ejercicio son: '+puntos)
 					console.log('los puntos antes de sumarle son: '+ usuario.puntajeObtenido)
 					var puntosUsuario = usuario.puntajeObtenido + puntos;
+					var resueltosSuma = usuario.resueltos + 1;
 					console.log('los puntos obtenidos luego de sumar los puntos del ejercicio son: '+puntosUsuario )
 
 					var modificacion={
-						puntajeObtenido: puntosUsuario
+						puntajeObtenido: puntosUsuario,
+						resueltos: resueltosSuma
 					}
 
 					User.findOneAndUpdate(busUser, {$set:modificacion}, function(err2, doc){
