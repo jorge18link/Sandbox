@@ -78,7 +78,11 @@ router.get('/perfil',ensureAuthenticated,function(req,res){
 })
 
 router.get('/reportes',ensureAuthenticated,function(req,res){
-	res.render('reportes');
+    res.render('reportes');
+});
+
+router.get('/reportes-curso',ensureAuthenticated,function(req,res){
+    res.render('reportes-curso');
 });
 
 router.get('/reportes/findAll/:date1/:date2',function(req,res){
@@ -140,6 +144,43 @@ router.get('/reportes/findDates/:date1/:date2',function(req,res){
         res.json(fechas);
     });
 });
+
+//REPORTES POR CURSO.........................................................................................
+router.get('/reportes-curso/findDates/:date1/:date2',function(req,res){
+    //Le envias en el json en data--> date1 y date2 y te devuelve en success
+    //todos los ejercicios por ese rango de fechas y manejas ese json para hacer los reportes
+    var fecha1= req.params.date1; //con body funcionaba parte
+    var fecha2= req.params.date2;
+    console.log(fecha1);
+    console.log(typeof (fecha1));
+    var EjercicioResuelto =require('../models/resuelto');
+    var f1 = new Date(fecha1);
+    var f2 = new Date(fecha2);
+    var busca={
+        fecha : {
+            $gte: f1,
+            $lte: f2
+        }
+    }
+    console.log(f1);
+    console.log(f2);
+    EjercicioResuelto.find(busca, function(err, resueltos) {
+        if(err){
+            console.log("ocurrio un error al buscar todos los ejercicios resueltos por rango de fechas");
+            throw err;
+        }
+        var fechas = [];
+        for(var i=0; i<resueltos.length; i++){
+            console.log(resueltos.length);
+            fechas.push(resueltos[i].fecha);
+        }
+
+        res.json(fechas);
+    });
+});
+//REPORTES POR CURSO.....................................................................................
+
+
 
 router.post('/modifContrasena',ensureAuthenticated,function(req,res){
 	var nuevaContraseña=req.body.nContraseña;

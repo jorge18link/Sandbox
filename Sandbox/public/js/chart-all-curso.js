@@ -27,7 +27,7 @@ $( document ).ready(function() {
         date2 = $('#datepicker2').val()
         $.ajax({
             method: "GET",
-            url: "reportes/findDates/"+date1 +"/" +date2,
+            url: "reportes-curso/findDates/"+date1 +"/" +date2,
             dataType: "json",
             success: function (fechas) {
                 console.log(fechas);
@@ -40,8 +40,8 @@ $( document ).ready(function() {
                 //Arreglo de Categorias
                 $.each(FechasSlice
                     , function(i, el){
-                    if($.inArray(el, Categorias) === -1) Categorias.push(el);
-                });
+                        if($.inArray(el, Categorias) === -1) Categorias.push(el);
+                    });
                 console.log(Categorias);
 
                 contador = 0;
@@ -103,3 +103,4 @@ $( document ).ready(function() {
         });
     });
 });
+

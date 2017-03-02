@@ -1,45 +1,26 @@
 doctype html
 html
   head
+    //
+      Basic Page Needs
+      ==================================================
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title SandBox - Estudiantes
-    link(href='/public/sandbox/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/sandbox/css/styles.css', rel='stylesheet')
-    // Icons
-    script(src='/public/sandbox/js/lumino.glyphs.js')
+    title Sandbox - Reportes
+    //
+      Stylesheet
+      ==================================================
+    //link(href='/public/sandBox/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+    link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+    link(href='/public/sandBox/css/styles.css', rel='stylesheet')
+    script(src='/public/sandBox/js/lumino.glyphs.js')
+    //
+      Embedded Stylesheet
+      ==================================================
     style(type='text/css').
-      .sb-ejer{
-      background-color: rgba(0,0,0,0.3);
-      padding-left: 20px;
-      padding-bottom: 20px;
-      }
-      .sb-ejer h3{
-      color:orange;
-      }
-      .sb-desc{
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      height: 77vh;
-      }
-      .ejercicios{
-      background-color: rgba(255,255,255,0.8);
-      }
-      .ejercicios p{
-      color: black;
-      font-size: large;
-      }
-      #body-pan{
-      background-color: #9BD0F5;
-      }
-      #pane-techo{
-      background-color: #5094C4;
-      color: white;
-      }
-      .form-control{
-      max-width: 550px
-      }
+    //aqui van los styles
   body
     //
       Navigation
@@ -59,7 +40,7 @@ html
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 svg.glyph.stroked.male-user
                   use(xlink:href='#stroked-male-user')
-                label.nombreUser
+                label.nombreUser 
                 span.caret
               ul.dropdown-menu(role='menu')
                 li
@@ -67,6 +48,11 @@ html
                     svg.glyph.stroked.male-user
                       use(xlink:href='#stroked-male-user')
                     |  Ver mi perfil
+                li
+                  a.cambiaContra
+                    svg.glyph.signia.thin-wood-pencil
+                      use(xlink:href='#signia-thin-wood-pencil')
+                    | Cambiar Contraseña
                 li
                   a(href='/logout')
                     svg.glyph.stroked.cancel
@@ -81,7 +67,7 @@ html
             svg.glyph.stroked.folder
               use(xlink:href='#stroked-folder')
             | Usuarios
-        li.active
+        li
           a(href='/users/crear')
             svg.glyph.stroked.blank.document
               use(xlink:href='#stroked-blank-document')
@@ -105,7 +91,7 @@ html
             svg.glyph.stroked.line-graph
               use(xlink:href='#stroked-line-graph')
             |  Por día
-        li
+        li.active
           a(href='/reportes-curso')
             svg.glyph.stroked.notepad
               use(xlink:href='#stroked-notepad')
@@ -116,7 +102,11 @@ html
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
+
     // /.sidebar
+    //
+      Active Page
+      ==========================================
     .col-sm-9.col-sm-offset-3.col-lg-10.col-lg-offset-2.main
       .row
         ol.breadcrumb
@@ -124,45 +114,34 @@ html
             a(href='/inicio')
               svg.glyph.stroked.home
                 use(xlink:href='#stroked-home')
-          li.active Usuarios
+          li.active Reportes
       // /.row
-      br
-      .row
-        .col-lg-12
-          // ============Aqui Trabajo================
-          .panel.panel-default
-            #pane-techo.panel-heading.col-md-12 Crear Usuarios
-            #body-pan.panel-body
-              .sb-desc.col-md-12.col-sm-12
-                form(method='post', action='/users/crear', role='form')
-                  .form-group
-                    label(for='ejemplo_email_1') Email
-                    input.form-control(name='CorreoElectronico', type='email', placeholder='Introduzca email')
-                  .form-group
-                    label(for='rol') Rol
-                    input.form-control(name='Rol', type='text', placeholder='Introduce el rol')
-                  .form-group
-                    label(for='sel1') Tipo de identificación: 
-                    select#sel1.form-control(name='TipoDeIdentificacion')
-                      option Cédula
-                      option Matrícula
-                  .form-group
-                    label(for='identificación') identificacion
-                    input.form-control(type='text', name='Identificacion', placeholder='Ingrese identificación: ')
-                  .form-group
-                    label(for='nombre') Nombre
-                    input.form-control(name='Nombres', type='text', placeholder='Introduzca cedula o Matrícula')
-                  .form-group
-                    label(for='apellidos') Apellidos
-                    input.form-control(name='Apellidos', type='text', placeholder='Introduce los apellidos')
-                  .form-group
-                    label(for='Carrera') Carrera
-                    input.form-control(name='Carrera', type='text', placeholder='Introduce la carrera')
-                  button.btn.btn-default(type='submit') Enviar
-          // ============/Aqui Trabajo================
-        // /.row
-      // /.row
-    // /.main
-    script(src='/public/sandbox/js/jquery-1.11.1.min.js')
-    script(src='/public/sandbox/js/bootstrap.min.js')
+        Perfil Header
+        ==========================================
+      .row.datepick
+        h2(style='margin-left: 15px;') Eliga el rango de fechas que desea mostrar en el gráfico
+        label.col-md-1(style='margin-top: 10px; width: 75px;') Desde:
+        .input-group.col-md-2
+           input.form-control#datepicker1(type='text' name='date1')
+           .input-group-addon
+                 span.glyphicon.glyphicon-th
+        label.col-md-1(style='margin-top: 8px; width: 75px;') Hasta:
+        .input-group.col-md-2
+           input.form-control#datepicker2(type='text' name='date2')
+           .input-group-addon
+                 span.glyphicon.glyphicon-th
+        button.btn-md.btn-primary.go#mostrar(style='margin-left: 15px; margin-bottom: 15px; margin-top: 15px;') Mostrar
+      .row.chart
+
+    //
+      Javascripts
+      ==================================================
+    script(src='https://code.jquery.com/jquery-1.12.4.js')
+    script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+    //script(src='https://code.jquery.com/jquery-3.1.1.js', integrity='sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+    script(src='http://code.highcharts.com/highcharts.js')
+    script(src='http://code.highcharts.com/modules/exporting.js')
     script(src='/public/js/mostrar-Usuario.js')
+    script(src='/public/js/date-picker.js')
+    script(src='/public/js/chart-all-curso.js')
