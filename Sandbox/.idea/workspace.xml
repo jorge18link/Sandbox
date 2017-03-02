@@ -22,17 +22,17 @@
         <entry file="file://$PROJECT_DIR$/views/reportes.pug">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
-              <caret line="133" column="44" lean-forward="false" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
+              <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="119" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reportes-curso.pug" pinned="false" current-in-tab="false">
+      <file leaf-file-name="reportes-curso.pug" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="94" column="18" lean-forward="true" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="33" />
+            <state relative-caret-position="323">
+              <caret line="133" column="119" lean-forward="false" selection-start-line="133" selection-start-column="119" selection-end-line="133" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -52,15 +52,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chart-all.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chart-all.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/chart-all.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1111">
-              <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="351">
+              <caret line="67" column="69" lean-forward="false" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
               <folding>
-                <marker date="1488451842001" expanded="true" signature="2809:2823" ph="..." />
-                <marker date="1488451842001" expanded="true" signature="2906:2936" ph="..." />
-                <marker date="1488451842001" expanded="true" signature="2998:3007" ph="..." />
+                <marker date="1488452025298" expanded="true" signature="2811:2825" ph="..." />
+                <marker date="1488452025298" expanded="true" signature="2908:2938" ph="..." />
+                <marker date="1488452025298" expanded="true" signature="3000:3009" ph="..." />
               </folding>
             </state>
           </provider>
@@ -131,7 +131,6 @@
         <option value="$PROJECT_DIR$/estudiantescsv.csv" />
         <option value="$PROJECT_DIR$/public/js/date-picker.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/reportes-curso.pug" />
         <option value="$PROJECT_DIR$/views/usuarioCrear.pug" />
         <option value="$PROJECT_DIR$/views/verCursos.pug" />
         <option value="$PROJECT_DIR$/views/verUsuarios.pug" />
@@ -139,6 +138,7 @@
         <option value="$PROJECT_DIR$/views/reportes.pug" />
         <option value="$PROJECT_DIR$/public/js/chart-all-curso.js" />
         <option value="$PROJECT_DIR$/public/js/chart-all.js" />
+        <option value="$PROJECT_DIR$/views/reportes-curso.pug" />
       </list>
     </option>
   </component>
@@ -383,12 +383,12 @@
       <workItem from="1487767634393" duration="10812000" />
       <workItem from="1488281303007" duration="3445000" />
       <workItem from="1488286131114" duration="25533000" />
-      <workItem from="1488317298417" duration="84169000" />
+      <workItem from="1488317298417" duration="84353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123971000" />
+    <option name="totallyTimeSpent" value="124155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -800,22 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="94" column="18" lean-forward="true" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/reportes.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="133" column="44" lean-forward="false" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/chart-all-curso.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -830,13 +814,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/chart-all.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1111">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="351">
+          <caret line="67" column="69" lean-forward="false" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
           <folding>
-            <marker date="1488451842001" expanded="true" signature="2809:2823" ph="..." />
-            <marker date="1488451842001" expanded="true" signature="2906:2936" ph="..." />
-            <marker date="1488451842001" expanded="true" signature="2998:3007" ph="..." />
+            <marker date="1488452025298" expanded="true" signature="2811:2825" ph="..." />
+            <marker date="1488452025298" expanded="true" signature="2908:2938" ph="..." />
+            <marker date="1488452025298" expanded="true" signature="3000:3009" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reportes.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="133" column="119" lean-forward="true" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reportes-curso.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="133" column="119" lean-forward="false" selection-start-line="133" selection-start-column="119" selection-end-line="133" selection-end-column="119" />
+          <folding />
         </state>
       </provider>
     </entry>

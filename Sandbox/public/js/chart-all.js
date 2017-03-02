@@ -65,7 +65,7 @@ $( document ).ready(function() {
                         type: 'column'
                     },
                     title: {
-                        text: 'Reporte Ejercicios Resueltos por Día'
+                        text: 'Reporte Ejercicios Resueltos por Curso'
                     },
                     subtitle: {
                         text: 'Source: Fundamentos de Programación'
