@@ -60,25 +60,49 @@ html
                     |  Cerrar Sesión
       // /.container-fluid
     #sidebar-collapse.col-sm-3.col-lg-2.sidebar
-      h2(style='margin-top: 17px; padding-left: 10px;') Perfil
       ul.nav.menu
-        li.liPerfil.active
+        h3(style='margin-top: 17px; padding-left: 10px;') Usuarios
+        li
+          a(href='/users')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Usuarios
+        li
+          a(href='/users/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Usuario
+        li.divider(role='presentation')
+        h3(style='margin-top: 17px; padding-left: 10px;') Cursos
+        li
+          a(href='/cursos')
+            svg.glyph.stroked.folder
+              use(xlink:href='#stroked-folder')
+            | Cursos
+        li
+          a(href='/cursos/crear')
+            svg.glyph.stroked.blank.document
+              use(xlink:href='#stroked-blank-document')
+            | Crear Curso
+        li.divider(role='presentation')
+        h3(style='margin-top: 17px; padding-left: 10px;') Reportes
+        li.active
+          a(href='/reportes')
+            svg.glyph.stroked.line-graph
+              use(xlink:href='#stroked-line-graph')
+            |  Por día
+        li
+          a(href='#')
+            svg.glyph.stroked.notepad
+              use(xlink:href='#stroked-notepad')
+            |  Por curso
+        li.divider(role='presentation')
+        li
           a(href='/perfil')
             svg.glyph.stroked.male-user
               use(xlink:href='#stroked-male-user')
             |  Perfil
-        li.liPass
-          a.cambiaContra
-            svg.glyph.stroked.pencil
-              use(xlink:href='#stroked-pencil')
-            | Cambiar Contraseña
-        li.divider(role='presentation')
-        li
-          a(href='/logout')
-            svg.glyph.stroked.cancel
-              use(xlink:href='#stroked-cancel')
-            | Cerrar Sesion
-        
+
     // /.sidebar
     //
       Active Page
@@ -95,20 +119,20 @@ html
         Perfil Header
         ==========================================
       .row.datepick
-        h2 Eliga el rango de fechas que desea mostrar en el gráfico
-        label.col-md-1 Desde:
+        h2(style='margin-left: 15px;') Eliga el rango de fechas que desea mostrar en el gráfico
+        label.col-md-1(style='margin-top: 10px; width: 75px;') Desde:
         .input-group.col-md-2
-           input.form-control#datepicker1(type='text')
+           input.form-control#datepicker1(type='text' name='date1')
            .input-group-addon
                  span.glyphicon.glyphicon-th
-        label.col-md-1 Hasta:
+        label.col-md-1(style='margin-top: 8px; width: 75px;') Hasta:
         .input-group.col-md-2
-           input.form-control#datepicker2(type='text')
+           input.form-control#datepicker2(type='text' name='date2')
            .input-group-addon
                  span.glyphicon.glyphicon-th
-        button.btn-md.btn-primary.go Mostrar
+        button.btn-md.btn-primary.go#mostrar(style='margin-left: 15px; margin-bottom: 15px; margin-top: 15px;') Mostrar
       .row.chart
-        
+
     //
       Javascripts
       ==================================================

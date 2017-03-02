@@ -43,7 +43,7 @@ $( document ).ready(function() {
                 profesor: profesor,
                 estudiantes: Estudiantes
             },
-            success:function(curso){
+            success:function(curso){ //unused parameter curso
                 location.reload();
             }
         })

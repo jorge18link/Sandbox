@@ -92,16 +92,36 @@ router.post('/crear', ensureAuthenticated, function(req, res){
     var nombres = termino[0] + " " + termino[1];
     var apellidos = termino[2] + " " + termino[3];
     var query = {Nombres: nombres, Apellidos: apellidos};
+
     var Estudiantes = req.body.estudiantes.split(", ");
     Estudiantes.pop(); //Se remueve la coma del final
+
+    var idEstudiantes = [];
+    for(var i=0; i<Estudiantes.length; i++){
+        var termino2 = Estudiantes[i].split(" ");
+        var nombres2 = termino2[0] + " " + termino2[1];
+        var apellidos2 = termino2[2] + " " + termino2[3];
+        var query2 = {Nombres: nombres2, Apellidos: apellidos2};
+        nombre_completo = nombres2 + " " + apellidos2;
+        User.findOne(query2).exec(function (err, user2) {
+            if (err) {
+                return err;
+            }
+            idEstudiantes.push(user2._id);
+        });
+    }
+
     User.findOne(query).exec(function (err, user){
         if (err) {
             return err;
         }
+
         var nuevoCurso= new Curso({
             paralelo: req.body.paralelo,
             profesor: req.body.profesor,
-            estudiantes: Estudiantes
+            idProfesor: user._id,
+            estudiantes: Estudiantes,
+            idEstudiantes: idEstudiantes.reverse()
         });
         nuevoCurso.save(function(error) {
             if (error) {
@@ -115,21 +135,49 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 });
 
 router.put('/modificar/:id', ensureAuthenticated, function(req,res){
+    var User = require('../models/usuario');
     var id = req.params.id;
     var search = {_id: id};
+
+    var termino = req.body.profesor.split(" ");
+    var nombres = termino[0] + " " + termino[1];
+    var apellidos = termino[2] + " " + termino[3];
+    var query = {Nombres: nombres, Apellidos: apellidos};
+
     var Estudiantes = req.body.estudiantes.split(", ");
     Estudiantes.pop(); //Se remueve la coma del final
-    var modificacion = {
-        paralelo: req.body.paralelo,
-        profesor: req.body.profesor,
-        estudiantes: Estudiantes
+
+    var idEstudiantes = [];
+    for(var i=0; i<Estudiantes.length; i++){
+        var termino2 = Estudiantes[i].split(" ");
+        var nombres2 = termino2[0] + " " + termino2[1];
+        var apellidos2 = termino2[2] + " " + termino2[3];
+        var query2 = {Nombres: nombres2, Apellidos: apellidos2};
+        User.findOne(query2).exec(function (err, user2) {
+            if (err) {
+                return err;
+            }
+            idEstudiantes.push(user2._id);
+        });
     }
 
-    Curso.findOneAndUpdate(search, {$set:modificacion}, {new: true}, function(err, doc){
-        if(err){
-            console.log("Error al modificar el curso!");
+    User.findOne(query).exec(function (err, user) {
+        if (err) {
+            return err;
         }
-        return res.send('Ejercicio modificado con exito');
+        var modificacion = {
+            paralelo: req.body.paralelo,
+            profesor: req.body.profesor,
+            idProfesor: user._id,
+            estudiantes: Estudiantes,
+            idEstudiantes: idEstudiantes.reverse()
+        }
+        Curso.findOneAndUpdate(search, {$set:modificacion}, {new: true}, function(err, doc){
+            if(err){
+                console.log("Error al modificar el curso!");
+            }
+            return res.send('Ejercicio modificado con exito');
+        });
     });
 });
 

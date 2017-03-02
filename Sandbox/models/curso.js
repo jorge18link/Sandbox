@@ -8,7 +8,9 @@ var usuario = require('../models/usuario');
 var cursoSchema = new Schema({
     paralelo: Number,
     profesor: String,
-    estudiantes: [String]
+    idProfesor: String,
+    estudiantes: [String],
+    idEstudiantes: [String]
 }, {
     versionKey: false
 });

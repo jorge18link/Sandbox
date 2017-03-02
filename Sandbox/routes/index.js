@@ -84,9 +84,9 @@ router.get('/reportes',ensureAuthenticated,function(req,res){
 router.get('/reportes/findAll',function(req,res){
 	//Le envias en el json en data--> date1 y date2 y te devuelve en success 
 	//todos los ejercicios por ese rango de fechas y manejas ese json para hacer los reportes
-	fecha1= req.body.date1;
-	fecha2= req.body.date2;
-
+	var fecha1= req.params.date1;
+	var fecha2= req.params.date2;
+    var EjercicioResuelto =require('../models/resuelto');
 	var busca={
 		fecha : {
 			$gte: fecha1,
@@ -94,12 +94,17 @@ router.get('/reportes/findAll',function(req,res){
 		}
 	}
 
-	EjercicioResuelto.find(busca, function(err, ejercicios) {
+	EjercicioResuelto.find(busca, function(err, resueltos) {
 		if(err){
 			console.log("ocurrio un error al buscar todos los ejercicios resueltos por rango de fechas");
 			throw err;
 		}
-		res.send(ejercicios);
+        fechas = [];
+        for(i=0; i<resueltos.length; i++){
+			fechas.push(resueltos.fecha.$date);
+        }
+        res.json(fechas);
+		//res.send(resueltos);
 	});
 });
 
