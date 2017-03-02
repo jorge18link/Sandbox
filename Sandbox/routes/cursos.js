@@ -108,17 +108,17 @@ router.post('/crear', ensureAuthenticated, function(req, res){
                 return err;
             }
             idEstudiantes.push(user2._id);
-
+            
             busca={_id:user2._id}
             para= req.body.paralelo;
             var modificacion={
                 paralelo: para
             }
-
+             
             User.findOneAndUpdate(busca, {$set:modificacion}, function(err8, doc){
                 if(err8){					
                     console.log("Something wrong when updating data!");
-                    throw err2;
+                    throw err8;
                 }
             });
         });
@@ -204,5 +204,23 @@ router.delete('/eliminar/:id', ensureAuthenticated, function(req,res){
         return res.send("se eliminó");
     });
 });
+
+function condicionParaOrdenar(personaA, personaB) {
+  return personaB.puntajeObtenido - personaA.puntajeObtenido;
+}
+ 
+router.get('/obtener/top5/:paralelo',function(req,res){
+    paralelo=req.params.paralelo
+    console.log(paralelo)
+    var temp=[]
+    User.find({paralelo:paralelo},function(err,alumnos){
+        alumnos.sort(condicionParaOrdenar)
+        for (i=0; i<3 ;i++){
+            temp.push(alumnos[i])
+        }
+        res.send(temp)
+    })
+})
+
 
 module.exports = router;
