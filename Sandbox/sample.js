@@ -1,7 +1,7 @@
 var fs = require('fs')
 var csv = require('fast-csv')
 
-fs.createReadStream('estudiantescsv.csv')
+fs.createReadStream('file.csv')
     .pipe(csv())
     .on('data',function(data){
         console.log(data);
