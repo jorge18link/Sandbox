@@ -1,0 +1,244 @@
+﻿{
+  "Ayudantes": [
+    {
+      "nombre": "Galo Daniel Castillo Lopez",
+      "matricula": "201410264",
+      "correo": "gadacast@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "aula": "24A-210",
+          "hora": "14:00-16:00",
+          "lat": -2.145548,
+          "lng": -79.966072,
+          "id": "1"
+        },
+        {
+          "dia": "Miercoles",
+          "aula": "24A-210",
+          "hora": "14:00-16:00",
+          "lat": -2.145548,
+          "lng": -79.966072,
+          "id": "2"
+        },
+        {
+          "dia": "Martes",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "10:30-11:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "3"
+        },
+        {
+          "dia": "Jueves",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "10:30-11:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "4"
+        }
+      ]
+    },
+    {
+      "nombre": "Jorge Luis Cedeño Arteaga",
+      "matricula": "201302882",
+      "correo": "jlcedeno@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Martes",
+          "aula": "24A-103",
+          "hora": "13:30-17:30",
+          "lat": -2.145328,
+          "lng": -79.965926,
+          "id": "5"
+        },
+        {
+          "dia": "Martes",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "12:30-13:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "6"
+        },
+        {
+          "dia": "Jueves",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "09:30-10:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "7"
+        }
+      ]
+    },
+    {
+      "nombre": "María Belén Guaranda Cabezas",
+      "matricula": "201410871",
+      "correo": "mguarand@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "aula": "24A-207",
+          "hora": "07:30-09:30",
+          "lat": -2.145553,
+          "lng": -79.965969,
+          "id": "8"
+        },
+        {
+          "dia": "Miercoles",
+          "aula": "24A-113",
+          "hora": "07:30-09:30",
+          "lat": -2.145553,
+          "lng": -79.966013,
+          "id": "9"
+        },
+        {
+          "dia": "Viernes",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "11:30-12:30",
+          "lat": -2.145446,
+          "lng": -79.96615,
+          "id": "10"
+        }
+      ]
+    },
+    {
+      "nombre": "Gerald Fernando Gutierrez Jimenez",
+      "matricula": "201417433",
+      "correo": "gerfegut@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Viernes",
+          "aula": "24A-210",
+          "hora": "07:30-10:30",
+          "lat": -2.145548,
+          "lng": -79.966072,
+          "id": "11"
+        },
+        {
+          "dia": "Martes",
+          "aula": "24A-204",
+          "hora": "08:30-09:30",
+          "lat": -2.14544,
+          "lng": -79.966022,
+          "id": "12"
+        },
+        {
+          "dia": "Viernes",
+          "aula": "CIB (Biblioteca)",
+          "hora": "11:30-13:30",
+          "lat": -2.147012,
+          "lng": -79.96614,
+          "id": "13"
+        }
+      ]
+    },
+    {
+      "nombre": "Emmanuel Fernando Morán Barreiro",
+      "matricula": "201304087",
+      "correo": "fnando1995@gmail.com",
+      "horarios": [
+        {
+          "dia": "Lunes",
+          "aula": "24A-103",
+          "hora": "11:30-13:30",
+          "lat": -2.145328,
+          "lng": -79.965926,
+          "id": "14"
+        },
+        {
+          "dia": "Lunes",
+          "aula": "24A-103",
+          "hora": "07:30-09:30",
+          "lat": -2.145328,
+          "lng": -79.965926,
+          "id": "15"
+        },
+        {
+          "dia": "Martes",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "07:30-08:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "16"
+        },
+        {
+          "dia": "Jueves",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "07:30-08:30",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "17"
+        }
+      ]
+    },
+    {
+      "nombre": "Leonardo Xavier Kuffo Rivero",
+      "matricula": "201410224",
+      "correo": "lkuffo@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Martes",
+          "aula": "SP-01",
+          "hora": "09:30-11:30",
+          "lat": -2.14557,
+          "lng": -79.966538,
+          "id": "18"
+        },
+        {
+          "dia": "Viernes",
+          "aula": "24A-204",
+          "hora": "11:30-14:30",
+          "lat": -2.14544,
+          "lng": -79.966022,
+          "id": "19"
+        }
+      ]
+    },
+    {
+      "nombre": "Jorge Romeo Murillo",
+      "matricula": "00000",
+      "correo": "jorgermurillo@gmail.com",
+      "horarios": [
+        {
+          "dia": "Martes",
+          "aula": "24A-114",
+          "hora": "14:00-16:00",
+          "lat": -2.145553,
+          "lng": -79.966013,
+          "id": "20"
+        },
+        {
+          "dia": "Jueves",
+          "aula": "24A-103",
+          "hora": "14:00-16:00",
+          "lat": -2.145328,
+          "lng": -79.965926,
+          "id": "21"
+        },
+        {
+          "dia": "Viernes",
+          "aula": "Sala de Ayudantes de la FIEC",
+          "hora": "10:00-11:00",
+          "lat": -2.145481,
+          "lng": -79.966162,
+          "id": "22"
+        }
+      ]
+    },
+    {
+      "nombre": "Jorge Isaac Guerra Solís",
+      "matricula": "201421632",
+      "correo": "jiguerra@espol.edu.ec",
+      "horarios": [
+        {
+          "dia": "Jueves",
+          "aula": "24A-201",
+          "hora": "07:30-09:30",
+          "lat": -2.145309,
+          "lng": -79.965966,
+          "id": "23"
+        }
+      ]
+    }
+  ]
+}

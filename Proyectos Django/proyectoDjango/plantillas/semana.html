@@ -1,0 +1,246 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es" ng-app="myA" ng-controller="control">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+    
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico'}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <!-- Embedded Stylesheet
+    ================================================== -->
+    <style type="text/css">
+      .img-responsive{
+          border-radius: 80px 80px 80px 80px;
+      }
+
+      .allofthis{
+        padding-top: 2.5rem;
+        opacity:30%;
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        background-color: rgba(249, 248, 246,0.6);
+        padding-left: 50px;
+        border-radius: 80px 0px 0px 80px;
+
+      }
+      .p{
+        font-weight: bold;
+      }
+        #tf-about{
+       
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;  
+      }
+      
+      .allofthis strong{
+           color:black;
+      }
+      .recu h3{
+        color:grey;
+      }
+      .allofthis p {
+        color:rgb(255,160,122);
+        font-weight: bold;
+
+      }
+      .allofthis i{
+        color:black;
+        font-size: 2rem;
+      }
+
+      #tf-about{
+        background: url("{% static '/img/01.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        
+      }
+       .contenedor{
+         color: darkorange;
+      }
+      
+
+    </style>
+    <script >
+    //www.youtube.com/embed/jDKEa9eeKvA
+    function crear(){
+        $('.modal-body').empty();
+        var name=$(this).attr("name");
+         console.log(name)
+        $('.modal-body').append(
+            $('<div>',{'class':'embed-responsive embed-responsive-16by9'}).append(
+              $('<iframe>',{'class':'embed-responsive-item','src': '//www.youtube.com/embed/'+name})
+				)
+		  )}
+    </script>
+
+  </head>
+  <body>
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="page-scroll">Inicio</a></li>
+            <li><a href="/curso" class="page-scroll">Curso</a></li>
+            <li><a href="/equipo" class="page-scroll">Equipo</a></li>
+            <li class="active"><a href="#tf-about" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="/ayudantias" class="page-scroll">Ayudantías</a></li>
+            <li><a href="/noticias" class="page-scroll">Noticias</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Here About as Semana
+    ==========================================-->
+    <div id="tf-about" >
+      <div class="container">
+        <div class="row ContSas">
+          <div class="section-title center prueba">
+            <h2 class="text-center">Primer Parcial <strong> Weeks</strong></h2>
+            <div class="line">
+            <hr>
+            </div>
+          </div>
+          <div  class="col-md-12 allofthis thumbnail contenedor" ng-repeat="x in todos">
+              <div class="col-md-2">
+              <img ng-src="{% static 'img/semana.png' %}" class="img-responsive Thumbnail">
+            </div>
+            <div class="col-md-10">
+              <strong>Primera Clase:</strong>
+              <p>[[x.PrimeraClase]]</p>
+              <strong>Segunda Clase:</strong>
+              <p>[[x.SegundaClase]]</p>
+              <li class="link" data-toggle="modal" data-target="#myModal" name = "[[x.video1]]" onclick="crear()"><strong> Clase en linea </strong></li>
+              </br>
+              <a id="WD[[x.numerodelasemana]]""><i>Recursos <span class="glyphicon glyphicon-menu-down"></span></i></a>
+              <div class="recu col-md-12 collapse" ng-repeat="z in x.recursos" id="D[[x.numerodelasemana]]">
+              <h3>Diapositivas</h3>
+              <a href="[[z.primero]]" target="_blank"><p>[[z.name1]]</p></a>
+              <a href="[[z.segundo]]" target="_blank"><p>[[z.name2]]</p></a>
+              <h3>Taller y practica</h3>
+              <a ng-if="z.tercero!==' '" href="[[z.tercero]]" class="link" target="_blank"><p class="p">[[z.extra1]]</p></a>
+              <a ng-if="z.cuatro!==' '" href="[[z.cuatro]]" class="link" target="_blank"><p class="p">[[z.extra2]]</p></a>
+              <a ng-if="z.quinto!==' '" href="[[z.quinto]]" class="link" target="_blank"><p class="p">[[z.extra3]]<p></a>
+              <a ng-if="z.sexto!==' '" href="[[z.sexto]]" class="link" target="_blank"><p class="p">[[z.extra4]]</p></a>
+            </div>      
+          </div>      
+        </div>
+        <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      </div>   
+    </div>
+  </div>
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js'%}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %} "></script>
+    <script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script src="{% static 'js/profesor.js' %}"></script>
+    
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>""
+    <script type="text/javascript" src="{% static 'js/wtw.js' %}"></script>
+    <script type = 'text/javascript' >
+      var app = angular.module('myA', [], function($interpolateProvider){
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+      });
+
+      app.controller('control', function($scope, $http) {
+          $http.get("{% static 'json/semana.json' %}")
+          .success(function(res) {
+              $scope.todos = res;
+              console.log(res);
+          });
+      });
+    </script>
+  </body>
+</html>

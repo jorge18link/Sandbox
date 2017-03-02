@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+    
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+    <link href="css/owl.theme.css" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <!-- Embedded Stylesheet
+    ================================================== -->
+    <style type="text/css">
+      .img-responsive{
+          border-radius: 80px 80px 80px 80px;
+      }
+
+      .allofthis{
+        padding-top: 2.5rem;
+        opacity:30%;
+        font-size: 2rem;
+        margin-top: 1.5rem;
+        background-color: rgba(249, 248, 246,0.6);
+        padding-left: 50px;
+        border-radius: 80px 0px 0px 80px;
+
+      }
+      .p{
+        font-weight: bold;
+      }
+        #tf-about{
+       
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;  
+      }
+      
+      .allofthis strong{
+           color:grey;
+      }
+      .recu h3{
+        color:grey;
+      }
+      .allofthis p {
+        color:#FFCD28;
+        font-weight: normal;
+      }
+      .allofthis i{
+        color:grey;
+        font-size: 2rem;
+      }
+
+      
+      
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html" class="page-scroll">Inicio</a></li>
+            <li><a href="curso.html" class="page-scroll">Curso</a></li>
+            <li><a href="equipo.html" class="page-scroll">Equipo</a></li>
+            <li><a href="#tf-about" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="ayudantias.html" class="page-scroll">Ayudantías</a></li>
+            <li><a href="login-sanbox.html" class="page-scroll">Sandbox</a></li>
+            <li><a href="login-proyectos.html" class="page-scroll">Proyectos</a></li>
+            <li><a href="login.html" class="page-scroll">Iniciar Sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Here About as Semana
+    ==========================================-->
+    <div id="tf-about" ng-app="myA" ng-controller="control">
+      <div class="container">
+        <div class="row ContSas">
+          <div class="section-title center prueba">
+            <h2 class="text-center">Primer Parcial <strong> Weeks</strong></h2>
+            <div class="line">
+            <hr>
+            </div>
+          </div>
+          <div  class="col-md-12 allofthis thumbnail" ng-repeat=" x in todos">
+              <div class="col-md-2">
+              <img ng-src="img/semana.png" class="img-responsive Thumbnail">
+            </div>
+            <div class="col-md-10">
+              <strong>Primera Clase:</strong>
+              <p>{{x.PrimeraClase}}</p>
+              <strong>Segunda Clase</strong>
+              <p>{{x.SegundaClase}}</p>
+              <a id="WD{{x.numerodelasemana}}""><i>Recursos <span class="glyphicon glyphicon-menu-down"></span></i></a>
+              <div class="recu col-md-12 collapse" ng-repeat="z in x.recursos" id="D{{x.numerodelasemana}}">
+              <h3>Diapositivas</h3>
+              <a href="{{z.primero}}"><p>{{z.name1}}</p></a>
+              <a href="{{z.segundo}}"><p>{{z.name2}}</p></a>
+              <h3>Taller y practica</h3>
+              <a ng-if="z.tercero!==' '" href="{{z.tercero}}" class="link"><p class="p">{{z.extra1}}</p></a>
+              <a ng-if="z.cuatro!==' '" href="{{z.cuatro}}" class="link"><p class="p">{{z.extra2}}</p></a>
+              <a ng-if="z.quinto!==' '" href="{{z.quinto}}" class="link"><p class="p">{{z.extra3}}<p></a>
+              <a ng-if="z.sexto!==' '" href="{{z.sexto}}" class="link"><p class="p">{{z.extra4}}</p></a>
+            </div>      
+            </div>      
+        </div>
+      </div>   
+    </div>
+  </div>
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/SmoothScroll.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    <script src="js/profesor.js"></script>
+    
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/sasprueba.js"></script>
+    <script type="text/javascript" src="js/wtw.js"></script>
+  </body>
+</html>

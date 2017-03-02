@@ -1,0 +1,157 @@
+[
+  {
+    "numerodelasemana": "1",
+    "PrimeraClase": "introducion a la programacion",
+    "SegundaClase": "Tipos de dato.Variables y Asignacion",
+    "video1": "jDKEa9eeKvA",
+    "image": "img/descarga.png",
+    "recursos": [
+      {
+        "primero": "Material/materialfundamentos/diapositivas/01-Introduccion.pptx",
+        "segundo": "Material/materialfundamentos/diapositivas/02-Datos_Variables_Operadores.pdf",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Ejercicios/Ejercicios-VariablesControl.pdf",
+        "cuatro": "http://www.mclibre.org/consultar/python/lecciones/python_variables.html",
+        "name1": "01 - Introduccion.pptx",
+        "name2": "02 - Datos_Variables_Operadores.pdf",
+        "ns": "1",
+        "extra1": "VariablesControl.pdf",
+        "extra2": "Informacion Sobre Variables de control"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "2",
+    "PrimeraClase": "Tipos de dato. Cadena de caracteres",
+    "SegundaClase": "Estructura de control. Condicionales",
+    "video2": "psmxa0PiKpA",
+    "video1": "qdVthF2CCTs",
+    "image": "img/descarga2.png",
+    "recursos": [
+      {
+        "primero": "Material/materialfundamentos/diapositivas/03-Manejodetexto.pdf",
+        "segundo": "Material/materialfundamentos/diapositivas/04-Condicionales.pdf",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Deber/deber01.pdf",
+        "cuatro": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller2.1-IdentificarTipodeDatos.pdf",
+        "quinto": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller2.2-TiposdeDatos.pdf",
+        "sexto": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller3.1-EjericiciosCondicionales.pdf",
+        "name1": "03 - Manejodetexto.pdf",
+        "name2": "04 - Condicionales.pdf",
+        "ns": "2",
+        "extra1": "deber sobre manejo de texto",
+        "extra2": "taller identificar tipo de dato",
+        "extra3": "taller tipo de datos",
+        "extra4": "taller ejercicio de condicionales"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "3",
+    "PrimeraClase": "Estructura de control. Lazos de repeticion fija",
+    "SegundaClase": "Esstructura de control. Lazos  con condicion",
+    "video1": "vbSGzWHt0Gc",
+    "image": "img/descarga3.png",
+    "recursos": [
+      {
+        "primero": "Material/materialfundamentos/diapositivas/05-Lazos.pdf",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller4.1 Estructurasde ControlIterativasyListas.pdf",
+        "cuatro": "https://www.pythonmania.net/es/2013/04/05/control-de-bucles-break-continue-y-pass/",
+        "name1": "05 - Lazos.pdf",
+        "ns3": "3",
+        "extra1": "taller estructuras de control",
+        "extra2": "informacion sobre control de bucles"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "4",
+    "PrimeraClase": "Propiedades de las listas. Indexacion de las listas",
+    "SegundaClase": "Slincing con listas",
+    "video1": "EPsRhG123",
+    "image": "img/descarga4.png",
+    "recursos": [
+      {
+        "primero": "Material/materialfundamentos/diapositivas/06-Listas.pdf",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/c",
+        "cuatro": "Material/materIalfundamentos/talleres-ejercicios-deberes/Talleres/Taller4.2-ListasyStrings.pdf",
+        "name1": "06 - Listas.pdf",
+        "ns": "4",
+        "extra1": "practica de String",
+        "extra2": "Taller de listas"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "5",
+    "PrimeraClase": "Funciones Basicas de la lista",
+    "SegundaClase": "Desarollo de ejercicios. Taller con listas",
+    "video1": "wGQgn9oCsLk",
+    "image": "img/descarga5.png",
+    "recursos": [
+      {
+        "primero": " ",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/TallerdeListas.pdf",
+        "cuatro": "Material/materialfundamentos/talleres-ejercicios-deberes/Ejercicios/Ejercicios-Listas.pdf",
+        "quinto": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller4.2-ListasyStrings.pdf",
+        "sexto": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller4.3-Refuerzo.pdf",
+        "ns": "5",
+        "extra1": "ejercicios de lista",
+        "extra2": "taller de lista",
+        "extra3": "taller de refuerzo"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "6",
+    "PrimeraClase": "Introduccion a Arreglos n-dimensionales. Propiedades",
+    "video1": "QWg5Ze1WW8w",
+    "SegundaClase": "Arreglos n-dimensionales.Indexacion Basica ",
+    "image": "img/descarga6.jpg",
+    "recursos": [
+      {
+        "primero": "Material/materialfundamentos/diapositivas/07-Arreglos.pptx",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller5.1 Arreglosn-dimensionales.pdf",
+        "cuatro": "http://progra.usm.cl/apunte/materia/arreglos-2d.html",
+        "name1": "07 - Arreglos.pdf",
+        "ns": "6",
+        "extra1": "taller de arreglo",
+        "extra2": "informacion de arreglos"
+      }
+    ]
+  },
+  {
+    "numerdelasemana": "7",
+    "PrimeraClase": "Arreglos n-dimensionales. Indexacion Booleana",
+    "SegundaClase": "Arreglos n-dimensionales. Indexacion con Arreglos",
+    "video1": "QWg5Ze1WW8w",
+    "image": "img/descarga7.png",
+    "recursos": [
+      {
+        "primero": " ",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller 5.2ArreglosyMatrices.pdf",
+        "ns": "7",
+        "extra1": "taller de arreglos y matrices"
+      }
+    ]
+  },
+  {
+    "numerodelasemana": "8",
+    "PrimeraClase": "Slicing",
+    "SegundaClase": "Operaciones aritmeticas entre matrices",
+    "video1": "wGQgn9oCsLk",
+    "image": "img/descarga8.png",
+    "recursos": [
+      {
+        "primero": " ",
+        "segundo": " ",
+        "tercero": "Material/materialfundamentos/talleres-ejercicios-deberes/Talleres/Taller5.3Matrices.pdf",
+        "ns": "8",
+        "extra1": "taller de matrices"
+      }
+    ]
+  }
+]

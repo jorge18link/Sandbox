@@ -1,0 +1,294 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+    
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}'" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png'%}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{%  static  'css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css'%}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <!-- Embedded Stylesheet
+    ================================================== -->
+    <style type="text/css">
+      .thumbnail .caption h3{
+        color: orange;
+      }
+      .thumbnail {
+        background-color: rgba(176,176,176,1);
+        height: 240px;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="page-scroll">Inicio</a></li>
+            <li><a href="/curso" class="page-scroll">Curso</a></li>
+            <li><a href="#tf-team" class="page-scroll">Equipo</a></li>
+            <li><a href="/semana" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="/ayudantias" class="page-scroll">Ayudantías</a></li>
+            <li><a href="/noticias" class="page-scroll">Noticias</a></li>
+            <!-- <li><a href="login-proyectos.html" class="page-scroll">Proyectos</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Team Page
+    ==========================================-->
+    <div id="tf-team" class="text-center" ng-app="myApp" ng-controller="myCtrl">
+      <div class="overlay">
+        <div class="container">
+          <div class="section-title center">
+            <h2>Nuestros <strong>Profesores</strong></h2>
+            <div class="line">
+              <hr>
+            </div>
+          </div>
+          <div id="team" class="owl-carousel owl-theme row">
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[0].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[0].nombre]]</h3>
+                  <p>[[todos[0].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[1].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[1].nombre]]</h3>
+                  <p>[[todos[1].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[2].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[2].nombre]]</h3>
+                  <p>[[todos[2].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[3].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[3].nombre]]</h3>
+                  <p>[[todos[3].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[4].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[4].nombre]]]</h3>
+                  <p>[[todos[4].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[5].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[5].nombre]]</h3>
+                  <p>[[todos[5].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[6].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[6].nombre]]</h3>
+                  <p>[[todos[6].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img ng-src="[[todos[7].foto]]" alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[7].nombre]]</h3>
+                  <p>[[todos[7].mail]]</p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="thumbnail">
+                <img  ng-src="[[todos[8].foto]]"alt="..." class="img-circle team-img">
+                <div class="caption">
+                  <h3>[[todos[8].nombre]]</h3>
+                  <p>[[todos[8].mail]]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div> 
+
+     <!-- Team Ayudantes
+    ==========================================-->
+     <div id="" class="text-center" ng-app="myApp" ng-controller="myCtrl">
+      <div class="container">
+       <div class="row">
+        <div class="section-title center">
+          <h2>Nuestros <strong>Ayudantes</strong></h2>
+          <div class="line">
+            <hr>
+          </div> 
+        </div>
+        <div class="col-md-offset-1">
+          <div class="thumbnail col-md-3">
+            <img src="{% static 'img/team/05.jpg' %}" alt="..." class="img-circle team-img">
+            <div class="caption">
+              <h3 class="ayudante">Galo Daniel Castillo Lopez</h3>
+              <p>gadacast@espol.edu.ec</p>
+            </div>
+          </div>
+          <div class="thumbnail col-md-3">
+            <img src="{% static 'img/team/05.jpg' %}" alt="..." class="img-circle team-img">
+            <div class="caption">
+              <h3 class="ayudante">Jorge Luis Cedeño Arteaga</h3>
+              <p>jlcedeno@espol.edu.ec</p>
+            </div>
+          </div>
+          <div class="thumbnail col-md-3">
+            <img src="{% static 'img/team/06.jpg' %}" alt="..." class="img-circle team-img">
+            <div class="caption">
+              <h3 class="ayudante">María Belén Guaranda Cabezas</h3>
+              <p>mguarand@espol.edu.ec</p>
+            </div>
+          </div>
+          <div class="thumbnail col-md-3">
+            <img src="{% static 'img/team/05.jpg' %}" alt="..." class="img-circle team-img">
+            <div class="caption">
+              <h3 class="ayudante">Gerald Fernando Gutierrez Jimenez</h3>
+              <p>gadacast@espol.edu.ec</p>
+            </div>
+          </div>
+          <div class="col-md-offset-2">
+            <div class="thumbnail col-md-3">
+              <img src="{% static 'img/team/05.jpg' %}" alt="..." class="img-circle team-img">
+              <div class="caption">
+                <h3 class="ayudante">Emmanuel Fernando Morán Barreiro</h3>
+                <p>fnando1995@gmail.com</p>
+              </div>
+            </div>
+            <div class="thumbnail col-md-3">
+              <img src="{% static 'img/team/05.jpg' %}" alt="..." class="img-circle team-img">
+              <div class="caption">
+                <h3 class="ayudante">Leonardo Xavier Kuffo Rivero</h3>
+                <p>lkuffo@espol.edu.ec</p>
+              </div>
+            </div>
+            <div class="thumbnail col-md-3">
+              <img src="{% static 'img/team/05.jpg'  %}" alt="..." class="img-circle team-img">
+              <div class="caption">
+                <h3 class="ayudante">Jorge Isaac Guerra Solís</h3>
+                <p>jiguerra@espol.edu.ec</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>  
+  </div> 
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src=" {% static 'js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js'%}"></script>
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script>
+          var app = angular.module('myApp',[],function($interpolateProvider){
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+        }); 
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get("{% static 'json/profesores.json' %}")
+            .success(function(res) {
+                $scope.todos = res;
+                console.log(res);
+            });
+        });
+    </script>
+  </body>
+</html>

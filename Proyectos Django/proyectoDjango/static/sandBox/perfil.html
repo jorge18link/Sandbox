@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Needs
+    ================================================== -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sandbox - Profesores</title>
+	<!-- Stylesheet
+    ================================================== -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/datepicker3.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<script src="js/lumino.glyphs.js"></script>
+
+	<!-- Embedded Stylesheet
+    ================================================== -->
+	<style type="text/css">
+		.sb-ejer{
+			background-color: rgba(0,0,0,0.6);
+		}
+		.sb-ejer h3{
+			color:orange;
+		}
+		.sb-desc{
+			padding-top: 20px;
+			padding-right: 10px;
+			padding-left: 10px;
+			background-image: url("../img/coding.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		.ejercicios{
+			background-color: rgba(255,255,255,0.8);
+		}
+		.ejercicios p{
+			color: black;
+			font-size: large;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Navigation 
+    ==========================================-->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html"><span>SandBox </span>Profesores</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Marco Antonio Calderón <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="perfil.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Ver mi perfil</a></li>
+							<li><a href="../index.html"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Cerrar Sesión</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>				
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<h2 style="margin-top: 17px; padding-left: 10px;">Menú Sandbox</h2>
+		<ul class="nav menu">
+			<li><a href="index - Profesor.html"><svg class="glyph stroked notepad "><use xlink:href="#stroked-notepad"/></svg> Todos</a></li>
+			<li><a href="Propios.html"><svg class="glyph stroked download"><use xlink:href="#stroked-download"/></svg>Propios</a></li>
+			<li ><a href="Crear nuevo.html"><svg class="glyph stroked blank document"><use xlink:href="#stroked-blank-document"/></svg></use></svg> Crear Nuevo</a></li>
+			<li><a href="proyectos.html"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg>Proyectos</a></li>
+			<li role="presentation" class="divider"></li>
+			<li class="active"><a href="perfil.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Perfil </a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+	
+	<!-- Active Page 
+    ==========================================-->
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Perfil</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<!-- Perfil Header 
+    ==========================================-->
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+				<img src="../img/team/05.jpg"" alt="..." class="img-circle team-img" style="width: 100px; height: 100px; margin-top: 30px; border: black 1px solid;">
+				<h2 style="margin-bottom: 0px;">Marco Antonio Calderón Argüello</h2>
+				<h3 style="margin-top: 0px; margin-bottom: 0px;">profesor@espol.edu.ec</h3>
+				<h3 style="margin-top: 0px; margin-bottom: 0px;">1 de mayo de 1985</h3>
+				<h4 style="margin-top: 0px; margin-bottom: 30px;">Profesor</h4>
+			</div>
+		</div><!--/.row-->
+
+		<!-- Categorias 
+    ==========================================-->
+		<div class="row">
+			<!-- Rookie 
+    	==========================================-->
+			<div class="col-xs-6 col-md-3" style="display: none;">
+				<div class="panel panel-default">
+					<div class="panel-body easypiechart-panel">
+						<h4>Rookie</h4>
+						<div class="easypiechart" id="easypiechart-blue" data-percent="0" ><span class="percent">0%</span></div>
+					</div>
+				</div>
+			</div>
+			<!-- Sargento 
+    	==========================================-->
+			<div class="col-xs-12 col-md-12" style="display: none;">
+				<div class="panel panel-default">
+					<div class="panel-body easypiechart-panel">
+						<h4>Sargento</h4>
+						<div class="easypiechart" id="easypiechart-orange" data-percent="0" ><span class="percent">0%</span></div>
+					</div>
+				</div>
+			</div>
+			<!-- Wizard LeftSide
+    	==========================================-->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="panel panel-default">
+					<div class="panel-body easypiechart-panel">
+						<h3 style="margin-top: 10px;">to Sayajin<h3>
+						<div class="easypiechart" id="easypiechart-red" data-percent="92" ><span class="percent">92%</span></div>
+					</div>
+				</div>
+			</div>
+			<!-- Wizard RightSide 
+    	==========================================-->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6"> 
+				<h3 style="margin-left: 4px; margin-top: 1px; margin-bottom: 10px;"> Ejercicios para pasar al siguiente nivel </h3>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 2px;">
+					<div class="panel panel-red panel-widget">
+						<div class="row no-padding">
+							<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked arrow up"><use xlink:href="#stroked-arrow-up"/></svg> </div>
+							<div class="col-sm-9 col-lg-7 widget-right"><div class="large">28/30</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Sayajin 
+    	==========================================-->
+			<div class="col-xs-6 col-md-3" style="display: none;">
+				<div class="panel panel-default">
+					<div class="panel-body easypiechart-panel">
+						<h4>Sayajin</h4>
+						<div class="easypiechart" id="easypiechart-red" data-percent="0" ><span class="percent">0%</span></div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+
+		<!-- Porcentaje Rookie 
+    ==========================================-->
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3" style="display: none;">
+				<div class="panel panel-blue panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">10/10</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Porcentaje Sargento 
+    	==========================================-->
+			<div class="col-xs-12 col-md-6 col-lg-3" style="display: none;">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg></div>
+						<div class="col-sm-9 col-lg-7 widget-right"><div class="large">20/20</div></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Porcentaje Sayajin 
+    	==========================================-->
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="display: none;">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg></div>
+							<div class="col-sm-9 col-lg-7 widget-right"><div class="large">28/30</div></div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+	</div><!--/.row-->
+	</div>	<!--/.main-->
+
+	<!-- Javascripts
+    ================================================== -->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<!-- <script src="js/chart-data.js"></script> -->
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		$('#calendar').datepicker({
+		});
+
+		!function ($) {
+		    $(document).on("click","ul.nav li.parent > a > span.icon", function(){          
+		        $(this).find('em:first').toggleClass("glyphicon-minus");      
+		    }); 
+		    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>
+	
+</body>
+</html>

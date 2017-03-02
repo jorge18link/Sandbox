@@ -1,0 +1,11 @@
+Considere el siguiente archivo con numeros telefonicos asociados con la ciudad donde reside el propietario. Por ejem:
+
+0987961340$Quito
+0997893453$Guayaquil
+0986786578$Guayaquil
+0994545321$Guayaquil
+
+Se le solicita implementar una funcion llamada contarTelefonos que recibe el nombre de un archivo con telefonos y ciudades, y genera un archivo llamado "contador.txt" que cuenta cuantos numeros hay en cada ciudad separados por el signo de dolar. Por ejem:
+
+Quito$1
+Guayaquil$3

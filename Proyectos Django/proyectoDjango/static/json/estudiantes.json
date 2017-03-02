@@ -1,0 +1,30 @@
+{"ESTUDIANTES": [{
+		"nombre": "Fernando Ismael Sanchez Zambrano",
+		"matricula": "201300433",
+		"mail": "estudiante@espol.edu.ec",
+		"birthday": "26 de Junio de 1995",
+		"pass": "estudiante",
+		"ej-res": "17"
+	}, {
+		"nombre": "Jorge Ernesto Garcia Garcia",
+		"matricula": "",
+		"mail": "jorergar@espol.edu.ec",
+		"birthday": "",
+		"pass": "team",
+		"ej-res": "22"
+	}, {
+		"nombre": "Wilson Israel Plascencia Jordan",
+		"matricula": "",
+		"mail": "wilispla@espol.edu.ec",
+		"birthday": "",
+		"pass": "team",
+		"ej-res": "19"
+	}, {
+		"nombre": "Karen Lilibeth Borbor Moreira",
+		"matricula": "",
+		"mail": "klborbor@espol.edu.ec",
+		"birthday": "",
+		"pass": "team",
+		"ej-res": "21"
+	}]
+}

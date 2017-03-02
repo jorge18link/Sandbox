@@ -1,0 +1,255 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css" />
+
+    <!-- Embedded Stylesheet
+    ================================================== -->
+    <style type="text/css">
+      strong,h2{
+        color:orange;
+      }
+      #tf-about{
+        background-image: url("{% static 'img/00.png' %}");
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        color: #cfcfcf;
+        
+	
+      }
+      .well{
+        background-color: rgba(36, 138, 216, 0.7);
+
+      }
+      label{
+        color:white;
+        font-size: 1em;
+      }
+      legend{
+        color:white;
+        font-size:2em;
+      }
+      .contenedor strong{
+        font-size: 1.5rem;
+      }
+      .contenedor p{
+        font-size: 1.7rem;
+        color:white;
+
+      }
+      .contenedor{
+
+        background-color: #0059b3;
+         padding: 2vh;
+         font-weight: bold;
+         opacity:0.8;
+      }
+
+      .pequeno p{
+        color:black;
+      }
+      .pequeno{
+               background-color: #87CEFA;
+              border-radius: 30px;
+              padding-left: 20px;
+              margin-left: 5vh;
+              border:2px solid white;
+      }
+      .pequeno strong{
+        color:white;
+      }
+      hr{
+        font-size:50px;
+      }
+      h2{
+        color:#000066;
+      }
+      .btn{
+        border: 1px solid white;
+
+      }
+      #id_Descripcion{
+         height: 5em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation #f4c263
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="page-scroll">Inicio</a></li>
+            <li><a href="/curso" class="page-scroll">Curso</a></li>
+            <li><a href="/equipo" class="page-scroll">Equipo</a></li>
+            <li><a href="/semana" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="/ayudantias" class="page-scroll">Ayudantías</a></li>
+          <li><a href="#tf-about" class="page-scroll">Noticias</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Here About as Proyectos
+    ==========================================-->
+    <div id="tf-about">
+       <div class="overlay">
+        <div class="container">
+          
+             <form class="well form-horizontal" action="/noticias/"  method="post" id="contact_form">
+                {% csrf_token%}
+                <fieldset>
+                    <legend>Proyecto</legend>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label">Título</label>
+                      <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                            {{form.titulo}}
+                        </div>
+                      </div>
+                    </div>
+                     <div class="form-group">
+                      <label class="col-md-4 control-label">Autor</label>
+                      <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                          {{form.Asunto}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label">Descripción</label>
+                      <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            {{form.Descripcion}}                              
+                        </div>
+                      </div>
+                    </div>
+                     <div class="form-group">
+                      <label class="col-md-4 control-label"></label>
+                      <div class="col-md-4">
+                        <button  class="btn btn-primary boton" type="submit">Send <span class="glyphicon glyphicon-send"></span></button>
+                      </div>
+                    </div>
+
+
+
+                  </fieldset>
+              </form>
+            <div class="row allofthem">
+               <div class="section-title center">
+                <h2><b>Noticias Agregadas</b></h2>
+              </div>
+                  <div class="contenedor thumbnail col-md-12">
+                    {% for item in query_results %}
+                    <div class="thumbnail pequeno col-md-5 col-md-offset-1">
+                      <strong>Profesor: </strong>
+                      <p>{{item.Asunto}}</p>
+                      <strong>Título: </strong>
+                      <p>{{item.titulo}}</p>
+                      <strong>Descripción: </strong>
+                      <p>{{item.Descripcion}}</p>           
+                    </div>
+                         {% endfor %}
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+  
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/form.js' %}"></script>
+    <script>
+    
+        $('#id_titulo').addClass('form-control');
+         $('#id_Asunto').addClass('form-control');
+              $('#id_Descripcion').addClass('form-control');              
+    </script>
+  </body>
+</html>

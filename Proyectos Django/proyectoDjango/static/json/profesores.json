@@ -1,0 +1,103 @@
+[
+	{
+		"nombre": "Calderón Argüello, Marco Antonio",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/mcalderon.jpg",
+		"telefono": "2269-980",
+		"mail": "profesor@espol.edu.ec",
+		"titulo": "Master of Science Computer Science",
+		"birthday": "",
+		"pass": "profesor",
+		"ej-prop": "25"
+	}, {
+		"nombre": "Vaca Ruiz, Carmen Karina",
+		"cargo": "Profesor Tiempo Completo Agregado 3",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/cvaca_0.jpg",
+		"telefono": "2269-847",
+		"mail": "cvaca@espol.edu.ec",
+		"titulo": "PhD in Information Technology",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "12"
+	}, {
+		"nombre": "Tapia Rosero, Ana Teresa",
+		"cargo": "Profesor Tiempo Completo Agregado 3",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/ana%20tapia.jpg",
+		"telefono": "2269-815",
+		"mail": "atapia@fiec.espol.edu.ec",
+		"titulo": "Doctora en Ingeniería",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "10"
+	}, {
+		"nombre": "Pincay Nieves, Jhonny Vladimir",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/johnny%20pincay_0.jpg",
+		"telefono": "2269-847",
+		"mail": "jvpincay@espol.edu.ec",
+		"titulo": "",
+		"birthday" : "",
+		"pass": "espol",
+		"ej-prop": "19"
+	}, {
+		"nombre": "Realpe Robalino, Miguel Andrés",
+		"cargo": "Profesor Invitado",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/mrealpe_0.jpg",
+		"telefono": "",
+		"mail": "",
+		"titulo": "",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "17"
+	}, {
+		"nombre": "Saraguro Bravo, Rodrigo Alexander",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/saraguro.jpg",
+		"telefono": "",
+		"mail": "",
+		"titulo": "",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "22"
+	}, {
+		"nombre": "Magallanes Borbor, Jorge Antonio",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/jorge%20magallanes.jpg",
+		"telefono": "2269-815",
+		"mail": "jmagalla@espol.edu.ec",
+		"titulo": "Máster en Investigación en Informática",
+		"birthday" : "",
+		"pass": "espol",
+		"ej-prop": "21"
+	}, {
+		"nombre": "Yanez Pazmiño, Wendy",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/pyanez_0.jpg",
+		"telefono": "",
+		"mail": "",
+		"titulo": "",
+		"birthday" : "",
+		"pass": "espol",
+		"ej-prop": "15"
+	}, {
+		"nombre": "Zambrano Romero, Orlando Enrique",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/orlando%20zambrano.jpg",
+		"telefono": "",
+		"mail": "",
+		"titulo": "",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "15"
+	}, {
+		"nombre": "Rafael Ignacio Bonilla Armijos",
+		"cargo": "Profesor Ocasional 1",
+		"foto": "https://www.fiec.espol.edu.ec/sites/fiec.espol.edu.ec/files/rafael%20bonilla.jpg",
+		"telefono": "2269-847",
+		"mail": "rabonilla@espol.edu.ec",
+		"titulo": "Master of Science in Computer Science",
+		"birthday": "",
+		"pass": "espol",
+		"ej-prop": "12"
+	}
+]

@@ -1,0 +1,270 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+    <!-- Bootstrap
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <!-- Embedded Stylesheet
+    ================================================== -->
+    <style type="text/css">
+      #todo{
+        margin-top: 50px;
+        margin-bottom: 15px;
+      }
+      #todo>h1{
+        padding-bottom: 20px;
+        color: white;
+      }
+      .ayu-info{
+        margin-top: 20px;
+      }
+      .ayu-horarios>h3{
+        margin-bottom: 20px;
+      }
+      #todo strong{
+        color: #ffbf00;
+      }
+      #todo h3{
+        color: #cc9900;
+        text-decoration: underline;
+
+      }
+      #todo p{
+        color: white;
+      }
+      .ayudante{
+        background-color: rgba(0,0,0,0.6);
+      }
+      #tf-ayudantias{
+        background-image: url( {% static 'img/05.jpg' %});
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+      .lin{
+        color: #FFE920;
+        font-weight: bolder;
+        text-decoration: underline;
+      }
+      #latitud{
+        display: none;
+      }
+      #longitud{
+        display: none;
+      }
+      #map{
+      	height: 60vh;
+        margin:0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation #f4c263
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="page-scroll">Inicio</a></li>
+            <li><a href="/curso" class="page-scroll">Curso</a></li>
+            <li><a href="/equipo" class="page-scroll">Equipo</a></li>
+            <li><a href="/semana" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="/ayudantias" class="page-scroll">Ayudantías</a></li>
+            <li><a href="/noticias" class="page-scroll">Noticias</a></li>
+            <!-- <li><a href="login-proyectos.html" class="page-scroll">Proyectos</a></li> -->
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sección Ayudantías
+    ==========================================-->
+    <div id="tf-ayudantias">
+      <div class="container">
+        <div id="todo" class="row">
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Map
+    ==========================================-->
+    <div class="modal fade" id="modal-mapa"  tabindex="-1" role="dialog" aria-labelledby="mapa-modal" aria-hidden="true" style="display: none;">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="mapa-modal">Mapa:</h4>
+	        </div>
+	        <div id="map" class="modal-body"></div>
+	    	</div>
+	    </div>
+    </div>
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE2xSvzCysAkkWiJZZHaHVMkG9A-UKFrU&callback=initMap"></script>
+    
+    <script>
+                  
+//google.maps.event.trigger(map, 'resize')
+var mapa;
+
+
+function initMap(aula,horario,latitud,longitud) {
+    //regrescar
+    mapa = new google.maps.Map(document.getElementById('map'), {
+        center: new google.maps.LatLng(-2.143161, -79.968447),
+        zoom: 16
+    });
+
+    var infoWindow = new google.maps.InfoWindow;
+    var marker = new google.maps.Marker({
+        map: mapa,
+        label: 'A',
+        position: new google.maps.LatLng(latitud, longitud)
+    });
+    var infowincontent = document.createElement('div');
+    var aula = document.createElement('strong');
+    var hora = document.createElement('strong');
+    aula.textContent = "Aula: "+aula;
+    hora.textContent = "Horario: "+horario;
+    infowincontent.appendChild(aula);
+    infowincontent.appendChild(document.createElement('br'));
+    infowincontent.appendChild(hora);
+    marker.addListener('click', function() {
+          infoWindow.setContent(infowincontent);
+          infoWindow.open(mapa, marker);
+          
+    });
+
+}
+
+
+function agregarAyudantes() {
+    var url ="{% static 'json/ayudantes.json' %}"
+    $.getJSON(url, function(resp){
+        var ayudantes = resp.Ayudantes;
+        initMap();
+        $("#todo").append($("<h1>",{"class":"text-center"}).text("Ayudantes"));
+        ayudantes.forEach(function(ayuAct){
+        	$("#todo").append(
+	    		$("<div>",{"class":"ayudante thumbnail col-md-12"}).append(
+					$("<div>",{"class":"ayu-info col-md-12"}).append(
+						$("<p>").append($("<strong>").text("Nombre: "),""+ayuAct.nombre),
+						$("<p>").append($("<strong>").text("Correo: "),""+ayuAct.correo)
+					),
+					$("<div>",{"class":"ayu-horarios col-md-12","id":""+ayuAct.matricula}).append(
+						$("<h3>").text("Horarios disponibles:")
+					)		
+				)
+	   		)
+	   		ayuAct.horarios.forEach(function(hor_act){
+	   			$("#"+ayuAct.matricula).append(
+	   				$("<div>",{"class":"ayu-horario col-md-3"}).append(
+	   					$("<p>").append($("<strong>").text("Día: "),""+hor_act.dia),
+		   				$("<p>").append($("<strong>").text("Aula: "),""+hor_act.aula),
+		   				$("<p>").append($("<strong>").text("Horario: "),""+hor_act.hora),
+		   				$("<p>").append($("<strong>").text("Ubicacion: "),$("<a>",{"id":""+hor_act.id,"class":"lin"}).text("Ver en mapa")),
+                        $("<hr>")
+	   				)
+	   			)
+                $("#"+hor_act.id).click(function(){
+                    var latitud= hor_act.lat;
+                    var longitud= hor_act.lng;
+                    var aula=hor_act.aula;
+                    var horario=hor_act.horario;
+                    initMap(aula,horario,latitud,longitud); 
+                    $('#modal-mapa').on('shown.bs.modal', function () {
+                      google.maps.event.trigger(mapa, 'resize');
+                    })
+                    $('#modal-mapa').modal("show");
+                    
+                })
+                
+            })
+        })	 
+    });
+}
+
+    $(document).ready(function(){
+        agregarAyudantes();
+    });
+    </script>
+  </body>
+</html>

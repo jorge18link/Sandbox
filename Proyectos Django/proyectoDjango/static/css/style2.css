@@ -1,0 +1,78 @@
+.herram{
+	font-size: 140%;
+	font-family: cursive;
+	color: #f1be5e
+}
+.imgn{
+	text-align: center;
+}
+.correq{
+	border: 1px solid;
+	border-radius: 15px;
+	background-color: rgba(125,125,125,0.5);
+}
+.politicas{
+	border: 2px solid  #f1be5e;
+	border-radius: 15px;
+	background-color: rgba(0,0,0,0.5);
+	background-image: url("http://www.rednube.net/wp-content/uploads/2016/02/politicas.png");
+}
+.cuadroPol{
+	border: 2px solid  #f1be5e;
+	border-radius: 15px;
+	background-color: rgba(0,0,0,0.5);
+	padding: 25px;
+	text-align: justify;
+	background-image: url("http://www.rednube.net/wp-content/uploads/2016/02/politicas.png");
+}
+.descript{
+	line-height: 40px;
+}
+.examen{
+	line-height: 30px;
+}
+.cuadroPol h2{
+	color: #f1be5e;
+}
+.cuadroPol li{
+	font-size: 15px;
+}
+#listaA{
+	padding-left: 40px;
+}
+.page-scroll, .navbar-brand{
+	font-family: 'Comfortaa', sans-serif;
+	border: none;
+}
+.cuadromedio{
+	padding-bottom: 20px;
+}
+.tablaModal{
+	border-radius: 30px;
+}
+.tablaModal tr{
+	color: black;
+}
+.tablaModal td{
+	font-size: 80%;
+}
+.navPeq{
+	float: right;
+}
+.contenido div{
+	border: 1px solid;
+	text-align: left;
+	padding: 20px;
+}
+
+.tituloSB h2{
+	line-height: 30px;
+}
+
+.contenido div button{
+	float: right;
+}
+
+#propios{
+	background-color: lightblue;
+}

@@ -1,0 +1,524 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fundamentos de Programación</title>
+    <meta name="description" content="Stio Web del curso de Fundamentos de Programación">
+    <meta name="keywords" content="Fundamentos de Programación, Python">
+    <meta name="author" content="Fernando, Jorge, Karen, Israel">
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+
+    <!-- Slider
+    ================================================== -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Stylesheet
+    ================================================== -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+    <style>
+      li{
+         list-style: none;
+          
+       }
+        .We{
+           border-style: solid;
+          border-width: 2px;
+          border-color: orange;
+           border-radius: 10px;
+           background-color:silver;
+           opacity: 0.9;
+           color:black;
+           font-size: 2rem;
+           
+        }
+        .panel-body{
+          background-image:url("{% static 'img/semana.png' %}");
+          padding-top: 5vh;
+          padding-bottom:5vh; 
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        .titu{
+          color:orange;
+        }
+    
+    </style>
+  </head>
+  <body>
+ 
+    <!-- Navigation
+    ==========================================-->
+    <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top on">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" class="page-scroll">Inicio</a></li>
+            <li><a href="/curso" class="page-scroll">Curso</a></li>
+            <li><a href="/equipo" class="page-scroll">Equipo</a></li>
+            <li><a href="/semamas" class="page-scroll">Semana a Semana</a></li>
+            <li><a href="/ayudantias" class="page-scroll">Ayudantías</a></li>
+            <li><a href="/noticias" class="page-scroll">Noticias</a></li>
+            <!-- <li><a href="login-proyectos.html" class="page-scroll">Proyectos</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Here About as Curso
+    ==========================================-->
+    <div id="tf-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'img/02.png' %}" class="img-responsive" style="padding-left: 15%">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <div class="section-title tituloDesc">
+                            <h2 class="descrip" "><b>1. Descripcion del curso</b></h2>
+                            <hr style="width: 25.5vw">
+                            <div class="clearfix"></div>
+                        </div>
+                        <br><p class="intro" style="text-align: justify;">El curso presenta a los estudiantes estrategias para resolver problemas comunes en diversas profesiones por medio del diseño e implementación de soluciones basadas en el uso de un lenguaje de programación. Cubre los principios básicos para que el estudiante pueda leer y escribir programas; haciendo énfasis en el diseño y análisis de algoritmos. Además, introduce a los estudiantes en el uso de herramientas de desarrollo y depuración.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Correquisitos
+    ==========================================-->
+    <div id="tf-team" class="text-center">
+        <div class="overlay">
+            <div class="container correq">
+                <div class="section-title center">
+                    <h2><b>2. Corresquisitos: </b></h2>
+                    <div class="line">
+                        <hr>
+                    </div>
+                </div>
+                <p class="herram">Herramientas de colaboracion digital</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Syllabus
+    ==========================================-->
+    <div id="tf-services" class="text-center">
+        <div class="container">
+            <div class="section-title center">
+                <h2><b>3. Syllabus</b></h2>
+                <div class="line">
+                    <hr>
+                </div>
+
+            </div>
+            <div class="row">
+              <div  class="col-md-12"">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          1. Introducción a la programación
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body ">
+                             <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '1' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                          
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          2. Variables y tipos de datos
+                        </a>
+                      </h4>
+                    </div>
+                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body col-md-offset-3">
+                                 <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '2' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                    </div>
+                  </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          3. Estructuras de Control
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                      <div class="panel-body col-md-offset-3">
+                                      <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '3' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          4. Listas
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                      <div class="panel-body col-md-offset-3">
+                                   <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '4' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          5. Arreglos N-dimensionales
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                      <div class="panel-body col-md-offset-3">
+                       <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '5' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSix">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          6. Funciones
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                      <div class="panel-body col-md-offset-2">
+                            <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '6' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingSeven">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                          7. Colecciones
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                      <div class="panel-body col-md-offset-2">
+                        
+                                      <h3 class='col-md-3 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '7' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingEight">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                          8 Archivos: Entrada/Salida
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                      <div class="panel-body col-md-offset-2">
+                                      <h3 class='col-md-4 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '8' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingNine">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                         9 Procesamiento de datos
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                      <div class="panel-body col-md-offset-2">
+                                      <h3 class='col-md-4 titu'>Contenido<span class='glyphicon glyphicon-chevron-right'></span></h3>
+                                        <div class="row">
+                                            <div class=" col-md-6 text-justify We">
+                                              {% for item in Syllabus %}
+                                                  {%ifequal item.semana '8' %}                    
+                                                    <span class="glyphicon glyphicon-book"> {{item.descripcion}}</span>
+                                                    </br>
+                                                  {%endifequal%}
+                                              {%endfor%}
+                                            </div>
+                                        </div>
+                                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Politicas
+    ==========================================-->
+    <div id="tf-clients" class="text-center">
+        <div class="overlay">
+            <div class="container">
+
+                <body>
+                  <div class="container">
+
+                    <div class="row">
+
+                      <div class="col-xs-12 col-sm-12">
+
+                          <div class="politicas">
+                              <div class="section-title center">
+                                  <h2><b>4. Politicas </b></h2>
+                                  <div class="line">
+                                      <hr>
+                                  </div>
+                              </div>
+                          </div>
+                        <br><br>
+                        <div class="row cuadroPol">
+                          <div class="col-xs-12 col-lg-6">
+                            <h2>Clases</h2><br>
+                            <ul>
+                              <li>La asistencia a clases es obligatoria y será controlada a través de la lista de asistencia.</li>
+                              <li>Cuando un estudiante hubiere faltado a un número de horas de clases que sea igual o mayor al cuarenta por ciento (40%) del número de horas de clases programadas durante el desarrollo del curso, automáticamente reprueba dicha materia.</li>
+                              <li>Se dispondrá de 5 minutos de espera antes de iniciar cada sesión, por respeto al profesor y a los compañeros.</li>
+                              <li>No se permite el uso de celulares durante la clase. Favor colocar sus teléfonos en modo “silencio” y tener en cuenta las alarmas. Si el celular suena durante la clase, los estudiantes deberán rendir una lección al inicio de la siguiente clase.</li>
+                              <li>El horario de clase es el establecido, salvo acuerdo entre profesor y estudiantes en el caso de recuperación.</li>
+                            </ul><br><br>
+                          </div><!--/.col-xs-6.col-lg-4-->
+                          <div class="col-xs-12 col-lg-6">
+                            <h2>Consultas</h2><br>
+                            <ul>
+                              <li>Es importante que las consultas acerca de la materia y/o tareas se realicen durante la clase, a través del foro de discusión, para permitir que todos conozcamos del tema y aportemos con nuestras opiniones, o en horas de oficina.</li>
+                              <li>El profesor se reserva el derecho de admisión a SIDWEB y foro de discusión. Aquellas personas que no expresen los mensajes con el debido respeto serán eliminados como alumnos dentro del sistema.</li>
+                            </ul><br><br>
+                          </div><!--/.col-xs-6.col-lg-4-->
+                          <div class="col-xs-12 col-lg-12 cuadromedio">
+                            <h2 class="examen">Exámenes y lecciones</h2><br>
+                            <div class="col-xs-12 col-lg-6">
+                              <ul>
+                                <li>Los exámenes y lecciones serán dadas en el aula de clase durante el horario especificado.</li>
+                                <li>Una vez empezadas las evaluaciones ningún estudiante podrá entrar o salir del aula hasta que el examen o la lección termine.</li>
+                              </ul>
+                            </div>
+                            <div class="col-xs-12 col-lg-6">
+                              <ul>
+                                <li>La evaluación empieza en el momento que el profesor entrega o explica cualquier tema a cualquier estudiante presente.</li>
+                              </ul>
+                            </div>
+                          </div><!--/.col-xs-6.col-lg-4-->
+                          <div class="col-xs-12 col-lg-6">
+                            <h2>Evaluacion</h2><br>
+                            <ul>
+                              <li>Se realizarán evaluaciones continuas de acuerdo al avance del programa de estudios. Estas evaluaciones serán anunciadas con anticipación.</li>
+                              <li>Las evaluaciones no podrán ser recuperadas bajo ningún motivo.</li>
+                              <li>Los proyectos son en grupos de 2 estudiantes. Se puede permitir UN grupo de 3 estudiantes en el caso de que el número total de estudiantes sea impar.</li>
+                              <li>Las sustentaciones de los proyectos de las evaluaciones I y II son obligatorias y corresponden a un factor entre 0 y 1 que multiplica la calificación del proyecto. La fecha y hora de la sustentación será en el horario de clase.</li>
+                              <li>El proyecto de la III evaluación es individual y deberá sustentarse.</li>
+                              <li>Para poder sustentar el proyecto de la III evaluación, éste deberá cumplir con todos los requisitos especificados.</li>
+                              <li>Los grupos que se conformen para la realización de proyectos no podrán ser disueltos. El único motivo por el cual una persona se aparte del grupo es por haber anulado la materia. Si alguien se retira de la materia, por consideración a sus compañeros deberá comunicarlo oportunamente.</li>
+                            </ul>
+                            *Si un estudiante aprobó la materia podría dar el examen de mejoramiento sobre 100%.<br><br>
+                          </div><!--/.col-xs-6.col-lg-4-->
+                          <div class="col-xs-12 col-lg-6">
+                            <h2>Tareas</h2><br>
+                              <ul>
+                                <li>Las tareas y/o proyectos serán publicados en la página Web de la materia y recibidos por medio de esta, NO se le dará nota a tareas que sean enviadas al mail del profesor.</li>
+                                <li>La fecha de entrega del proyecto es impostergable.</li>
+                                <li>La fecha de entrega de las tareas es impostergable. Las tareas entregadas en días posteriores a la fecha indicada se califican con la siguiente escala:<ul id="listaA">
+                                    <li>1 día después de la fecha de entrega: 50% del puntaje de la tarea (empieza 1 segundo después dela hora de entrega)</li>
+                                    <li>2 días después de la fecha de entrega: 0% del puntaje de la tarea</li>
+                                  </ul>
+                                </li>
+                                <li>Las tareas y/o proyectos deben pertenecer únicamente a un estudiante, salvo que la tarea y/o proyecto sea asignada en grupo. En el caso de copias o actos deshonestos la calificación será CERO para todos los involucrados.</li>
+                                <li>Los grupos que se conformen para la realización de proyectos no podrán ser disueltos. El único motivo por el cual una persona se aparte del grupo es por haber anulado la materia. Si alguien se retira de la materia, por consideración a sus compañeros deberá comunicarlo oportunamente.</li>
+                              </ul>
+                          </div><!--/.col-xs-6.col-lg-4-->
+                        </div><!--/row-->
+                      </div><!--/.col-xs-12.col-sm-9-->
+                    </div><!--/row-->
+
+                    <hr>
+
+                    <footer>
+                      <p>© 2016 Inc.</p>
+                    </footer>
+
+                  </div><!--/.container-->
+
+
+                  <!-- Bootstrap core JavaScript
+                  ================================================== -->
+                  <!-- Placed at the end of the document so the pages load faster -->
+
+
+
+              </body>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section
+    ==========================================-->
+    <nav id="footer">
+        <div class="container">
+            <div class="pull-left fnav">
+                <p>ALL RIGHTS RESERVED. COPYRIGHT © 2014. Designed by <a href="https://dribbble.com/shots/1817781--FREEBIE-Spirit8-Digital-agency-one-page-template">Robert Berki</a> and Coded by <a href="https://dribbble.com/jennpereira">Jenn Pereira</a></p>
+            </div>
+            <div class="pull-right fnav">
+                <ul class="footer-social">
+                    <li><a href="https://www.facebook.com/FIEC01/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://mail.espol.edu.ec"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="http://mail.fiec.espol.edu.ec"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://twitter.com/fiec_espol"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+    <!-- Javascripts
+    ================================================== -->
+    <script type="text/javascript" src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.isotope.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+  </body>
+</html>
