@@ -11,7 +11,16 @@ $( document ).ready(function(){
             processData:false,
             contentType:false,
             success:(function(data){
-                console.log(data);
+                /*
+                if(data=="funciona"){
+                    $('.codigo').text("Su ejercicio tiene un resultado correcto");
+                    setTimeout(function(){
+                        location.reload();
+                    }, 2000);
+                }else{
+                    $('.codigo').text("Su ejercicio tiene un resultado incorrecto");
+                }
+                */
             })
         });
     })

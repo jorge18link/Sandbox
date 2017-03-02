@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose= require('mongoose');
 var PythonShell=require('python-shell');
 var EjercicioResuelto= require('../models/resuelto')
+var User= require('../models/usuario')
 
 
 
@@ -49,10 +50,10 @@ router.get('/obtener/:dificultad',ensureAuthenticated,validacion,function(req,re
 
 router.post('/upload/:idEjer', function(req, res) {
    //El modulo 'fs' (File System) que provee Nodejs nos permite manejar los archivos
-	var fs = require('fs')
+	var fs = require('fs');
 	var idEjercicio= req.params.idEjer;
 	var puntos=0;
-	var tmp_path = req.files.archivo.path
+	var tmp_path = req.files.archivo.path;
 	var tipo = req.files.archivo.type;
 	var idUserLogeado= req.user._id;
 	var fechanow= new Date();
@@ -78,6 +79,7 @@ router.post('/upload/:idEjer', function(req, res) {
 		if(ej.dificultad=='Hard')puntos=15;
 		var uno = (String(ej.datosDeSalida)).concat("\r");
 		var dos = mensaje;
+
 		if(uno==dos){
 			var nuevo=new EjercicioResuelto({
 				idUsuario: idUserLogeado,
@@ -88,10 +90,34 @@ router.post('/upload/:idEjer', function(req, res) {
 				if(err){
 					console.log(err);
 				}
+				var busUser = {_id: idUserLogeado}
+				console.log('El usuario logeado es: '+idUserLogeado);
+				User.findOne(busUser, function(err1, usuario) {
+					if(err1){
+						console.log("Ocurrio un error al buscar data");
+						throw err1;
+					}
+					//console.log(usuario);
+					//console.log('los puntos del ejercicio son: '+puntos)
+					//console.log('los puntos antes de sumarle son: '+ usuario.puntajeObtenido)
+					var puntosUsuario = usuario.puntajeObtenido + puntos;
+					//console.log('los puntos obtenidos luego de sumar los puntos del ejercicio son: '+puntosUsuario )
+
+					var modificacion={
+						puntajeObtenido: puntosUsuario
+					}
+
+					User.findOneAndUpdate(busUser, {$set:modificacion}, function(err2, doc){
+						if(err2){					
+							console.log("Something wrong when updating data!");
+							throw err2;
+						}
+						res.send("funciona");
+					});
+				});
 			});
-			res.send("funciona bitch!");
 		}else{
-			res.send('no funciona :(');
+			res.send("no funciona");
 		}
 	});
 })
