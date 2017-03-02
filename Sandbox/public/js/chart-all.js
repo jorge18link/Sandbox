@@ -43,13 +43,15 @@ $( document ).ready(function() {
 
                 for(var i=0; i<Categorias.length; i++) {
                     for(var j=0; j<FechasSlice.length; j++) {
-                        if(Categorias[i] == FechasSlice[j]){
+                        if(Categorias[i] === FechasSlice[j]){
                             contador = contador + 1;
                         }
                     }
-
                     Cantidad.push(contador);
                     contador = 0;
+                    if (Cantidad.length === Categorias.length){
+                        break;
+                    }
                 }
                 console.log(Cantidad);
 
