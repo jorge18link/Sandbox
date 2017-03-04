@@ -23,7 +23,6 @@ function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	} else {
-		//req.flash('error_msg','You are not logged in');
 		res.redirect('/');
 	}
 }
@@ -59,7 +58,7 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 			return err;
   		}
   		else {
-  			console.log("Post saved");
+  			//console.log("Post saved");
   				var correo= req.body.CorreoElectronico;
 				var Subject="Creacion de cuenta en Sandbox"
 				var contenido="Bienvenido/a al curso Fundamentos de programacion, tu contrasena Temporal para andbox es: " +req.body.Contrasena; 
@@ -68,15 +67,15 @@ router.post('/crear', ensureAuthenticated, function(req, res){
 					subject: Subject,
 					text: contenido
 				}
-					console.log(mailOptions);
+					//console.log(mailOptions);
 				smtpTransport.sendMail(mailOptions, function(error, response){
-						if (error) {
-							console.log(error);
-							res.end('error');
-						} else {
-							console.log('Message sent:'  + response.message);
-							res.render('usuarioCrear',{ expressFlash: req.flash('Se ha creado con exito'), sessionFlash: res.locals.sessionFlash })
-						}
+					if (error) {
+						console.log(error);
+						res.end('Error al enviar el Email con contraseña');
+					} else {
+						//console.log('Message sent:'  + response.message);
+						res.send("Ya cree el usuario");
+					}
 				})
  		 }
 

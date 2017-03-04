@@ -134,31 +134,31 @@ html
             #pane-techo.panel-heading.col-md-12 Crear Usuarios
             #body-pan.panel-body
               .sb-desc.col-md-12.col-sm-12
-                form(method='post', action='/users/crear', role='form')
+                form(method='post', action='/users/crear')
                   .form-group
-                    label(for='ejemplo_email_1') Email
+                    label Email
                     input.form-control(name='CorreoElectronico', type='email', placeholder='Introduzca email')
                   .form-group
-                    label(for='rol') Rol
-                    input.form-control(name='Rol', type='text', placeholder='Introduce el rol')
+                    label Rol
+                    select.selectedRol.form-control(type='text', name='Rol')
+                      option(value='Administrador') Administrador
+                      option(value='Profesor') Profesor
+                      option(value='Estudiante') Estudiante
+                      option(value='Ayudante') Ayudante
+                    input.tipoIdent.form-control(type='text', name='TipoDeIdentificacion')
                   .form-group
-                    label(for='sel1') Tipo de identificación: 
-                    select#sel1.form-control(name='TipoDeIdentificacion')
-                      option Cédula
-                      option Matrícula
+                    label Identificacion
+                    input.ident.form-control(type='text', name='Identificacion', placeholder='Introduzca Identificación')
                   .form-group
-                    label(for='identificación') identificacion
-                    input.form-control(type='text', name='Identificacion', placeholder='Ingrese identificación: ')
+                    label Nombres
+                    input.form-control(name='Nombres', type='text', placeholder='Introduzca nombres')
                   .form-group
-                    label(for='nombre') Nombre
-                    input.form-control(name='Nombres', type='text', placeholder='Introduzca cedula o Matrícula')
-                  .form-group
-                    label(for='apellidos') Apellidos
-                    input.form-control(name='Apellidos', type='text', placeholder='Introduce los apellidos')
-                  .form-group
-                    label(for='Carrera') Carrera
-                    input.form-control(name='Carrera', type='text', placeholder='Introduce la carrera')
-                  button.btn.btn-default(type='submit') Enviar
+                    label Apellidos
+                    input.form-control(name='Apellidos', type='text', placeholder='Introduzcas apellidos')
+                  .form-group.groupCarrera
+                    label Carrera
+                    input.inputCarrera.form-control(name='Carrera', type='text', placeholder='Introduzca carrera')
+                  button.btn.btn-default(type='submit') Crear
           // ============/Aqui Trabajo================
         // /.row
       // /.row
@@ -166,3 +166,4 @@ html
     script(src='/public/sandbox/js/jquery-1.11.1.min.js')
     script(src='/public/sandbox/js/bootstrap.min.js')
     script(src='/public/js/mostrar-Usuario.js')
+    script(src='/public/js/form-crearUsuario.js')

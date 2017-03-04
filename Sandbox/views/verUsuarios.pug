@@ -16,37 +16,119 @@ html
     script(type='text/javascript', scr='/public/sandBox/js/jquery.1.11.1.js').
     script(type='text/javascript', scr='/public/sandBox/js/bootstrap.js').    
     style(type='text/css').
-      .sb-ejer{
-      background-color: rgba(0,0,0,0.3);
-      padding-left: 20px;
-      padding-bottom: 20px;
-      }
-      .sb-ejer h3{
-      color:orange;
-      }
       .sb-desc{
-      padding-top: 20px;
-      padding-right: 10px;
-      padding-left: 10px;
-      height: 76vh;
-      }
-      .ejercicios{
-      background-color: rgba(255,255,255,0.8);
-      }
-      .ejercicios p{
-      color: black;
-      font-size: large;
+        padding:0px;
       }
       #body-pan{
-      background-color: #9BD0F5;
-      height: 100vh;
+        background-color: #9BD0F5;
       }
       #pane-techo{
-      background-color: #5094C4;
-      color: white;
+        background-color: #5094C4;
+        color: white;
+      }
+      .crearUsuarioDiv{
+        margin:0px;
+      }
+      .etiqueta{
+        margin-top:5px;
+        margin-bottom:5px;
+        padding:0px;
       }
       
   body
+    //============================================================================================================
+    //=================================================Modals=====================================================
+    //============================================================================================================
+
+    //======================confirmar Eliminacion de usuario==============================
+    #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#exampleModalLabel.modal-title Eliminar Usuario
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') x
+            | Estas Seguro que Desea Eliminar Este Usuario?
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+            button.btn.btn-primary.confirmar(type='button') Si
+
+    //======================modificar Usuario==============================================
+    #MyModal2.modal.col-md-8(role='dialog', tabindex="-1", aria-labelledby="myModalLabel")
+      .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h4#exampleModalLabel.modal-title Editar Usuario
+        .modal-body
+          form
+            .form-group.hidden
+              label idUsuario
+              input#modifId.form-control(type='email', name='_id')
+            .form-group
+              label Correo
+              input#modifCorreo.form-control(type='email', name='CorreoElectronico')
+          .form-group
+              label Rol
+              select#modifRol.selectedRol.inputRol.form-control(type='text', name='Rol')
+                option(value='Administrador') Administrador
+                option(value='Profesor') Profesor
+                option(value='Estudiante') Estudiante
+                option(value='Ayudante') Ayudante
+              input#modifTipo.inputtipoIdentificacion.tipoIdent.form-control(type='text',name='TipoDeIdentificacion')
+          .form-group
+              label(for='exampleInputEmail1') Identificacion
+              input#modifIdentificacion.form-control(type='text', name='Identificacion')
+          .form-group
+              label Nombres
+              input#modifNombres.form-control(type='text', name='Nombres')
+          .form-group
+              label Apellidos
+              input#modifApellidos.form-control(type='text', name='Apellidos')
+          .form-group
+              label Carrera
+              input#modifCarrera.form-control(type='text',name="Carrera")
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+        button.btn.btn-primary.guardar(type='button') Modificar
+    
+    //===========================Crear Usuario===================================================
+    #modalCreateUser.modal
+      .modal-dialog
+      .modal-content
+        .modal-header
+          h4 Crear usuario
+        .modal-body
+          form
+            .form-group
+              label Email
+              input.inputCorreo.form-control(type='email', placeholder='Introduzca email')
+            .form-group
+              label Rol
+              select.selectedRol.inputRol.form-control(type='text')
+                option(value='Administrador') Administrador
+                option(value='Profesor') Profesor
+                option(value='Estudiante') Estudiante
+                option(value='Ayudante') Ayudante
+              input.inputtipoIdentificacion.tipoIdent.form-control(type='text')
+            .form-group
+              label Identificacion
+              input.ident.inputIdentificacion.form-control(type='text',placeholder='Introduzca Identificación')
+            .form-group
+              label Nombres
+              input.inputNombre.form-control(type='text', placeholder='Introduzca nombres')
+            .form-group
+              label Apellidos
+              input.inputApellido.form-control(type='text', placeholder='Introduzcas apellidos')
+            .form-group.groupCarrera
+              label Carrera
+              input.inputCarrera.form-control(type='text', placeholder='Introduzca carrera')
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
+            button.btn.btn-primary.crear(type='button') Crear
+        
+
+    //=====================================================================================================================
+    //========================================Aqui terminan los Modals=====================================================
+    //=====================================================================================================================
     //
       Navigation
       ==========================================
@@ -139,6 +221,10 @@ html
           .panel.panel-default
             #pane-techo.panel-heading.col-md-12 Usuarios
             #body-pan.panel-body
+              .col-md-12.etiqueta.text-right
+                Label Crear Usuario
+                button.btn.btn-info.panel-blue(style='margin-left: 10px;', data-toggle='modal',data-target='#modalCreateUser')
+                  span.glyphicon.glyphicon-plus
               .sb-desc.col-md-12.col-sm-12.table-responsive
                 table#example.table.table-striped.table-bordered.dt-responsive.nowrap(cellspacing='0', width='100%')
                   thead
@@ -149,7 +235,7 @@ html
                       th Carrera
                       th Identificación
                       th Correo
-                      th
+                      th 
                       th 
                   tbody
                       for usuario in listaUsers
@@ -161,58 +247,11 @@ html
                           td #{usuario.Identificacion}
                           td #{usuario.CorreoElectronico}
                           td
-                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar
-                              span.glyphicon.glyphicon-trash
-                            #MyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel')
-                             .modal-dialog(role='document')
-                              .modal-content
-                                .modal-header
-                                  h5#exampleModalLabel.modal-title Eliminar Usuario
-                                  button.close(type='button', data-dismiss='modal', aria-label='Close')
-                                    span(aria-hidden='true') x
-                                  | Estas Seguro que Desea Eliminar Este Usuario?
-                                .modal-footer
-                                  button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
-                                  button.btn.btn-primary.confirmar(type='button') Si
-                          td
                             button(name=usuario.id).btn.btn-info.panel-blue.modificar
-                              span.glyphicon.glyphicon-pencil
-                          #MyModal2.modal.col-md-8(role='dialog', tabindex="-1", aria-labelledby="myModalLabel")
-                            .modal-dialog(role='document')
-                            .modal-content
-                              .modal-header
-                                h4#exampleModalLabel.modal-title Editar Usuario
-                              .modal-body
-                                form
-                                  .form-group.hidden
-                                    label idUsuario
-                                    input#modifId.form-control(type='email' name='_id')
-                                  .form-group
-                                    label Correo
-                                    input#modifCorreo.form-control(type='email' name='Correo')
-                                .form-group
-                                    label Rol
-                                    input#modifRol.form-control(type='text' name='Rol')
-                                .form-group
-                                    label Tipo de identificacion
-                                    select#modifTipo.form-control(name='TipoDeIdentificacion')
-                                      option Cédula
-                                      option Matrícula
-                                .form-group
-                                    label(for='exampleInputEmail1') Identificacion
-                                    input#modifIdentificacion.form-control(type='text', name='Identificacion')
-                                .form-group
-                                    label Nombres
-                                    input#modifNombres.form-control(type='text', name='Nombres')
-                                .form-group
-                                    label Apellidos
-                                    input#modifApellidos.form-control(type='text', name='Apellidos')
-                                .form-group
-                                    label Carrera
-                                    input#modifCarrera.form-control(type='text',name="Carrera")
-                            .modal-footer
-                              button.btn.btn-secondary(type='button', data-dismiss='modal') Cerrar
-                              button.btn.btn-primary.guardar(type='button') Guardar          
+                              span.glyphicon.glyphicon-pencil   
+                          td
+                            button(name=usuario.id,data-toggle='modal',data-target='#MyModal').btn.btn-info.panel-blue.eliminar
+                              span.glyphicon.glyphicon-trash       
           // ============/Aqui Trabajo================
     script(src='/public/sandBox/js/jquery-1.11.1.min.js')
     script(src='/public/sandBox/js/bootstrap.min.js')
@@ -225,3 +264,4 @@ html
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1', crossorigin='anonymous')
     script(src='/public/js/usuario.js')
     script(src='/public/js/mostrar-Usuario.js')
+    script(src='/public/js/form-crearUsuario.js')
